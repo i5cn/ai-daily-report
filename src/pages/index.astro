@@ -37,7 +37,6 @@ function loadLatestReport(): DailyReport {
     const latestPath = path.join(process.cwd(), 'data', 'reports', 'latest.json');
     
     if (!fs.existsSync(latestPath)) {
-      console.warn(`[index] latest.json not found at ${latestPath}`);
       return EMPTY_DAILY_REPORT;
     }
 
@@ -45,12 +44,10 @@ function loadLatestReport(): DailyReport {
     const data = JSON.parse(content) as DailyReport;
 
     if (!data || typeof data !== 'object') {
-      console.warn('[index] Invalid report data structure');
       return EMPTY_DAILY_REPORT;
     }
 
     if (!Array.isArray(data.items)) {
-      console.warn('[index] Report items is not an array');
       data.items = [];
     }
 
@@ -59,8 +56,7 @@ function loadLatestReport(): DailyReport {
     }
 
     return data;
-  } catch (error) {
-    console.error('[index] Failed to load latest report:', error);
+  } catch {
     return EMPTY_DAILY_REPORT;
   }
 }
@@ -79,8 +75,8 @@ const sortedItems = [...items].sort((a, b) => {
   return (b.hotScore || 0) - (a.hotScore || 0);
 });
 
-// 主资讯最多展示 6 条
-const displayItems = sortedItems.slice(0, 6);
+// 展示全部资讯（不再限制6条）
+const displayItems = sortedItems;
 
 // 社区热议按 hotScore 排序
 const sortedCommunity = [...(communityPulse || [])].sort((a, b) => {
@@ -106,8 +102,6 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   day: 'numeric',
   weekday: 'long'
 });
-
-// 生成时间（仅用于日志，不展示在页面上）
 ---
 
 <BaseLayout title="AI Daily Report - 每日 AI 行业动态">
@@ -117,6 +111,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     <div class="liquid-blob blob-2"></div>
     <div class="liquid-blob blob-3"></div>
     <div class="liquid-shine"></div>
+    <div class="chrome-gradient"></div>
   </div>
 
   <!-- Hero Section -->
@@ -216,10 +211,10 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     
     {hasData && (
       <div class="load-more">
-        <button class="liquid-button" disabled>
-          <span class="button-text">已展示 {displayItems.length} 条精选内容</span>
+        <div class="liquid-button">
+          <span class="button-text">已展示全部 {displayItems.length} 条精选内容</span>
           <span class="button-shine"></span>
-        </button>
+        </div>
       </div>
     )}
   </section>
@@ -384,7 +379,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     display: inline-block;
     margin-top: var(--space-sm);
     padding: var(--space-xs) var(--space-md);
-    background: var(--surface-elevated);
+    background: var(--surface-glass);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     font-size: var(--text-sm);
@@ -477,7 +472,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     position: relative;
     z-index: 2;
     padding: var(--space-3xl) var(--space-xl);
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
@@ -555,7 +550,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   .reports-grid,
   .community-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     gap: var(--space-xl);
     margin-bottom: var(--space-2xl);
   }
@@ -613,6 +608,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   .load-more {
     display: flex;
     justify-content: center;
+    margin-top: var(--space-2xl);
   }
 
   .liquid-button {
@@ -621,10 +617,9 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     background: var(--surface-glass);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-full);
-    color: var(--text-primary);
-    font-size: var(--text-base);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
     font-weight: 500;
-    cursor: pointer;
     overflow: hidden;
     transition: all var(--duration-normal) var(--ease-liquid);
     backdrop-filter: blur(10px);
@@ -642,15 +637,11 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     transform: translateY(-2px);
   }
 
-  .liquid-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
   .community-button {
     background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 142, 83, 0.05));
     border-color: rgba(255, 107, 107, 0.4);
     color: #ff8e8e;
+    cursor: pointer;
   }
 
   .community-button:hover {
@@ -681,7 +672,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     transition: transform 0.6s ease;
   }
 
-  .liquid-button:hover:not(:disabled) .button-shine {
+  .liquid-button:hover .button-shine {
     transform: translateX(100%);
   }
 
