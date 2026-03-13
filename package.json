@@ -1,0 +1,40 @@
+{
+  "name": "ai-daily-report",
+  "version": "0.1.0",
+  "description": "AI Daily Report - 每日 AI 行业动态聚合站点",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fetch": "node scripts/fetch-news.js",
+    "generate": "node scripts/generate-report.js"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "fast-xml-parser": "^5.5.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i5cn/ai-daily-report.git"
+  },
+  "keywords": [
+    "ai",
+    "news",
+    "daily",
+    "report",
+    "astro",
+    "aggregation"
+  ],
+  "author": "i5cn",
+  "license": "MIT"
+}

@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "meta": {
+    "date": "2026-03-13",
+    "edition": "AI-Daily-2026-03-13",
+    "generatedAt": "2026-03-13T06:00:00.000Z",
+    "totalCount": 6,
+    "tagStats": {
+      "model": 2,
+      "product": 1,
+      "research": 1,
+      "industry": 1,
+      "tool": 1,
+      "policy": 0,
+      "event": 0,
+      "funding": 0
+    },
+    "editorNote": "今日 AI 领域重点关注：Claude 4 即将发布、谷歌 Gemini 2.0 Pro 全面开放、AI Agent 生态持续升温。"
+  },
+  "items": [
+    {
+      "id": "ai-daily-20260313-001",
+      "title": "Anthropic 即将发布 Claude 4，代号「Orion」",
+      "summary": "据知情人士透露，Anthropic 计划在未来两周内发布 Claude 4 系列模型，内部代号「Orion」。新模型将在代码生成、长文本理解和多模态推理方面带来显著提升，同时保持 Claude 一贯的安全对齐标准。企业版将率先支持 200K 上下文窗口。",
+      "source": "The Information",
+      "sourceUrl": "https://www.theinformation.com/articles/anthropics-claude-4-orion",
+      "publishedAt": "2026-03-12T22:30:00.000Z",
+      "fetchedAt": "2026-03-13T05:00:00.000Z",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      "tags": ["model", "product"],
+      "sourceType": "rss",
+      "hotScore": 95,
+      "featured": true
+    },
+    {
+      "id": "ai-daily-20260313-002",
+      "title": "Google Gemini 2.0 Pro 面向所有开发者开放",
+      "summary": "谷歌宣布 Gemini 2.0 Pro 实验版正式面向所有 Google AI Studio 和 Vertex AI 开发者开放。新版本在编程任务上相比 1.5 Pro 提升 40%，支持原生音频输出和实时视频理解，定价为输入 $3.5/百万 token、输出 $10.5/百万 token。",
+      "source": "Google Developers Blog",
+      "sourceUrl": "https://developers.googleblog.com/gemini-2-pro-ga",
+      "publishedAt": "2026-03-12T18:00:00.000Z",
+      "fetchedAt": "2026-03-13T05:05:00.000Z",
+      "imageUrl": "https://images.unsplash.com/photo-1741851373785-4e3f123c751d?w=800&q=80",
+      "tags": ["model", "tool"],
+      "sourceType": "api",
+      "hotScore": 88,
+      "featured": true
+    },
+    {
+      "id": "ai-daily-20260313-003",
+      "title": "MIT 新研究：AI 模型涌现能力的临界点理论",
+      "summary": "MIT CSAIL 团队发表论文《Emergence Thresholds in Large Language Models》，提出了一种数学框架来解释大模型「涌现能力」的出现机制。研究表明，当模型参数量跨越特定阈值时，某些能力会突然显现，这与训练数据中的特定统计模式相关。",
+      "source": "MIT News",
+      "sourceUrl": "https://news.mit.edu/2026/ai-emergence-thresholds",
+      "publishedAt": "2026-03-11T14:00:00.000Z",
+      "fetchedAt": "2026-03-13T05:10:00.000Z",
+      "tags": ["research"],
+      "sourceType": "rss",
+      "hotScore": 72
+    },
+    {
+      "id": "ai-daily-20260313-004",
+      "title": "OpenAI 推出 Agent SDK，简化 AI Agent 开发",
+      "summary": "OpenAI 发布官方 Python/JavaScript Agent SDK，提供工具调用、多 Agent 协作、可观测性等开箱即用功能。SDK 内置对函数调用、代码解释器、文件检索等常见模式的支持，开发者可在 50 行代码内构建功能完整的 AI Agent。",
+      "source": "OpenAI Blog",
+      "sourceUrl": "https://openai.com/blog/agent-sdk",
+      "publishedAt": "2026-03-11T10:00:00.000Z",
+      "fetchedAt": "2026-03-13T05:15:00.000Z",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
+      "tags": ["tool", "product"],
+      "sourceType": "api",
+      "hotScore": 91,
+      "featured": true
+    },
+    {
+      "id": "ai-daily-20260313-005",
+      "title": "欧盟 AI 法案正式实施，首批合规指南发布",
+      "summary": "欧盟《人工智能法案》于今日正式生效，欧盟委员会同步发布了首批合规指南，涵盖高风险 AI 系统的定义、透明度要求和禁令条款。违反禁令的企业最高将面临全球年营业额 7% 的罚款。科技行业正密切关注执法细则。",
+      "source": "EU Commission",
+      "sourceUrl": "https://commission.europa.eu/ai-act-enforcement",
+      "publishedAt": "2026-03-10T08:00:00.000Z",
+      "fetchedAt": "2026-03-13T05:20:00.000Z",
+      "tags": ["policy", "industry"],
+      "sourceType": "rss",
+      "hotScore": 78
+    },
+    {
+      "id": "ai-daily-20260313-006",
+      "title": "Perplexity 推出深度研究模式，对标 Google Scholar",
+      "summary": "AI 搜索引擎 Perplexity 推出「Deep Research」模式，专为学术研究设计。新功能支持跨 100+ 学术数据库检索、自动生成文献综述，并标注引用来源的可信度评分。免费用户每月可使用 5 次深度研究查询。",
+      "source": "Perplexity Blog",
+      "sourceUrl": "https://www.perplexity.ai/hub/blog/deep-research",
+      "publishedAt": "2026-03-09T16:00:00.000Z",
+      "fetchedAt": "2026-03-13T05:25:00.000Z",
+      "imageUrl": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800&q=80",
+      "tags": ["product", "tool"],
+      "sourceType": "manual",
+      "hotScore": 65
+    }
+  ],
+  "sourceStats": [
+    { "name": "The Information", "count": 1, "url": "https://www.theinformation.com" },
+    { "name": "Google Developers Blog", "count": 1, "url": "https://developers.googleblog.com" },
+    { "name": "MIT News", "count": 1, "url": "https://news.mit.edu" },
+    { "name": "OpenAI Blog", "count": 1, "url": "https://openai.com/blog" },
+    { "name": "EU Commission", "count": 1, "url": "https://commission.europa.eu" },
+    { "name": "Perplexity Blog", "count": 1, "url": "https://www.perplexity.ai" }
+  ]
+}

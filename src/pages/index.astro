@@ -1,0 +1,594 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReportCard from '../components/ui/ReportCard.astro';
+import type { DailyReport, ReportCard as ReportCardType } from '../types/report';
+
+// ========== 数据读取工具函数 ==========
+
+const EMPTY_DAILY_REPORT: DailyReport = {
+  version: '1.0',
+  meta: {
+    date: new Date().toISOString().split('T')[0],
+    edition: 'AI-Daily-Empty',
+    generatedAt: new Date().toISOString(),
+    totalCount: 0,
+    tagStats: {
+      model: 0,
+      product: 0,
+      research: 0,
+      industry: 0,
+      tool: 0,
+      policy: 0,
+      event: 0,
+      funding: 0,
+    },
+    editorNote: '暂无今日数据，请稍后刷新或联系管理员。',
+  },
+  items: [],
+  sourceStats: [],
+};
+
+function loadLatestReport(): DailyReport {
+  try {
+    const latestPath = path.join(process.cwd(), 'data', 'reports', 'latest.json');
+    
+    if (!fs.existsSync(latestPath)) {
+      console.warn(`[index] latest.json not found at ${latestPath}`);
+      return EMPTY_DAILY_REPORT;
+    }
+
+    const content = fs.readFileSync(latestPath, 'utf-8');
+    const data = JSON.parse(content) as DailyReport;
+
+    if (!data || typeof data !== 'object') {
+      console.warn('[index] Invalid report data structure');
+      return EMPTY_DAILY_REPORT;
+    }
+
+    if (!Array.isArray(data.items)) {
+      console.warn('[index] Report items is not an array');
+      data.items = [];
+    }
+
+    if (!data.meta) {
+      data.meta = EMPTY_DAILY_REPORT.meta;
+    }
+
+    return data;
+  } catch (error) {
+    console.error('[index] Failed to load latest report:', error);
+    return EMPTY_DAILY_REPORT;
+  }
+}
+
+// ========== 加载数据 ==========
+
+const report = loadLatestReport();
+const { meta, items, sourceStats } = report;
+
+// 按 featured 和 hotScore 排序
+const sortedItems = [...items].sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return (b.hotScore || 0) - (a.hotScore || 0);
+});
+
+// 首页最多展示 6 条
+const displayItems = sortedItems.slice(0, 6);
+
+// 是否有数据
+const hasData = items.length > 0;
+
+// 统计数据
+const totalCount = meta.totalCount;
+const sourceCount = sourceStats?.length || new Set(items.map(i => i.source)).size || 12;
+
+// 格式化日期
+const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  weekday: 'long'
+});
+
+// 生成时间
+const generatedTime = meta.generatedAt 
+  ? new Date(meta.generatedAt).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
+  : '06:00';
+---
+
+<BaseLayout title="AI Daily Report - 每日 AI 行业动态">
+  <!-- Liquid Metal Background Effect -->
+  <div class="liquid-bg" aria-hidden="true">
+    <div class="liquid-blob blob-1"></div>
+    <div class="liquid-blob blob-2"></div>
+    <div class="liquid-blob blob-3"></div>
+    <div class="liquid-shine"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>每日更新 · 自动聚合 · {generatedTime} 生成</span>
+      </div>
+      
+      <h1 class="hero-title">
+        <span class="title-line">AI Daily</span>
+        <span class="title-line title-line--accent">Report</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        追踪人工智能世界的脉搏<br/>
+        <span class="subtitle-date">{displayDate}</span>
+      </p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">{hasData ? totalCount : '-'}</span>
+          <span class="stat-label">今日精选</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">{sourceCount}+</span>
+          <span class="stat-label">优质信源</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">24h</span>
+          <span class="stat-label">自动更新</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-scroll">
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reports Section -->
+  <section class="reports-section" id="reports">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-icon">◈</span>
+        今日精选
+        <span class="title-icon">◈</span>
+      </h2>
+      <p class="section-desc">
+        {hasData 
+          ? `从全球 ${sourceCount}+ AI 信源中精选的 ${totalCount} 条高质量内容`
+          : meta.editorNote || '暂无今日数据，请稍后刷新'
+        }
+      </p>
+    </div>
+    
+    {hasData ? (
+      <div class="reports-grid">
+        {displayItems.map((item, index) => (
+          <ReportCard 
+            id={item.id}
+            title={item.title}
+            summary={item.summary}
+            source={item.source}
+            sourceUrl={item.sourceUrl}
+            publishedAt={item.publishedAt}
+            imageUrl={item.imageUrl}
+            tags={item.tags}
+            index={index}
+          />
+        ))}
+      </div>
+    ) : (
+      <!-- 无数据时的兜底状态 -->
+      <div class="empty-state">
+        <div class="empty-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="empty-title">正在整理今日 AI 资讯</h3>
+        <p class="empty-desc">{meta.editorNote || '数据正在准备中，请稍后刷新页面'}</p>
+        <div class="empty-meta">
+          <span>数据文件：data/reports/latest.json</span>
+          <span>最后检查：{new Date().toLocaleTimeString('zh-CN')}</span>
+        </div>
+      </div>
+    )}
+    
+    {hasData && (
+      <div class="load-more">
+        <button class="liquid-button" disabled>
+          <span class="button-text">已展示全部 {displayItems.length} 条</span>
+          <span class="button-shine"></span>
+        </button>
+      </div>
+    )}
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-brand">AI Daily Report</p>
+      <p class="footer-meta">
+        {hasData 
+          ? `${meta.edition} · 共 ${totalCount} 条 · `
+          : '每日自动更新 · '
+        }
+        开源项目 · 
+        <a href="https://github.com/i5cn/ai-daily-report" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-xl);
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+    backdrop-filter: blur(10px);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-success);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.02em;
+  }
+
+  .title-line {
+    display: block;
+    background: linear-gradient(
+      135deg,
+      var(--lm-chrome) 0%,
+      var(--lm-silver) 25%,
+      var(--lm-iridescent) 50%,
+      var(--lm-silver) 75%,
+      var(--lm-chrome) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: liquidShimmer 8s linear infinite;
+  }
+
+  .title-line--accent {
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  @keyframes liquidShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .subtitle-date {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    padding: var(--space-xs) var(--space-md);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(20px);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .stat-value {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--lm-chrome), var(--lm-iridescent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--border-subtle),
+      transparent
+    );
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-tertiary);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(
+      to bottom,
+      var(--lm-silver),
+      transparent
+    );
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  /* ===== REPORTS SECTION ===== */
+  .reports-section {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-3xl) var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .title-icon {
+    color: var(--lm-iridescent);
+    opacity: 0.6;
+    font-size: 0.8em;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  @media (max-width: 768px) {
+    .reports-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== EMPTY STATE (无数据兜底) ===== */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl) var(--space-xl);
+    text-align: center;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(10px);
+  }
+
+  .empty-icon {
+    color: var(--lm-silver);
+    opacity: 0.5;
+    margin-bottom: var(--space-lg);
+  }
+
+  .empty-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .empty-desc {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    max-width: 400px;
+  }
+
+  .empty-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    font-family: var(--font-mono, monospace);
+  }
+
+  .load-more {
+    display: flex;
+    justify-content: center;
+  }
+
+  .liquid-button {
+    position: relative;
+    padding: var(--space-md) var(--space-2xl);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-liquid);
+    backdrop-filter: blur(10px);
+  }
+
+  .liquid-button:hover:not(:disabled) {
+    border-color: var(--lm-silver);
+    box-shadow: 
+      0 0 30px rgba(192, 192, 192, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .liquid-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .button-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .liquid-button:hover:not(:disabled) .button-shine {
+    transform: translateX(100%);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-2xl) var(--space-xl);
+    border-top: 1px solid var(--border-subtle);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--lm-chrome), var(--lm-iridescent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-meta {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+  }
+
+  .footer-meta a {
+    color: var(--lm-silver);
+    text-decoration: none;
+    transition: color var(--duration-fast) ease;
+  }
+
+  .footer-meta a:hover {
+    color: var(--lm-iridescent);
+  }
+</style>
