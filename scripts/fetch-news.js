@@ -36,7 +36,8 @@ const RSS_SOURCES = [
     defaultTags: ['model', 'product'],
     interval: 30,
     enabled: true,
-    layer: 'primary', // 主资讯层
+    layer: 'primary',
+    ogFallback: true, // 需要 OG 图兜底
   },
   {
     id: 'google-ai-blog',
@@ -47,6 +48,7 @@ const RSS_SOURCES = [
     interval: 60,
     enabled: true,
     layer: 'primary',
+    ogFallback: true,
   },
   {
     id: 'huggingface-blog',
@@ -57,6 +59,7 @@ const RSS_SOURCES = [
     interval: 120,
     enabled: true,
     layer: 'primary',
+    ogFallback: true, // HF 博客经常缺图
   },
   {
     id: 'mit-news-ai',
@@ -87,6 +90,7 @@ const RSS_SOURCES = [
     interval: 60,
     enabled: true,
     layer: 'primary',
+    ogFallback: true, // TechCrunch 经常缺图
   },
 ];
 
@@ -151,11 +155,31 @@ const API_SOURCES = [
     endpoint: 'https://api.github.com/search/repositories',
     params: { q: 'topic:artificial-intelligence', sort: 'updated', per_page: 10 },
     defaultTags: ['tool'],
-    enabled: false, // 默认关闭，需要配置 token
+    enabled: false,
   },
 ];
 
+// OG 图缓存（内存 + 文件）
+const OG_CACHE_FILE = 'og-image-cache.json';
+let ogCache = new Map();
+let ogCacheLoaded = false;
+
 // ============ 工具函数 ============
+
+/**
+ * 确保输入为字符串
+ */
+function ensureString(value, defaultValue = '') {
+  if (typeof value === 'string') return value;
+  if (value === null || value === undefined) return defaultValue;
+  if (typeof value === 'object') {
+    // 尝试提取常见属性
+    if (value['#text']) return String(value['#text']);
+    if (value['@_content']) return String(value['@_content']);
+    return JSON.stringify(value);
+  }
+  return String(value);
+}
 
 /**
  * 生成唯一 ID
@@ -177,10 +201,12 @@ function parseDate(dateStr) {
 
 /**
  * 提取纯文本（去除 HTML 标签）
+ * 修复：添加类型检查，确保输入为字符串
  */
 function extractText(html) {
-  if (!html) return '';
-  return html
+  const str = ensureString(html, '');
+  if (!str) return '';
+  return str
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -215,6 +241,145 @@ function delay(ms) {
 }
 
 /**
+ * 加载 OG 图缓存
+ */
+async function loadOGCache(cacheDir) {
+  if (ogCacheLoaded) return;
+  try {
+    const cachePath = path.join(cacheDir, OG_CACHE_FILE);
+    const content = await fs.readFile(cachePath, 'utf-8');
+    const data = JSON.parse(content);
+    ogCache = new Map(Object.entries(data));
+    console.log(`📦 已加载 OG 图缓存: ${ogCache.size} 条`);
+  } catch {
+    // 缓存不存在，忽略
+  }
+  ogCacheLoaded = true;
+}
+
+/**
+ * 保存 OG 图缓存
+ */
+async function saveOGCache(cacheDir) {
+  try {
+    const cachePath = path.join(cacheDir, OG_CACHE_FILE);
+    const data = Object.fromEntries(ogCache);
+    await fs.writeFile(cachePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (error) {
+    console.warn('⚠️ 保存 OG 缓存失败:', error.message);
+  }
+}
+
+/**
+ * 异步抓取 OG 图（增强版，带缓存）
+ * @param {string} url - 文章 URL
+ * @param {string} cacheDir - 缓存目录
+ * @returns {Promise<string|null>} - OG 图 URL 或 null
+ */
+async function fetchOGImage(url, cacheDir = null) {
+  if (!url || !url.startsWith('http')) return null;
+  
+  // 检查缓存
+  const cacheKey = url.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 100);
+  if (ogCache.has(cacheKey)) {
+    const cached = ogCache.get(cacheKey);
+    // 缓存 7 天
+    if (Date.now() - cached.timestamp < 7 * 24 * 60 * 60 * 1000) {
+      return cached.imageUrl;
+    }
+  }
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; AI-Daily-Report/1.0; +https://example.com)',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
+    
+    clearTimeout(timeout);
+    
+    if (!response.ok) return null;
+    
+    const html = await response.text();
+    
+    // 提取 og:image
+    const ogMatch = html.match(/<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i) ||
+                      html.match(/<meta[^>]*content=["']([^"']+)["'][^>]*property=["']og:image["']/i);
+    
+    // 提取 twitter:image
+    const twMatch = html.match(/<meta[^>]*name=["']twitter:image["'][^>]*content=["']([^"']+)["']/i) ||
+                       html.match(/<meta[^>]*content=["']([^"']+)["'][^>]*name=["']twitter:image["']/i);
+    
+    const imageUrl = ogMatch?.[1] || twMatch?.[1] || null;
+    
+    // 保存到缓存
+    if (cacheDir) {
+      ogCache.set(cacheKey, { imageUrl, timestamp: Date.now() });
+    }
+    
+    return imageUrl;
+  } catch (error) {
+    // 静默失败，不破坏整体流程
+    return null;
+  }
+}
+
+/**
+ * 批量获取 OG 图（带并发控制）
+ */
+async function batchFetchOGImages(items, cacheDir, concurrency = 3) {
+  if (!cacheDir) return items;
+  
+  await loadOGCache(cacheDir);
+  
+  const itemsNeedOG = items.filter(item => 
+    !item.imageUrl && item.sourceUrl && item.sourceUrl.startsWith('http')
+  );
+  
+  if (itemsNeedOG.length === 0) return items;
+  
+  console.log(`🖼️  需要获取 OG 图: ${itemsNeedOG.length} 条`);
+  
+  const results = new Map();
+  
+  // 并发控制
+  for (let i = 0; i < itemsNeedOG.length; i += concurrency) {
+    const batch = itemsNeedOG.slice(i, i + concurrency);
+    const batchPromises = batch.map(async (item) => {
+      const imageUrl = await fetchOGImage(item.sourceUrl, cacheDir);
+      if (imageUrl) {
+        results.set(item.id, imageUrl);
+        console.log(`  ✅ ${extractSourceName(item.sourceUrl)}: ${imageUrl.substring(0, 60)}...`);
+      }
+    });
+    
+    await Promise.all(batchPromises);
+    await delay(500); // 礼貌延迟
+  }
+  
+  // 应用结果
+  const updatedItems = items.map(item => {
+    if (results.has(item.id)) {
+      return { ...item, imageUrl: results.get(item.id) };
+    }
+    return item;
+  });
+  
+  await saveOGCache(cacheDir);
+  
+  const successCount = results.size;
+  console.log(`🖼️  OG 图获取完成: ${successCount}/${itemsNeedOG.length}`);
+  
+  return updatedItems;
+}
+
+/**
  * 提取图片 URL - 增强版
  * 支持多种 RSS 格式和 OG 图预留
  */
@@ -238,8 +403,9 @@ function extractImageUrl(item, sourceUrl) {
 
   // 3. 从 content 中提取第一张图片
   const content = item['content:encoded'] || item.description || item.content || item.summary || '';
-  if (typeof content === 'string') {
-    const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
+  const contentStr = ensureString(content);
+  if (contentStr) {
+    const imgMatch = contentStr.match(/<img[^>]+src=["']([^"']+)["']/i);
     if (imgMatch) {
       return imgMatch[1];
     }
@@ -255,30 +421,14 @@ function extractImageUrl(item, sourceUrl) {
     return item['thumbnail']['@_url'];
   }
 
-  // 6. TODO: OG 图抓取预留
-  // 如果以上都失败，返回 null，后续可通过 fetchOGImage 补充
-  // 格式：需要异步抓取 sourceUrl 页面的 og:image meta 标签
-  return null;
-}
-
-/**
- * 异步抓取 OG 图（预留函数）
- * @param {string} url - 文章 URL
- * @returns {Promise<string|null>} - OG 图 URL 或 null
- */
-async function fetchOGImage(url) {
-  // TODO: 实现 OG 图抓取逻辑
-  // 1. fetch 页面内容
-  // 2. 解析 HTML 提取 og:image 或 twitter:image
-  // 3. 返回图片 URL
-  // 注意：需要添加缓存和错误处理
+  // 6. 返回 null，后续通过 fetchOGImage 补充
   return null;
 }
 
 // ============ 抓取实现 ============
 
 /**
- * 抓取单个 RSS 源
+ * 抓取单个 RSS 源（带错误隔离）
  * @param {Object} source RSS 源配置
  * @returns {Promise<Object>} 抓取结果
  */
@@ -329,7 +479,9 @@ async function fetchRssSource(source) {
 
     // 转换为标准格式
     result.items = items.map((item) => {
-      const title = item.title || 'Untitled';
+      // 修复：确保 title 是字符串
+      const titleRaw = item.title || 'Untitled';
+      const title = extractText(titleRaw);
       
       // 处理 link 字段（可能是字符串或对象）
       let link = '';
@@ -343,7 +495,9 @@ async function fetchRssSource(source) {
         link = typeof item.guid === 'string' ? item.guid : item.guid['#text'];
       }
       
-      const content = item['content:encoded'] || item.description || item.content || item.summary || '';
+      // 修复：确保 content 是字符串
+      const contentRaw = item['content:encoded'] || item.description || item.content || item.summary || '';
+      const content = ensureString(contentRaw);
       const pubDate = item.pubDate || item.published || item.updated || item['dc:date'] || '';
       
       // 提取图片
@@ -355,14 +509,15 @@ async function fetchRssSource(source) {
         // Reddit 特有的字段
         if (source.subreddit) {
           communityData.subreddit = source.subreddit;
-          // 从 title 提取讨论热度指标（如果有）
-          communityData.discussionType = 'hot'; // 默认 hot，可扩展为 new/top
+          communityData.discussionType = 'hot';
+          // Reddit RSS 链接本身就是讨论链接
+          communityData.discussionUrl = link;
         }
       }
 
       return {
         id: generateId(source.id),
-        title: extractText(title),
+        title: title || 'Untitled',
         summary: generateSummary(content),
         source: source.name,
         sourceUrl: link,
@@ -388,7 +543,7 @@ async function fetchRssSource(source) {
 }
 
 /**
- * 抓取单个 API 源
+ * 抓取单个 API 源（带错误隔离）
  * @param {Object} source API 源配置
  * @returns {Promise<Object>} 抓取结果
  */
@@ -528,9 +683,14 @@ async function main() {
   const sourceFilter = args
     .find(arg => arg.startsWith('--source='))
     ?.split('=')[1];
+  const skipOG = args.includes('--skip-og'); // 跳过 OG 图获取
 
   // 确定输出目录
   const outputDir = path.join(__dirname, '..', 'data', 'raw');
+  const cacheDir = path.join(__dirname, '..', 'data', 'cache');
+  
+  // 确保缓存目录存在
+  await fs.mkdir(cacheDir, { recursive: true });
 
   // 收集所有抓取任务
   const tasks = [];
@@ -587,6 +747,39 @@ async function main() {
     .flatMap(r => r.items || []);
   const uniqueCommunityItems = filterAndDeduplicate(allCommunityItems);
 
+  // 为主资讯层获取 OG 图（如果需要）
+  let finalPrimaryItems = uniquePrimaryItems;
+  if (!skipOG && !isDryRun) {
+    // 找出需要 OG 图兜底的源
+    const sourcesNeedingOG = new Set(
+      RSS_SOURCES.filter(s => s.ogFallback).map(s => s.name)
+    );
+    
+    const itemsNeedingOG = uniquePrimaryItems.filter(item => 
+      !item.imageUrl && sourcesNeedingOG.has(item.source)
+    );
+    
+    if (itemsNeedingOG.length > 0) {
+      console.log(`\n🖼️  需要 OG 图兜底的条目: ${itemsNeedingOG.length} 条`);
+      const updatedItems = await batchFetchOGImages(
+        uniquePrimaryItems.map(item => ({...item})), // 复制避免修改原数组
+        cacheDir,
+        3 // 并发数
+      );
+      
+      // 合并结果
+      const updatedMap = new Map(updatedItems.map(i => [i.id, i.imageUrl]));
+      finalPrimaryItems = uniquePrimaryItems.map(item => ({
+        ...item,
+        imageUrl: updatedMap.get(item.id) || item.imageUrl
+      }));
+    }
+  }
+
+  // 统计图片覆盖率
+  const primaryWithImage = finalPrimaryItems.filter(i => i.imageUrl).length;
+  const communityWithImage = uniqueCommunityItems.filter(i => i.imageUrl).length;
+
   const finalResult = {
     meta: {
       fetchedAt: new Date().toISOString(),
@@ -594,11 +787,23 @@ async function main() {
       successSources: successCount,
       failedSources: failCount,
       totalItems,
-      uniqueItems: uniquePrimaryItems.length + uniqueCommunityItems.length,
+      uniqueItems: finalPrimaryItems.length + uniqueCommunityItems.length,
+      imageCoverage: {
+        primary: {
+          total: finalPrimaryItems.length,
+          withImage: primaryWithImage,
+          rate: finalPrimaryItems.length > 0 ? Math.round((primaryWithImage / finalPrimaryItems.length) * 100) : 0,
+        },
+        community: {
+          total: uniqueCommunityItems.length,
+          withImage: communityWithImage,
+          rate: uniqueCommunityItems.length > 0 ? Math.round((communityWithImage / uniqueCommunityItems.length) * 100) : 0,
+        },
+      },
       layers: {
         primary: {
           sources: primarySources.length,
-          items: uniquePrimaryItems.length,
+          items: finalPrimaryItems.length,
         },
         community: {
           sources: communitySources.length,
@@ -607,7 +812,7 @@ async function main() {
       },
     },
     sources: tasks,
-    items: uniquePrimaryItems,
+    items: finalPrimaryItems,
     communityPulse: uniqueCommunityItems.slice(0, 20), // 社区热议前 20 条
   };
 
@@ -615,9 +820,16 @@ async function main() {
   console.log('\n========== 抓取统计 ==========');
   console.log(`成功源: ${successCount}/${tasks.length}`);
   console.log(`失败源: ${failCount}/${tasks.length}`);
-  console.log(`主资讯层: ${uniquePrimaryItems.length} 条`);
-  console.log(`社区层: ${uniqueCommunityItems.length} 条`);
+  console.log(`主资讯层: ${finalPrimaryItems.length} 条 (图片覆盖率: ${finalResult.meta.imageCoverage.primary.rate}%)`);
+  console.log(`社区层: ${uniqueCommunityItems.length} 条 (图片覆盖率: ${finalResult.meta.imageCoverage.community.rate}%)`);
   console.log(`耗时: ${Date.now() - startTime}ms`);
+
+  // 输出失败的源
+  const failedSources = tasks.filter(r => !r.success);
+  if (failedSources.length > 0) {
+    console.log('\n⚠️ 失败的源:');
+    failedSources.forEach(s => console.log(`   - ${s.sourceName}: ${s.error}`));
+  }
 
   // 保存结果
   if (!isDryRun) {
@@ -652,6 +864,7 @@ export {
   filterAndDeduplicate,
   extractImageUrl,
   fetchOGImage,
+  batchFetchOGImages,
   RSS_SOURCES,
   COMMUNITY_SOURCES,
   API_SOURCES,

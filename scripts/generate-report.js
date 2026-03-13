@@ -218,6 +218,72 @@ function generateEditorNote(items) {
 }
 
 /**
+ * 处理社区内容为标准格式
+ */
+function processCommunityItems(rawItems, date) {
+  return rawItems.map((raw, index) => {
+    const item = {
+      id: raw.id || generateId(date, index + 1000), // 避免 ID 冲突
+      title: raw.title?.trim() || 'Untitled',
+      summary: raw.summary?.trim() || '',
+      content: raw.content || '',
+      source: raw.source?.trim() || 'Unknown',
+      sourceUrl: raw.sourceUrl?.trim() || '',
+      publishedAt: raw.publishedAt || new Date().toISOString(),
+      fetchedAt: raw.fetchedAt || new Date().toISOString(),
+      imageUrl: raw.imageUrl || null,
+      tags: Array.isArray(raw.tags) ? raw.tags : ['discussion'],
+      sourceType: raw.sourceType || 'rss',
+      hotScore: 0,
+      featured: false,
+      // 社区特有字段
+      subreddit: raw.subreddit || undefined,
+      discussionUrl: raw.discussionUrl || raw.sourceUrl || '',
+      isCommunity: true,
+    };
+    
+    // 社区内容热度计算（略有不同）
+    let score = 50; // 基础分
+    
+    // 时效性
+    const hoursAgo = (Date.now() - new Date(item.publishedAt).getTime()) / (1000 * 60 * 60);
+    score += Math.max(0, 48 - hoursAgo); // 社区内容时效性更长
+    
+    // 热门子版块加分
+    const hotSubreddits = ['MachineLearning', 'artificial'];
+    if (hotSubreddits.includes(item.subreddit)) {
+      score += 10;
+    }
+    
+    item.hotScore = Math.round(score);
+    
+    return item;
+  });
+}
+
+/**
+ * 统计社区来源
+ */
+function calculateCommunityStats(communityItems) {
+  const sourceMap = new Map();
+  
+  for (const item of communityItems) {
+    const key = item.subreddit || item.source;
+    if (!sourceMap.has(key)) {
+      sourceMap.set(key, {
+        name: item.subreddit ? `r/${item.subreddit}` : item.source,
+        count: 0,
+        url: item.discussionUrl || item.sourceUrl || '',
+        type: 'subreddit',
+      });
+    }
+    sourceMap.get(key).count++;
+  }
+  
+  return Array.from(sourceMap.values()).sort((a, b) => b.count - a.count);
+}
+
+/**
  * 构建日报数据结构
  */
 function buildReport(rawItems, options = {}) {
@@ -241,6 +307,11 @@ function buildReport(rawItems, options = {}) {
   const tagStats = calculateTagStats(items);
   const sourceStats = calculateSourceStats(items);
   
+  // 处理社区内容（如果提供）
+  const communityPulse = options.communityPulse || [];
+  const processedCommunity = processCommunityItems(communityPulse, date);
+  const communityStats = calculateCommunityStats(processedCommunity);
+  
   const report = {
     version: '1.0',
     meta: {
@@ -248,11 +319,14 @@ function buildReport(rawItems, options = {}) {
       edition: formatEdition(date),
       generatedAt,
       totalCount: items.length,
+      communityCount: processedCommunity.length,
       tagStats,
       editorNote: options.editorNote || generateEditorNote(items),
     },
     items,
     sourceStats,
+    communityPulse: processedCommunity,
+    communityStats,
   };
   
   return report;
@@ -321,6 +395,7 @@ async function main() {
   const reportsDir = path.join(dataDir, 'reports');
   
   let rawItems = [];
+  let communityPulse = [];
   let sourceInfo = 'unknown';
   
   // 获取原始数据
@@ -328,6 +403,7 @@ async function main() {
     // 使用 mock 数据
     console.log('🎭 使用 Mock 数据模式');
     rawItems = generateMockData();
+    communityPulse = generateMockCommunityData();
     sourceInfo = 'mock';
   } else if (customInput) {
     // 指定输入文件
@@ -337,6 +413,7 @@ async function main() {
     console.log(`📂 加载指定文件: ${inputPath}`);
     const fetchResult = await loadFetchResult(inputPath);
     rawItems = fetchResult.items || [];
+    communityPulse = fetchResult.communityPulse || [];
     sourceInfo = inputPath;
   } else {
     // 自动查找最新抓取结果
@@ -345,23 +422,26 @@ async function main() {
       console.log(`📂 加载抓取结果: ${path.basename(latestFetch)}`);
       const fetchResult = await loadFetchResult(latestFetch);
       rawItems = fetchResult.items || [];
+      communityPulse = fetchResult.communityPulse || [];
       sourceInfo = latestFetch;
     } else {
       console.log('⚠️  未找到抓取结果，使用 Mock 数据');
       rawItems = generateMockData();
+      communityPulse = generateMockCommunityData();
       sourceInfo = 'mock (fallback)';
     }
   }
   
-  if (rawItems.length === 0) {
+  if (rawItems.length === 0 && communityPulse.length === 0) {
     console.error('❌ 没有内容可生成日报');
     process.exit(1);
   }
   
-  console.log(`📝 处理 ${rawItems.length} 条原始内容...\n`);
+  console.log(`📝 处理 ${rawItems.length} 条主资讯内容...`);
+  console.log(`💬 处理 ${communityPulse.length} 条社区内容...\n`);
   
   // 生成日报
-  const report = buildReport(rawItems);
+  const report = buildReport(rawItems, { communityPulse });
   
   // 保存
   const { latestPath, archivePath } = await saveReport(report, reportsDir);
@@ -441,6 +521,56 @@ function generateMockData() {
   ];
 }
 
+/**
+ * 生成社区 Mock 数据（用于测试）
+ */
+function generateMockCommunityData() {
+  const now = Date.now();
+  const hour = 60 * 60 * 1000;
+  
+  return [
+    {
+      id: 'community-mock-1',
+      title: '[D] What is the current SOTA for code generation?',
+      summary: 'Looking for the latest research on code generation models. How does GPT-4 compare to specialized models like CodeLlama?',
+      source: 'Reddit r/MachineLearning',
+      sourceUrl: 'https://www.reddit.com/r/MachineLearning/comments/abc123/',
+      publishedAt: new Date(now - 1 * hour).toISOString(),
+      tags: ['discussion', 'research'],
+      sourceType: 'rss',
+      layer: 'community',
+      subreddit: 'MachineLearning',
+      discussionUrl: 'https://www.reddit.com/r/MachineLearning/comments/abc123/',
+    },
+    {
+      id: 'community-mock-2',
+      title: 'Running LLaMA 3 locally on M1 Mac - complete guide',
+      summary: 'Here\'s how I got LLaMA 3 8B running at 30 tokens/sec on my M1 Pro with 16GB RAM...',
+      source: 'Reddit r/LocalLLaMA',
+      sourceUrl: 'https://www.reddit.com/r/LocalLLaMA/comments/def456/',
+      publishedAt: new Date(now - 3 * hour).toISOString(),
+      tags: ['discussion', 'local-ai', 'open-source'],
+      sourceType: 'rss',
+      layer: 'community',
+      subreddit: 'LocalLLaMA',
+      discussionUrl: 'https://www.reddit.com/r/LocalLLaMA/comments/def456/',
+    },
+    {
+      id: 'community-mock-3',
+      title: 'OpenAI just dropped something unexpected...',
+      summary: 'Discussion about the latest OpenAI announcements and what they mean for developers.',
+      source: 'Reddit r/OpenAI',
+      sourceUrl: 'https://www.reddit.com/r/OpenAI/comments/ghi789/',
+      publishedAt: new Date(now - 5 * hour).toISOString(),
+      tags: ['discussion', 'openai'],
+      sourceType: 'rss',
+      layer: 'community',
+      subreddit: 'OpenAI',
+      discussionUrl: 'https://www.reddit.com/r/OpenAI/comments/ghi789/',
+    },
+  ];
+}
+
 // 运行主函数
 const isMainModule = import.meta.url === `file://${process.argv[1]}` || 
                      import.meta.url.endsWith(process.argv[1].replace('./', '/'));
@@ -456,8 +586,11 @@ if (isMainModule) {
 export {
   buildReport,
   processItems,
+  processCommunityItems,
   calculateHotScore,
   selectFeatured,
   calculateTagStats,
+  calculateCommunityStats,
   generateMockData,
+  generateMockCommunityData,
 };

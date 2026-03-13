@@ -3,11 +3,12 @@
   "meta": {
     "date": "2026-03-13",
     "edition": "AI-Daily-2026-03-13",
-    "generatedAt": "2026-03-13T06:02:08.105Z",
-    "totalCount": 49,
+    "generatedAt": "2026-03-13T08:37:26.034Z",
+    "totalCount": 48,
+    "communityCount": 20,
     "tagStats": {
-      "model": 19,
-      "product": 10,
+      "model": 18,
+      "product": 9,
       "research": 10,
       "industry": 23,
       "policy": 3,
@@ -15,144 +16,216 @@
       "event": 0,
       "funding": 0
     },
-    "editorNote": "今日 AI 领域重点关注：19 个大模型相关更新、10 项产品发布、6 个开发工具更新。"
+    "editorNote": "今日 AI 领域重点关注：18 个大模型相关更新、9 项产品发布、6 个开发工具更新。"
   },
   "items": [
     {
-      "id": "techcrunch-ai-mmohonqh-4t1x",
+      "id": "techcrunch-ai-mmon86cs-wdug",
       "title": "Before quantum computing arrives, this startup wants enterprises already running on it",
       "summary": "After selling his AI startup to AMD for $665 million, Peter Sarlin is back with QuTwo, a new venture building the infrastructure it believes enterprises will need when quantum computing finally arrives.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/before-quantum-computing-arrives-this-startup-wants-enterprises-already-running-on-it/",
       "publishedAt": "2026-03-13T05:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2174694566.jpg?resize=1200,800",
       "tags": [
         "industry",
         "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 63,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-yf2w",
-      "title": "Truecaller now lets you hang up on scammers &#8212; on behalf of your family",
-      "summary": "Caller identity platform Truecaller recently launched a new feature that lets one person become an admin of a family group, get alerts about fraud calls received by other members, and even end a call on their behalf if they suspect a family member might get scammed. The company,...",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/truecallers-now-lets-you-hang-up-on-scammers-on-behalf-of-your-family/",
-      "publishedAt": "2026-03-13T04:30:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 62,
-      "featured": false
-    },
-    {
-      "id": "huggingface-blog-mmohoja0-zzm9",
-      "title": "Build an Agent That Thinks Like a Data Scientist: How We Hit #1 on DABStep with Reusable Tool Generation",
-      "summary": "",
-      "content": "",
-      "source": "Hugging Face Blog",
-      "sourceUrl": "https://huggingface.co/blog/nvidia/nemo-agent-toolkit-data-explorer-dabstep-1st-place",
-      "publishedAt": "2026-03-13T01:02:47.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "tool",
-        "model"
-      ],
-      "sourceType": "rss",
-      "hotScore": 69,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-gsqv",
-      "title": "How to watch Jensen Huang’s Nvidia GTC 2026 keynote",
-      "summary": "GTC — which stands for GPU Technology Conference — is Nvidia's flagship annual event, where the chipmaker typically uses the spotlight to announce new products, champion partnerships, and lay out its vision for the future of computing. Huang's keynote will focus on Nvidia's role...",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/how-to-watch-jensen-huangs-nvidia-gtc-2026-keynote/",
-      "publishedAt": "2026-03-12T23:25:39.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 57,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-d7k3",
-      "title": "Sales automation startup Rox AI hits $1.2B valuation, sources say",
-      "summary": "Rox, founded in 2024 by the former chief growth officer of New Relic, offers an AI-native alternative to CRM tools.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/sales-automation-startup-rox-ai-hits-1-2b-valuation-sources-say/",
-      "publishedAt": "2026-03-12T22:25:50.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 56,
-      "featured": false
-    },
-    {
-      "id": "mit-news-ai-mmohokko-cioc",
-      "title": "Can AI help predict which heart-failure patients will worsen within a year?",
-      "summary": "Characterized by weakened or damaged heart musculature, heart failure results in the gradual buildup of fluid in a patient’s lungs, legs, feet, and other parts of the body. The condition is chronic and incurable, often leading to arrhythmias or sudden cardiac arrest. For many cen...",
-      "content": "",
-      "source": "MIT News - AI",
-      "sourceUrl": "https://news.mit.edu/2026/can-ai-help-predict-which-heart-failure-patients-will-worsen-0312",
-      "publishedAt": "2026-03-12T21:30:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-jameel-yau-bergamaschi-PULSE.jpg?itok=t0tTj-za",
-      "tags": [
-        "research"
       ],
       "sourceType": "rss",
       "hotScore": 65,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-1uzi",
+      "id": "techcrunch-ai-mmon86cs-b1on",
+      "title": "Truecaller now lets you hang up on scammers &#8212; on behalf of your family",
+      "summary": "Caller identity platform Truecaller recently launched a new feature that lets one person become an admin of a family group, get alerts about fraud calls received by other members, and even end a call on their behalf if they suspect a family member might get scammed. The company,...",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/truecallers-now-lets-you-hang-up-on-scammers-on-behalf-of-your-family/",
+      "publishedAt": "2026-03-13T04:30:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Family-Protection-Hero.jpg?resize=1200,675",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 65,
+      "featured": false
+    },
+    {
+      "id": "huggingface-blog-mmon825e-jgyr",
+      "title": "Build an Agent That Thinks Like a Data Scientist: How We Hit #1 on DABStep with Reusable Tool Generation",
+      "summary": "",
+      "content": "",
+      "source": "Hugging Face Blog",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/nemo-agent-toolkit-data-explorer-dabstep-1st-place",
+      "publishedAt": "2026-03-13T01:02:47.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://cdn-thumbnails.huggingface.co/social-thumbnails/blog/nvidia/nemo-agent-toolkit-data-explorer-dabstep-1st-place.png",
+      "tags": [
+        "tool",
+        "model"
+      ],
+      "sourceType": "rss",
+      "hotScore": 71,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-dv0r",
+      "title": "How to watch Jensen Huang’s Nvidia GTC 2026 keynote",
+      "summary": "GTC — which stands for GPU Technology Conference — is Nvidia's flagship annual event, where the chipmaker typically uses the spotlight to announce new products, champion partnerships, and lay out its vision for the future of computing. Huang's keynote will focus on Nvidia's role...",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/how-to-watch-jensen-huangs-nvidia-gtc-2026-keynote/",
+      "publishedAt": "2026-03-12T23:25:39.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-2205761844.jpg?resize=1200,846",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-72o6",
+      "title": "Sales automation startup Rox AI hits $1.2B valuation, sources say",
+      "summary": "Rox, founded in 2024 by the former chief growth officer of New Relic, offers an AI-native alternative to CRM tools.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/sales-automation-startup-rox-ai-hits-1-2b-valuation-sources-say/",
+      "publishedAt": "2026-03-12T22:25:50.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2023/04/GettyImages-1422739420.jpg?resize=1200,702",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 59,
+      "featured": false
+    },
+    {
+      "id": "mit-news-ai-mmon83f7-lpu8",
+      "title": "Can AI help predict which heart-failure patients will worsen within a year?",
+      "summary": "Characterized by weakened or damaged heart musculature, heart failure results in the gradual buildup of fluid in a patient’s lungs, legs, feet, and other parts of the body. The condition is chronic and incurable, often leading to arrhythmias or sudden cardiac arrest. For many cen...",
+      "content": "",
+      "source": "MIT News - AI",
+      "sourceUrl": "https://news.mit.edu/2026/can-ai-help-predict-which-heart-failure-patients-will-worsen-0312",
+      "publishedAt": "2026-03-12T21:30:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-jameel-yau-bergamaschi-PULSE.jpg?itok=t0tTj-za",
+      "tags": [
+        "research"
+      ],
+      "sourceType": "rss",
+      "hotScore": 63,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-xsm6",
       "title": "Facebook Marketplace now lets Meta AI respond to buyers&#8217; messages",
       "summary": "When buyers inquire about an item’s availability, sellers can use Meta AI to automatically draft replies using information from their listing, such as the description, availability, pickup location, and price.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/facebook-marketplace-now-lets-meta-ai-respond-to-buyers-messages/",
       "publishedAt": "2026-03-12T18:20:33.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Facebook-Marketplace-Selling-Updates_Header.jpg?resize=1200,675",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 52,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-e11i",
+      "id": "techcrunch-ai-mmon86cs-4iav",
       "title": "Tinder tries to lure people back to online dating with IRL events, virtual speed dating",
       "summary": "Tinder just got a major revamp as it attempts to reengage its user base and attract younger daters. This includes in-person events, AI enhancements, and even virtual speed dating.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/tinder-tries-to-lure-people-back-to-online-dating-with-irl-events-virtual-speed-dating/",
       "publishedAt": "2026-03-12T18:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Tinder-revamp2026.png?w=1200",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 54,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-8cyz",
+      "title": "Atlassian follows Block’s footsteps and cuts staff in the name of AI",
+      "summary": "Atlassian laid off 10% of its workforce, around 1,600 people, as the company looks to funnel more funds to AI.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/",
+      "publishedAt": "2026-03-12T17:20:19.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/09/GettyImages-2147914845.jpg?w=1024",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 54,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-6r7e",
+      "title": "Bumble introduces an AI dating assistant, &#8216;Bee&#8217;",
+      "summary": "Bumble's new AI assistant Bee will move the dating app beyond the swipe by matching people based on compatibility and goals.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/bumble-introduces-an-ai-dating-assistant-bee/",
+      "publishedAt": "2026-03-12T16:52:17.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2024/04/Bumble-new-logo.jpg?resize=1200,810",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 53,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-4duz",
+      "title": "A writer is suing Grammarly for turning her and other authors into &#8216;AI editors&#8217; without consent",
+      "summary": "Journalist Julia Angwin is leading a class action lawsuit against Grammarly for violating her privacy and publicity rights.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/a-writer-is-suing-grammarly-for-turning-her-and-other-authors-into-ai-editors-without-consent/",
+      "publishedAt": "2026-03-12T16:42:40.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-1466243153.jpg?resize=1200,705",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 53,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-5e8t",
+      "title": "Gumloop lands $50M from Benchmark to turn every employee into an AI agent builder",
+      "summary": "As companies race to adopt AI, Benchmark general partner Everett Randle believes the key to success lies in empowering every worker with AI superpowers, and Gumloop’s intuitive agent builder is an example of the kind of tool that will unlock that potential.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/gumloop-lands-50m-from-benchmark-to-turn-every-employee-into-an-ai-agent-builder/",
+      "publishedAt": "2026-03-12T15:30:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/9F2166B5-426E-4607-AF98-65A31AD8FDB7IMG_8309.jpeg?resize=1200,802",
       "tags": [
         "industry",
         "startup"
@@ -162,87 +235,69 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-eqt2",
-      "title": "Atlassian follows Block’s footsteps and cuts staff in the name of AI",
-      "summary": "Atlassian laid off 10% of its workforce, around 1,600 people, as the company looks to funnel more funds to AI.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/",
-      "publishedAt": "2026-03-12T17:20:19.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 51,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-insi",
-      "title": "Bumble introduces an AI dating assistant, &#8216;Bee&#8217;",
-      "summary": "Bumble's new AI assistant Bee will move the dating app beyond the swipe by matching people based on compatibility and goals.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/bumble-introduces-an-ai-dating-assistant-bee/",
-      "publishedAt": "2026-03-12T16:52:17.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 51,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-wa9z",
-      "title": "A writer is suing Grammarly for turning her and other authors into &#8216;AI editors&#8217; without consent",
-      "summary": "Journalist Julia Angwin is leading a class action lawsuit against Grammarly for violating her privacy and publicity rights.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/a-writer-is-suing-grammarly-for-turning-her-and-other-authors-into-ai-editors-without-consent/",
-      "publishedAt": "2026-03-12T16:42:40.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 51,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-avuo",
-      "title": "Gumloop lands $50M from Benchmark to turn every employee into an AI agent builder",
-      "summary": "As companies race to adopt AI, Benchmark general partner Everett Randle believes the key to success lies in empowering every worker with AI superpowers, and Gumloop’s intuitive agent builder is an example of the kind of tool that will unlock that potential.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/gumloop-lands-50m-from-benchmark-to-turn-every-employee-into-an-ai-agent-builder/",
-      "publishedAt": "2026-03-12T15:30:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 49,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-z8vi",
+      "id": "techcrunch-ai-mmon86cs-6qi8",
       "title": "Alexa+ gets a new &#8216;adults only&#8217; personality option that curses but won&#8217;t do NSFW content",
       "summary": "The new Sassy style can curse and roast you, but the fun ends there.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/alexa-gets-a-new-adults-only-personality-option-that-curses-but-wont-do-nsfw-content/",
       "publishedAt": "2026-03-12T15:16:16.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/02/alexa-plus.jpeg?resize=1200,675",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 42,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-1uhx",
+      "title": "Wonderful raises $150M Series B at $2B valuation",
+      "summary": "The funding round, led by Insight Partners, comes just four months after Wonderful raised a $100 million Series A.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/wonderful-raises-150m-series-b-at-2b-valuation/",
+      "publishedAt": "2026-03-12T15:12:35.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/11/Wonderful-Founders.png?resize=1200,800",
+      "tags": [
+        "industry",
+        "startup"
+      ],
+      "sourceType": "rss",
+      "hotScore": 52,
+      "featured": false
+    },
+    {
+      "id": "google-ai-blog-mmon80wt-fslv",
+      "title": "How AI is helping improve heart health in rural Australia",
+      "summary": "A new Google AI initiative aims to improve heart health outcomes for people living in remote Australian communities.",
+      "content": "",
+      "source": "Google AI Blog",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/health/google-ai-heart-health-australia/",
+      "publishedAt": "2026-03-12T15:00:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AIHealth_v2_2096x1182_02.max-600x600.format-webp.webp",
+      "tags": [
+        "model",
+        "research"
+      ],
+      "sourceType": "rss",
+      "hotScore": 71,
+      "featured": false
+    },
+    {
+      "id": "techcrunch-ai-mmon86cs-tj50",
+      "title": "Google is using old news reports and AI to predict flash floods",
+      "summary": "A new way to solve data scarcity: Turning qualitative reports into quantitative data with an LLM.",
+      "content": "",
+      "source": "TechCrunch AI",
+      "sourceUrl": "https://techcrunch.com/2026/03/12/google-is-using-old-news-reports-and-ai-to-predict-flash-floods/",
+      "publishedAt": "2026-03-12T13:00:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Screenshot-2026-03-11-at-7.14.04-PM.png?resize=1200,757",
       "tags": [
         "industry",
         "startup"
@@ -252,15 +307,15 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-2ppe",
-      "title": "Wonderful raises $150M Series B at $2B valuation",
-      "summary": "The funding round, led by Insight Partners, comes just four months after Wonderful raised a $100 million Series A.",
+      "id": "techcrunch-ai-mmon86cs-9tm3",
+      "title": "Google Maps is getting an AI &#8216;Ask Maps&#8217; feature and upgraded &#8216;immersive&#8217; navigation",
+      "summary": "The tech giant says the \"Immersive Navigation\" launch is the biggest update to Maps in over a decade.",
       "content": "",
       "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/wonderful-raises-150m-series-b-at-2b-valuation/",
-      "publishedAt": "2026-03-12T15:12:35.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "sourceUrl": "https://techcrunch.com/2026/03/12/google-maps-is-getting-an-ai-ask-maps-feature-and-upgraded-immersive-navigation/",
+      "publishedAt": "2026-03-12T12:30:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2202707012.jpg?resize=1200,800",
       "tags": [
         "industry",
         "startup"
@@ -270,122 +325,68 @@
       "featured": false
     },
     {
-      "id": "google-ai-blog-mmohoi0e-usbu",
-      "title": "How AI is helping improve heart health in rural Australia",
-      "summary": "A new Google AI initiative aims to improve heart health outcomes for people living in remote Australian communities.",
-      "content": "",
-      "source": "Google AI Blog",
-      "sourceUrl": "https://blog.google/innovation-and-ai/technology/health/google-ai-heart-health-australia/",
-      "publishedAt": "2026-03-12T15:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AIHealth_v2_2096x1182_02.max-600x600.format-webp.webp",
-      "tags": [
-        "model",
-        "research"
-      ],
-      "sourceType": "rss",
-      "hotScore": 74,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-nf4u",
-      "title": "Google is using old news reports and AI to predict flash floods",
-      "summary": "A new way to solve data scarcity: Turning qualitative reports into quantitative data with an LLM.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/google-is-using-old-news-reports-and-ai-to-predict-flash-floods/",
-      "publishedAt": "2026-03-12T13:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 37,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-yxr9",
-      "title": "Google Maps is getting an AI &#8216;Ask Maps&#8217; feature and upgraded &#8216;immersive&#8217; navigation",
-      "summary": "The tech giant says the \"Immersive Navigation\" launch is the biggest update to Maps in over a decade.",
-      "content": "",
-      "source": "TechCrunch AI",
-      "sourceUrl": "https://techcrunch.com/2026/03/12/google-maps-is-getting-an-ai-ask-maps-feature-and-upgraded-immersive-navigation/",
-      "publishedAt": "2026-03-12T12:30:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "industry",
-        "startup"
-      ],
-      "sourceType": "rss",
-      "hotScore": 46,
-      "featured": false
-    },
-    {
-      "id": "techcrunch-ai-mmohonqh-7vjs",
+      "id": "techcrunch-ai-mmon86cs-s8ft",
       "title": "AI &#8216;actor&#8217; Tilly Norwood put out the worst song I&#8217;ve ever heard",
       "summary": "This song is an AI actor's rallying cry to other AI actors, urging them to keep going despite the naysayers who doubt their humanity. Literally no one can relate to this.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/11/ai-actor-tilly-norwood-put-out-the-worst-song-ive-ever-heard/",
       "publishedAt": "2026-03-11T23:35:03.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Screenshot-2026-03-11-at-3.22.19-PM.png?resize=1200,672",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 40,
+      "hotScore": 45,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-rqkz",
+      "id": "techcrunch-ai-mmon86cs-q6d4",
       "title": "Ford&#8217;s new AI assistant will help fleet owners know if seatbelts are being used",
       "summary": "Ford Pro AI debuted at Work Truck Week in Indianapolis and is now available to all of its U.S.-based Pro telematics subscribers.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/11/fords-new-ai-assistant-will-help-fleet-owners-know-if-seatbelts-are-being-used/",
       "publishedAt": "2026-03-11T22:51:39.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/ford-pro-fleet.jpg?resize=1200,675",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 40,
+      "hotScore": 45,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-75l5",
+      "id": "techcrunch-ai-mmon86cs-f0ij",
       "title": "Zendesk acquires agentic customer service startup Forethought",
       "summary": "Forethought was years ahead of its time and the 2018 winner of TechCrunch Battlefield.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/11/zendesk-acquires-agentic-customer-service-startup-forethought/",
       "publishedAt": "2026-03-11T22:41:27.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2019/10/Forethought-DSC04264.jpg?resize=1200,800",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 30,
+      "hotScore": 35,
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmohokkp-tr3n",
+      "id": "mit-news-ai-mmon83f8-i0ty",
       "title": "3 Questions: On the future of AI and the mathematical and physical sciences",
       "summary": "Curiosity-driven research has long sparked technological transformations. A century ago, curiosity about atoms led to quantum mechanics, and eventually the transistor at the heart of modern computing. Conversely, the steam engine was a practical breakthrough, but it took fundamen...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/3-questions-future-of-ai-and-mathematical-physical-sciences-0311",
       "publishedAt": "2026-03-11T22:30:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202603/AI%2BMPS-abstract-00_0.jpg?itok=RUxXgtUK",
       "tags": [
         "research"
@@ -395,68 +396,68 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-pq6k",
+      "id": "techcrunch-ai-mmon86cs-osuh",
       "title": "Netflix may have paid $600 million for Ben Affleck&#8217;s AI startup",
       "summary": "This deal could rank as among the streaming giant's largest acquisitions ever.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/11/netflix-may-have-paid-600-million-for-ben-afflecks-ai-startup/",
       "publishedAt": "2026-03-11T22:00:05.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2024/03/cash-ransomware-ransom-payments-hackers-getty.jpg?resize=1200,675",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 30,
+      "hotScore": 35,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-c16n",
+      "id": "techcrunch-ai-mmon86cs-0mxz",
       "title": "Lovable says it added $100M in revenue last month alone, with just 146 employees",
       "summary": "Swedish vibe-coding unicorn Lovable crossed $400 million in annual recurring revenue (ARR) in February.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/11/lovable-says-it-added-100m-in-revenue-last-month-alone-with-just-146-employees/",
       "publishedAt": "2026-03-11T21:40:49.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2245627953.jpg?resize=1200,800",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 40,
+      "hotScore": 45,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmohonqh-5u21",
+      "id": "techcrunch-ai-mmon86cs-cd9o",
       "title": "Replit snags $9B valuation 6 months after hitting $3B",
       "summary": "Replit raised a new $400 million round and said it hopes to have $1B in ARR by year's end.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/11/replit-snags-9b-valuation-6-months-after-hitting-3b/",
       "publishedAt": "2026-03-11T18:52:52.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.106Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/09/Replit-founder-CEO-Amjad-Masad.png?resize=1200,715",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 30,
+      "hotScore": 35,
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmohokkp-36rt",
+      "id": "mit-news-ai-mmon83f8-qoy0",
       "title": "New MIT class uses anthropology to improve chatbots",
       "summary": "Young adults growing up in the attention economy — preparing for adult life, with social media and chatbots competing for their attention — can easily fall into unhealthy relationships with digital platforms. But what if chatbots weren’t mere distractions from real life? Could th...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/mit-class-uses-anthropology-to-improve-chatbots-0311",
       "publishedAt": "2026-03-11T16:10:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/MIT-morningside-chatbots.jpg?itok=XOu2ryQK",
       "tags": [
         "research"
@@ -466,14 +467,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogao-ory1",
+      "id": "openai-blog-mmon7z7g-s4ym",
       "title": "Rakuten fixes issues twice as fast with Codex",
       "summary": "Rakuten uses Codex, the coding agent from OpenAI, to ship software faster and safer, reducing MTTR 50%, automating CI/CD reviews, and delivering full-stack builds in weeks.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/rakuten",
       "publishedAt": "2026-03-11T13:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.034Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -484,14 +485,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogao-gcqg",
+      "id": "openai-blog-mmon7z7g-jhyu",
       "title": "Designing AI agents to resist prompt injection",
       "summary": "How ChatGPT defends against prompt injection and social engineering by constraining risky actions and protecting sensitive data in agent workflows.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/designing-agents-to-resist-prompt-injection",
       "publishedAt": "2026-03-11T11:30:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.034Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -502,14 +503,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogao-yg4w",
+      "id": "openai-blog-mmon7z7g-ggp4",
       "title": "From model to agent: Equipping the Responses API with a computer environment",
       "summary": "How OpenAI built an agent runtime using the Responses API, shell tool, and hosted containers to run secure, scalable agents with files, tools, and state.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/equip-responses-api-computer-environment",
       "publishedAt": "2026-03-11T11:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.034Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -520,14 +521,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogao-hppa",
+      "id": "openai-blog-mmon7z7g-ykat",
       "title": "Wayfair boosts catalog accuracy and support speed with OpenAI",
       "summary": "Wayfair uses OpenAI models to improve ecommerce support and product catalog accuracy, automating ticket triage and enhancing millions of product attributes at scale.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/wayfair",
       "publishedAt": "2026-03-11T11:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -538,14 +539,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmohokkp-rlz6",
+      "id": "mit-news-ai-mmon83f8-9lhp",
       "title": "A better method for planning complex visual tasks",
       "summary": "MIT researchers have developed a generative artificial intelligence-driven approach for planning long-term visual tasks, like robot navigation, that is about twice as effective as some existing techniques. Their method uses a specialized vision-language model to perceive the scen...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/better-method-planning-complex-visual-tasks-0311",
       "publishedAt": "2026-03-11T04:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202603/MIT-Visual-Planning-01-press.jpg?itok=X3VZw8Xs",
       "tags": [
         "research"
@@ -555,14 +556,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmohokkp-0bc2",
+      "id": "mit-news-ai-mmon83f8-in2v",
       "title": "3 Questions: Building predictive models to characterize tumor progression",
       "summary": "Just as Darwin’s finches evolved in response to natural selection in order to endure, the cells that make up a cancerous tumor similarly counter selective pressures in order to survive, evolve, and spread. Tumors are, in fact, complex sets of cells with their own unique structure...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/3-questions-building-predictive-models-characterize-tumor-progression-0310",
       "publishedAt": "2026-03-10T20:50:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-koch-matthew-jones.jpg?itok=fQCpCxPO",
       "tags": [
         "research"
@@ -572,14 +573,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmohokkp-0nsw",
+      "id": "mit-news-ai-mmon83f8-qr18",
       "title": "How Joseph Paradiso’s sensing innovations bridge the arts, medicine, and ecology",
       "summary": "Joseph Paradiso &nbsp;thinks that the most engaging research questions usually span disciplines.&nbsp; Paradiso was trained as a physicist and completed his PhD in experimental high-energy physics at MIT in 1981. His father was a photographer and filmmaker working at MIT, MIT Lin...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/mit-professor-joseph-paradiso-sensing-innovations-0310",
       "publishedAt": "2026-03-10T20:25:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-media-lab-joseph-paradiso.jpg?itok=29bW0wzJ",
       "tags": [
         "research"
@@ -589,14 +590,14 @@
       "featured": false
     },
     {
-      "id": "arstechnica-ai-mmohomp0-rfyy",
+      "id": "arstechnica-ai-mmon85bs-yq6d",
       "title": "After complaints, Google will make it easier to disable gen AI search in Photos",
       "summary": "Google has spent the past few years in a constant state of AI escalation, rolling out new versions of its Gemini models and integrating that technology into every feature possible . To say this has been an annoyance for Google's userbase would be an understatement. Still, the AI-...",
       "content": "",
       "source": "Ars Technica - AI",
       "sourceUrl": "https://arstechnica.com/ai/2026/03/google-backtracks-on-ai-search-in-photos-adds-toggle-for-fast-classic-search/",
       "publishedAt": "2026-03-10T18:37:12.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/03aizylUVApdyLAIku1AvRV-39.v1605559903.png",
       "tags": [
         "industry",
@@ -607,14 +608,14 @@
       "featured": false
     },
     {
-      "id": "arstechnica-ai-mmohomp0-9frx",
+      "id": "arstechnica-ai-mmon85bs-0rv5",
       "title": "Gemini burrows deeper into Google Workspace with revamped document creation and editing",
       "summary": "Google didn't waste time integrating Gemini into its popular Workspace apps, but those AI features are now getting an overhaul. The company says its new Gemini features for Drive, Docs, Sheets, and Slides will save you from the tyranny of the blank page by doing the hard work for...",
       "content": "",
       "source": "Ars Technica - AI",
       "sourceUrl": "https://arstechnica.com/ai/2026/03/gemini-burrows-deeper-into-google-workspace-with-revamped-document-creation-and-editing/",
       "publishedAt": "2026-03-10T16:01:52.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/Workspace_Gemini-1152x648.jpg",
       "tags": [
         "industry",
@@ -625,14 +626,14 @@
       "featured": false
     },
     {
-      "id": "google-ai-blog-mmohoi0e-w0mg",
+      "id": "google-ai-blog-mmon80wt-56nx",
       "title": "Gemini in Google Sheets just achieved state-of-the-art performance.",
       "summary": "Today we announced new beta features for Gemini in Sheets to help you create, organize and edit entire sheets, from basic tasks to complex data analysis — just describe …",
       "content": "",
       "source": "Google AI Blog",
       "sourceUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/",
       "publishedAt": "2026-03-10T13:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Workspace_Jan_Moment_Sheets_Blo.max-600x600.format-webp.webp",
       "tags": [
         "model",
@@ -643,14 +644,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogao-3k95",
+      "id": "openai-blog-mmon7z7g-o8ll",
       "title": "Improving instruction hierarchy in frontier LLMs",
       "summary": "IH-Challenge trains models to prioritize trusted instructions, improving instruction hierarchy, safety steerability, and resistance to prompt injection attacks.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/instruction-hierarchy-challenge",
       "publishedAt": "2026-03-10T11:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -661,14 +662,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogap-u7q9",
+      "id": "openai-blog-mmon7z7g-pumz",
       "title": "New ways to learn math and science in ChatGPT",
       "summary": "ChatGPT introduces interactive visual explanations for math and science, helping students explore formulas, variables, and concepts in real time.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt",
       "publishedAt": "2026-03-10T10:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -679,68 +680,68 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmohoja0-7cgb",
+      "id": "huggingface-blog-mmon825f-1p1j",
       "title": "Introducing Storage Buckets on the Hugging Face Hub",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/storage-buckets",
       "publishedAt": "2026-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://huggingface.co/blog/assets/storage-buckets/buckets-annoucement.png",
       "tags": [
         "tool",
         "model"
       ],
       "sourceType": "rss",
-      "hotScore": 50,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmohoja0-lt23",
+      "id": "huggingface-blog-mmon825f-fv3y",
       "title": "Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/async-rl-training-landscape",
       "publishedAt": "2026-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://huggingface.co/blog/assets/async-rl-landscape/thumbnail.png",
       "tags": [
         "tool",
         "model"
       ],
       "sourceType": "rss",
-      "hotScore": 50,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmohoja0-3jyv",
+      "id": "huggingface-blog-mmon825f-2hel",
       "title": "Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/ibm-granite/granite-4-speech",
       "publishedAt": "2026-03-09T18:36:33.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://cdn-thumbnails.huggingface.co/social-thumbnails/blog/ibm-granite/granite-4-speech.png",
       "tags": [
         "tool",
         "model"
       ],
       "sourceType": "rss",
-      "hotScore": 50,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogap-0mei",
+      "id": "openai-blog-mmon7z7g-r3w9",
       "title": "OpenAI to acquire Promptfoo",
       "summary": "OpenAI is acquiring Promptfoo, an AI security platform that helps enterprises identify and remediate vulnerabilities in AI systems during development.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/openai-to-acquire-promptfoo",
       "publishedAt": "2026-03-09T10:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -751,14 +752,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmohokkp-9uvw",
+      "id": "mit-news-ai-mmon83f8-1lht",
       "title": "Improving AI models’ ability to explain their predictions",
       "summary": "In high-stakes settings like medical diagnostics, users often want to know what led a computer vision model to make a certain prediction, so they can determine whether to trust its output. Concept bottleneck modeling is one method that enables artificial intelligence systems to e...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/improving-ai-models-ability-explain-predictions-0309",
       "publishedAt": "2026-03-09T04:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202603/MIT-Concept-Bottleneck-01-press.jpg?itok=LWdB-IXI",
       "tags": [
         "research"
@@ -768,50 +769,50 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmohoja0-6a1f",
+      "id": "huggingface-blog-mmon825f-f9qp",
       "title": "Ulysses Sequence Parallelism: Training with Million-Token Contexts",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/ulysses-sp",
       "publishedAt": "2026-03-09T00:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://huggingface.co/blog/assets/ulysses/thumbnail.png",
       "tags": [
         "tool",
         "model"
       ],
       "sourceType": "rss",
-      "hotScore": 50,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmohoja0-v6mn",
+      "id": "huggingface-blog-mmon825f-ezcm",
       "title": "LeRobot v0.5.0: Scaling Every Dimension",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/lerobot-release-v050",
       "publishedAt": "2026-03-09T00:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": "https://huggingface.co/blog/assets/lerobot-release-v050/thumbnail.png",
       "tags": [
         "tool",
         "model"
       ],
       "sourceType": "rss",
-      "hotScore": 50,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "arstechnica-ai-mmohomp0-syqc",
+      "id": "arstechnica-ai-mmon85bs-6sjg",
       "title": "Google&#039;s new command-line tool can plug OpenClaw into your Workspace data",
       "summary": "The command line is hot again. For some people, command lines were never not hot, of course, but it's becoming more common now in the age of AI. Google launched a Gemini command-line tool last year, and now it has a new AI-centric command-line option for cloud products. The new G...",
       "content": "",
       "source": "Ars Technica - AI",
       "sourceUrl": "https://arstechnica.com/ai/2026/03/googles-new-command-line-tool-can-plug-openclaw-into-your-workspace-data/",
       "publishedAt": "2026-03-06T19:56:20.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2020/10/maxresdefault-1152x648.jpg",
       "tags": [
         "industry",
@@ -822,14 +823,14 @@
       "featured": false
     },
     {
-      "id": "google-ai-blog-mmohoi0e-6gr6",
+      "id": "google-ai-blog-mmon80wt-44ck",
       "title": "How our open-source AI model SpeciesNet is helping to promote wildlife conservation",
       "summary": "An overview of SpeciesNet, our open-source AI model that is helping people around the world protect and conserve wildlife.",
       "content": "",
       "source": "Google AI Blog",
       "sourceUrl": "https://blog.google/company-news/outreach-and-initiatives/sustainability/speciesnet-open-source-ai-wildlife/",
       "publishedAt": "2026-03-06T18:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/specieshero_v2.max-600x600.format-webp.webp",
       "tags": [
         "model",
@@ -840,32 +841,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogap-pgzy",
-      "title": "How Descript enables multilingual video dubbing at scale",
-      "summary": "Descript uses OpenAI models to scale multilingual video dubbing, optimizing translations for both meaning and timing so dubbed speech sounds natural across languages.",
-      "content": "",
-      "source": "OpenAI Blog",
-      "sourceUrl": "https://openai.com/index/descript",
-      "publishedAt": "2026-03-06T10:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
-      "imageUrl": null,
-      "tags": [
-        "model",
-        "product"
-      ],
-      "sourceType": "rss",
-      "hotScore": 60,
-      "featured": false
-    },
-    {
-      "id": "openai-blog-mmohogap-51mg",
+      "id": "openai-blog-mmon7z7g-mkec",
       "title": "Codex Security: now in research preview",
       "summary": "Codex Security is an AI application security agent that analyzes project context to detect, validate, and patch complex vulnerabilities with higher confidence and less noise.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/codex-security-now-in-research-preview",
       "publishedAt": "2026-03-06T10:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -876,14 +859,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmohogap-u6zb",
-      "title": "How Balyasny Asset Management built an AI research engine for investing",
-      "summary": "See how Balyasny built an AI research system with GPT-5.4, rigorous model evaluation, and agent workflows to transform investment analysis at scale.",
+      "id": "openai-blog-mmon7z7g-kpwu",
+      "title": "How Descript enables multilingual video dubbing at scale",
+      "summary": "Descript uses OpenAI models to scale multilingual video dubbing, optimizing translations for both meaning and timing so dubbed speech sounds natural across languages.",
       "content": "",
       "source": "OpenAI Blog",
-      "sourceUrl": "https://openai.com/index/balyasny-asset-management",
-      "publishedAt": "2026-03-06T07:00:00.000Z",
-      "fetchedAt": "2026-03-13T06:02:08.105Z",
+      "sourceUrl": "https://openai.com/index/descript",
+      "publishedAt": "2026-03-06T10:00:00.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -902,7 +885,7 @@
     },
     {
       "name": "OpenAI Blog",
-      "count": 10,
+      "count": 9,
       "url": "https://openai.com"
     },
     {
@@ -924,6 +907,436 @@
       "name": "Ars Technica - AI",
       "count": 3,
       "url": "https://arstechnica.com"
+    }
+  ],
+  "communityPulse": [
+    {
+      "id": "reddit-artificial-mmon884c-xkne",
+      "title": "Built an AI memory system based on cognitive science instead of vector databases",
+      "summary": "Most AI agent memory is just vector DB + semantic search. Store everything, retrieve by similarity. It works, but it doesn&#39;t scale well over time. The noise floor keeps rising and recall quality degrades. I took a different approach and built memory using actual cognitive sci...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rrss36/built_an_ai_memory_system_based_on_cognitive/",
+      "publishedAt": "2026-03-12T14:48:43.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 90,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rrss36/built_an_ai_memory_system_based_on_cognitive/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-mqna",
+      "title": "Looking for feedback on my AI tools directory...what would make it better?",
+      "summary": "Hey everyone, I built AIPowerStacks ( https://www.aipowerstacks.com ) its a free directory for discovering and comparing AI tools. It&#39;s completely free, no signup required to browse. I&#39;m at the point where I need outside perspective to figure out what&#39;s working and wh...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rs7fud/looking_for_feedback_on_my_ai_tools_directorywhat/",
+      "publishedAt": "2026-03-12T23:47:13.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.035Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 99,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rs7fud/looking_for_feedback_on_my_ai_tools_directorywhat/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-q2vm",
+      "title": "Systemd 260-rc3 released with AI Agents documentation added",
+      "summary": "&#32; submitted by &#32; /u/Fcking_Chuck [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rsdc2q/systemd_260rc3_released_with_ai_agents/",
+      "publishedAt": "2026-03-13T04:12:27.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/mFEyTptYW9p2V4GNkJXGrXw8bs77mSWzMqt4ke2Skfs.jpeg?width=640&crop=smart&auto=webp&s=ebe6b388870d7c6481ca48ba5a755e8e5ef08b24",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 104,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rsdc2q/systemd_260rc3_released_with_ai_agents/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-jyhj",
+      "title": "Hustlers are cashing in on China’s OpenClaw AI craze",
+      "summary": "The AI tool has become the country&#39;s latest tech obsession. For savvy early adopters, that&#39;s a business opportunity. &#32; submitted by &#32; /u/tekz [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rrkvkt/hustlers_are_cashing_in_on_chinas_openclaw_ai/",
+      "publishedAt": "2026-03-12T08:12:19.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/3qNfcmoY8wW0YH5FJE3-xijIWMbz9wStc9ir7nIjB5U.jpeg?width=640&crop=smart&auto=webp&s=a43ffc2470e9529ad4323a09d49191543ef64d8f",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 84,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rrkvkt/hustlers_are_cashing_in_on_chinas_openclaw_ai/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-neh9",
+      "title": "Meta buys 'social media network for AI' Moltbook, and says the deal will bring \"new ways for AI agents to work for people and businesses\".",
+      "summary": "&#32; submitted by &#32; /u/Simplilearn [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rrkogg/meta_buys_social_media_network_for_ai_moltbook/",
+      "publishedAt": "2026-03-12T07:59:30.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/u3rOwYfJr3uvAK-RrGavihK88O4bLKr3Akh1Ox1EHH4.jpeg?width=640&crop=smart&auto=webp&s=511821eb47fce578e3f30fa4ae9eb693c2760a42",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 83,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rrkogg/meta_buys_social_media_network_for_ai_moltbook/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-gg9p",
+      "title": "Machine Identity? What should happen to a superseded surgeon robot?",
+      "summary": "(hypothetical) BrainBot v1.0 is an expert surgical robot - certified by a reputable medical board for cancer removal, with an indelible hardware identity binding it to the specific software stack that earned that certification. Its track record is exceptional. Then v2.0 arrives....",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rsetqx/machine_identity_what_should_happen_to_a/",
+      "publishedAt": "2026-03-13T05:32:08.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 105,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rsetqx/machine_identity_what_should_happen_to_a/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-1rbt",
+      "title": "Meta buys Moltbook, viral social network where AI agents interact",
+      "summary": "&#32; submitted by &#32; /u/sksarkpoes3 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rqvjtm/meta_buys_moltbook_viral_social_network_where_ai/",
+      "publishedAt": "2026-03-11T14:38:38.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/eBU3NCNY9UU9RmvhSfuaFDlqNWN-lCrwGdiA-4K7_6E.jpeg?width=640&crop=smart&auto=webp&s=fc619657ac2764362a29162b2f41ec4d2197b41c",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 66,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rqvjtm/meta_buys_moltbook_viral_social_network_where_ai/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-xd7e",
+      "title": "Niantic Spatial partners with Coco Robotics to integrate a visual positioning system trained on data from Pokemon Go and Ingress into a fleet of delivery robots",
+      "summary": "&#32; submitted by &#32; /u/ExtensionEcho3 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rrketj/niantic_spatial_partners_with_coco_robotics_to/",
+      "publishedAt": "2026-03-12T07:42:03.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 83,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rrketj/niantic_spatial_partners_with_coco_robotics_to/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-ie3z",
+      "title": "U.S. military is using AI to help plan Iran air attacks, sources say, as lawmakers call for oversight. Anthropic’s Claude AI systems have become a crucial tool for the military despite the company’s clashes with the Defense Department.",
+      "summary": "&#32; submitted by &#32; /u/esporx [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rr1lzr/us_military_is_using_ai_to_help_plan_iran_air/",
+      "publishedAt": "2026-03-11T18:15:50.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/4FjFKC1IBaC3MWH5oGlKFlzIT28iZymfBeW7RqbTORo.jpeg?width=640&crop=smart&auto=webp&s=864226ecde09aa44e8d32028253b5afbf1477ecd",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 70,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rr1lzr/us_military_is_using_ai_to_help_plan_iran_air/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-k4tq",
+      "title": "AMD Ryzen AI NPUs are finally useful under Linux for running LLMs",
+      "summary": "&#32; submitted by &#32; /u/Fcking_Chuck [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rr1en0/amd_ryzen_ai_npus_are_finally_useful_under_linux/",
+      "publishedAt": "2026-03-11T18:08:46.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/O0SD1-sELvQoRE1Z2WILjoPeIyHXRb_RBl_hQxx7w2Y.jpeg?width=640&crop=smart&auto=webp&s=c8e5e4c6e101b0c4ea367fda02d9faa62b293c10",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 70,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rr1en0/amd_ryzen_ai_npus_are_finally_useful_under_linux/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-hyv8",
+      "title": "Anthropic sues Trump administration seeking to undo 'supply chain risk' designation",
+      "summary": "&#32; submitted by &#32; /u/Fair_Economist_5369 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rq9qvm/anthropic_sues_trump_administration_seeking_to/",
+      "publishedAt": "2026-03-10T21:14:59.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/MhhbNtUXz0APBPcQGJtjtylg-JqZh6_886JlQu2iudQ.jpeg?width=640&crop=smart&auto=webp&s=63e9fd7c52a74bcbb8c4c96e02e7e6dc839e38fe",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rq9qvm/anthropic_sues_trump_administration_seeking_to/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-cm1f",
+      "title": "OpenAI Employees Are Defending a Rival Company Against the US Government — That's Never Happened Before",
+      "summary": "&#32; submitted by &#32; /u/vinodpandey7 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rqi4s7/openai_employees_are_defending_a_rival_company/",
+      "publishedAt": "2026-03-11T02:56:04.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/r9a7dmn28CMIBEELBdhrmPLrdSXGwJJFBfNVXSU-la8.jpeg?width=640&crop=smart&auto=webp&s=6d3e85d207f554dd6c700f2f47f2e08d999dae5d",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rqi4s7/openai_employees_are_defending_a_rival_company/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-axdl",
+      "title": "Amazon wins court order to block Perplexity's AI shopping agent",
+      "summary": "&#32; submitted by &#32; /u/Gloomy_Nebula_5138 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rq6qpi/amazon_wins_court_order_to_block_perplexitys_ai/",
+      "publishedAt": "2026-03-10T19:28:34.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/99yFodoe3pviTGLxo9lsAEbJ5YSonbwq2lIXbpoNwRs.jpeg?width=640&crop=smart&auto=webp&s=e29882a1cef03f7eb6de7254751b4ba83540f96c",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rq6qpi/amazon_wins_court_order_to_block_perplexitys_ai/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-wutb",
+      "title": "Watershed Moment for AI–Human Collaboration in Math",
+      "summary": "&quot;When Ukrainian mathematician Maryna Viazovska received a Fields Medal—widely regarded as the Nobel Prize for mathematics—in July 2022, it was big news. Not only was she the second woman to accept the honor in the award’s 86-year history, but she collected the medal just mon...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rqquev/watershed_moment_for_aihuman_collaboration_in_math/",
+      "publishedAt": "2026-03-11T11:11:30.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/1LA-BiSYfjTSexfcsuFnZBfkFXduvI8U6xRQsNA0aro.jpeg?width=35&height=26&auto=webp&s=00612e4810682aecf920b53d0deb08490ec37a38",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 63,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rqquev/watershed_moment_for_aihuman_collaboration_in_math/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-u6pg",
+      "title": "City Simulator for CodeGraphContext - An MCP server that indexes local code into a graph database to provide context to AI assistants",
+      "summary": "Explore codebase like exploring a city with buildings and islands... using our website CodeGraphContext- the go to solution for code indexing now got 2k stars🎉🎉... It&#39;s an MCP server that understands a codebase as a graph , not chunks of text. Now has grown way beyond my ex...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rqzcfj/city_simulator_for_codegraphcontext_an_mcp_server/",
+      "publishedAt": "2026-03-11T16:57:28.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/ajVuYXdtOXM0Z29nMTvihzKNeV1wcrNcEPV84DorqTQodwATW6x8HGj6IBwU.png?width=640&crop=smart&auto=webp&s=f604100adb2d33f389794a5f9eb036f7d0b78d6f",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 68,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rqzcfj/city_simulator_for_codegraphcontext_an_mcp_server/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-vgla",
+      "title": "Are we in the \"modem era\" of AI?",
+      "summary": "In the early days of the internet we were in a similar situation. Modems, early Linux systems, the first websites. Technically primitive by today’s standards, but something important had appeared: information could suddenly move freely across a network. That was a novum by this t...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rq33nv/are_we_in_the_modem_era_of_ai/",
+      "publishedAt": "2026-03-10T17:20:46.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rq33nv/are_we_in_the_modem_era_of_ai/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-ruld",
+      "title": "The Agentic CLI Takeover: Why Your Terminal is the New IDE Frontier",
+      "summary": "Forget chat interfaces. Autonomous AI agents are taking over the terminal. Learn the architecture, security risks, and why your zsh history is now valuable training data. https://gsstk.gem98.com/en-US/blog/a0075-agentic-cli-takeover-terminal-new-ide-frontier &#32; submitted by &#...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rqedsy/the_agentic_cli_takeover_why_your_terminal_is_the/",
+      "publishedAt": "2026-03-11T00:13:05.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rqedsy/the_agentic_cli_takeover_why_your_terminal_is_the/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-s8h1",
+      "title": "Bringing Code Review to Claude Code",
+      "summary": "Today we&#39;re introducing Code Review, which dispatches a team of agents on every PR to catch the bugs that skims miss, built for depth, not speed. It&#39;s the system we run on nearly every PR at Anthropic. Now in research preview for Team and Enterprise. &#32; submitted by &#...",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rqatlf/bringing_code_review_to_claude_code/",
+      "publishedAt": "2026-03-10T21:55:08.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/JCYicwe8HuNXhuaGxZ9mqU2eKz2tqE9rw2Z2bsaBGrk.jpeg?width=640&crop=smart&auto=webp&s=e1a2e8e9cf3e1ee9042aaf2930189f887e8eef52",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rqatlf/bringing_code_review_to_claude_code/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-f2n2",
+      "title": "VCs are betting that AI will disrupt nearly every industry in the world. Are they prepared for it to disrupt their own?",
+      "summary": "&#32; submitted by &#32; /u/tekz [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rppalb/vcs_are_betting_that_ai_will_disrupt_nearly_every/",
+      "publishedAt": "2026-03-10T06:18:59.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/clU8VIOMt1wd-OGage_u9_CuWETjJJgMTydgIvhntX4.jpeg?width=640&crop=smart&auto=webp&s=0957b1dfd618e5f9de96bd9488c79c6da21c4a11",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rppalb/vcs_are_betting_that_ai_will_disrupt_nearly_every/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-artificial-mmon884c-rhx2",
+      "title": "Anthropic sues Trump administration over Pentagon blacklist",
+      "summary": "&#32; submitted by &#32; /u/Gloomy_Nebula_5138 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/artificial",
+      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rp3vku/anthropic_sues_trump_administration_over_pentagon/",
+      "publishedAt": "2026-03-09T15:51:27.000Z",
+      "fetchedAt": "2026-03-13T08:37:26.036Z",
+      "imageUrl": "https://external-preview.redd.it/06ykSxAanqPxl5YIGdhU8oHEckyEqb6z3D4ZDyBw1xQ.png?width=640&crop=smart&auto=webp&s=ef152ac0a3477845534079e46fd5d006aac0795e",
+      "tags": [
+        "discussion",
+        "community"
+      ],
+      "sourceType": "rss",
+      "hotScore": 60,
+      "featured": false,
+      "subreddit": "artificial",
+      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rp3vku/anthropic_sues_trump_administration_over_pentagon/",
+      "isCommunity": true
+    }
+  ],
+  "communityStats": [
+    {
+      "name": "r/artificial",
+      "count": 20,
+      "url": "https://www.reddit.com/r/artificial/comments/1rrss36/built_an_ai_memory_system_based_on_cognitive/",
+      "type": "subreddit"
     }
   ]
 }

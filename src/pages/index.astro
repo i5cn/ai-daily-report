@@ -64,9 +64,11 @@ function loadLatestReport(): DailyReport {
 // ========== 加载数据 ==========
 
 const report = loadLatestReport();
-const { meta, items, sourceStats } = report;
-const communityPulse = [];
-const communityStats = [];
+const { meta, items, sourceStats, communityPulse, communityStats } = report;
+
+// 确保 communityPulse 和 communityStats 存在
+const safeCommunityPulse = communityPulse || [];
+const safeCommunityStats = communityStats || [];
 
 // 按 featured 和 hotScore 排序主资讯
 const sortedItems = [...items].sort((a, b) => {
@@ -79,7 +81,7 @@ const sortedItems = [...items].sort((a, b) => {
 const displayItems = sortedItems;
 
 // 社区热议按 hotScore 排序
-const sortedCommunity = [...(communityPulse || [])].sort((a, b) => {
+const sortedCommunity = [...safeCommunityPulse].sort((a, b) => {
   return (b.hotScore || 0) - (a.hotScore || 0);
 });
 
@@ -88,11 +90,11 @@ const displayCommunity = sortedCommunity.slice(0, 4);
 
 // 是否有数据
 const hasData = items.length > 0;
-const hasCommunityData = false;
+const hasCommunityData = safeCommunityPulse.length > 0;
 
 // 统计数据
 const totalCount = meta.totalCount;
-const communityCount = meta.communityCount || displayCommunity.length;
+const communityCount = meta.communityCount || safeCommunityPulse.length;
 const sourceCount = sourceStats?.length || new Set(items.map(i => i.source)).size || 12;
 
 // 格式化日期
