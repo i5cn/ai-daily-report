@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReportCard from '../components/ui/ReportCard.astro';
-import type { DailyReport, ReportCard as ReportCardType } from '../types/report';
+import type { DailyReport, ReportCard as ReportCardType, CommunityItem } from '../types/report';
 
 // ========== 数据读取工具函数 ==========
 
@@ -28,6 +28,8 @@ const EMPTY_DAILY_REPORT: DailyReport = {
   },
   items: [],
   sourceStats: [],
+  communityPulse: [],
+  communityStats: [],
 };
 
 function loadLatestReport(): DailyReport {
@@ -67,22 +69,34 @@ function loadLatestReport(): DailyReport {
 
 const report = loadLatestReport();
 const { meta, items, sourceStats } = report;
+const communityPulse = [];
+const communityStats = [];
 
-// 按 featured 和 hotScore 排序
+// 按 featured 和 hotScore 排序主资讯
 const sortedItems = [...items].sort((a, b) => {
   if (a.featured && !b.featured) return -1;
   if (!a.featured && b.featured) return 1;
   return (b.hotScore || 0) - (a.hotScore || 0);
 });
 
-// 首页最多展示 6 条
+// 主资讯最多展示 6 条
 const displayItems = sortedItems.slice(0, 6);
+
+// 社区热议按 hotScore 排序
+const sortedCommunity = [...(communityPulse || [])].sort((a, b) => {
+  return (b.hotScore || 0) - (a.hotScore || 0);
+});
+
+// 社区热议最多展示 4 条
+const displayCommunity = sortedCommunity.slice(0, 4);
 
 // 是否有数据
 const hasData = items.length > 0;
+const hasCommunityData = false;
 
 // 统计数据
 const totalCount = meta.totalCount;
+const communityCount = meta.communityCount || displayCommunity.length;
 const sourceCount = sourceStats?.length || new Set(items.map(i => i.source)).size || 12;
 
 // 格式化日期
@@ -93,7 +107,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   weekday: 'long'
 });
 
-// 生成时间
+// 生成时间（仅用于日志，不展示在页面上）
 ---
 
 <BaseLayout title="AI Daily Report - 每日 AI 行业动态">
@@ -135,8 +149,8 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-value">AI</span>
-          <span class="stat-label">行业焦点</span>
+          <span class="stat-value">{hasCommunityData ? communityCount : '-'}</span>
+          <span class="stat-label">社区热议</span>
         </div>
       </div>
     </div>
@@ -149,7 +163,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     </div>
   </section>
 
-  <!-- Reports Section -->
+  <!-- Reports Section - 主资讯 -->
   <section class="reports-section" id="reports">
     <div class="section-header">
       <h2 class="section-title">
@@ -203,12 +217,64 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     {hasData && (
       <div class="load-more">
         <button class="liquid-button" disabled>
-          <span class="button-text">已展示全部 {displayItems.length} 条</span>
+          <span class="button-text">已展示 {displayItems.length} 条精选内容</span>
           <span class="button-shine"></span>
         </button>
       </div>
     )}
   </section>
+
+  <!-- Community Pulse Section - 社区热议（独立板块） -->
+  {hasCommunityData && (
+    <section class="community-section" id="community">
+      <div class="section-header community-header">
+        <div class="community-badge-large">
+          <span class="community-pulse-icon">💬</span>
+          <span class="community-pulse-label">Community Pulse</span>
+        </div>
+        <h2 class="section-title community-title">
+          <span class="title-icon">◉</span>
+          社区热议
+          <span class="title-icon">◉</span>
+        </h2>
+        <p class="section-desc community-desc">
+          来自 Reddit AI 社区的热门讨论与深度观点 · {communityCount} 条精选
+        </p>
+      </div>
+      
+      <div class="community-grid">
+        {displayCommunity.map((item, index) => (
+          <ReportCard 
+            id={item.id}
+            title={item.title}
+            summary={item.summary}
+            source={item.source}
+            sourceUrl={item.sourceUrl}
+            publishedAt={item.publishedAt}
+            imageUrl={item.imageUrl}
+            tags={item.tags}
+            index={index}
+            subreddit={item.subreddit}
+            discussionUrl={item.discussionUrl}
+            isCommunity={true}
+          />
+        ))}
+      </div>
+      
+      <div class="load-more">
+        <a 
+          href="https://www.reddit.com/r/artificial/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="liquid-button community-button"
+        >
+          <span class="button-text">查看更多 Reddit 讨论</span>
+          <span class="button-icon">→</span>
+          <span class="button-shine"></span>
+        </a>
+      </div>
+    </section>
+  )}
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -216,7 +282,7 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
       <p class="footer-brand">AI Daily Report</p>
       <p class="footer-meta">
         {hasData 
-          ? `本期精选 ${totalCount} 条 · 聚焦值得关注的 AI 动态`
+          ? `本期精选 ${totalCount} 条资讯${hasCommunityData ? ` · ${communityCount} 条社区热议` : ''} · 聚焦值得关注的 AI 动态`
           : '精选值得关注的 AI 动态'
         }
       </p>
@@ -406,7 +472,8 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   }
 
   /* ===== REPORTS SECTION ===== */
-  .reports-section {
+  .reports-section,
+  .community-section {
     position: relative;
     z-index: 2;
     padding: var(--space-3xl) var(--space-xl);
@@ -414,9 +481,40 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     margin: 0 auto;
   }
 
+  .community-section {
+    border-top: 1px solid var(--border-subtle);
+    margin-top: var(--space-2xl);
+  }
+
   .section-header {
     text-align: center;
     margin-bottom: var(--space-2xl);
+  }
+
+  .community-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .community-badge-large {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-lg);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 142, 83, 0.1));
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
+  }
+
+  .community-pulse-icon {
+    font-size: 1.2em;
+  }
+
+  .community-pulse-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: #ff8e8e;
+    letter-spacing: 0.05em;
   }
 
   .section-title {
@@ -430,10 +528,19 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     margin-bottom: var(--space-sm);
   }
 
+  .community-title {
+    color: #ff8e8e;
+  }
+
   .title-icon {
     color: var(--lm-iridescent);
     opacity: 0.6;
     font-size: 0.8em;
+  }
+
+  .community-title .title-icon {
+    color: #ff6b6b;
+    opacity: 0.8;
   }
 
   .section-desc {
@@ -441,7 +548,12 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     font-size: var(--text-base);
   }
 
-  .reports-grid {
+  .community-desc {
+    color: rgba(255, 142, 142, 0.8);
+  }
+
+  .reports-grid,
+  .community-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: var(--space-xl);
@@ -449,7 +561,8 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   }
 
   @media (max-width: 768px) {
-    .reports-grid {
+    .reports-grid,
+    .community-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -515,6 +628,10 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     overflow: hidden;
     transition: all var(--duration-normal) var(--ease-liquid);
     backdrop-filter: blur(10px);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
   }
 
   .liquid-button:hover:not(:disabled) {
@@ -528,6 +645,27 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
   .liquid-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  .community-button {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 142, 83, 0.05));
+    border-color: rgba(255, 107, 107, 0.4);
+    color: #ff8e8e;
+  }
+
+  .community-button:hover {
+    border-color: #ff6b6b;
+    box-shadow: 
+      0 0 30px rgba(255, 107, 107, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .button-icon {
+    transition: transform var(--duration-fast) ease;
+  }
+
+  .community-button:hover .button-icon {
+    transform: translateX(4px);
   }
 
   .button-shine {
@@ -574,5 +712,4 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
     font-size: var(--text-sm);
     color: var(--text-tertiary);
   }
-
 </style>

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * AI Daily Report - 日报生成脚本
+ * AI Daily Report - 日报生成脚本 (ESM 版本)
  * 
  * 功能：将 fetch-news.js 的抓取结果转换为 latest.json 格式
  * 输入：data/raw/fetch-*.json
@@ -13,8 +13,13 @@
  *   node scripts/generate-report.js --mock       # 使用 mock 数据
  */
 
-const fs = require('fs').promises;
-const path = require('path');
+import { promises as fs } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// ESM 中模拟 __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ============ 配置区域 ============
 
@@ -69,7 +74,7 @@ function formatEdition(date) {
 /**
  * 计算内容热度分
  */
-function calculateHotScore(item, index) {
+function calculateHotScore(item) {
   let score = 0;
   
   // 基础分：标签权重
@@ -178,7 +183,7 @@ function processItems(rawItems, date) {
     };
     
     // 计算热度分
-    item.hotScore = calculateHotScore(item, index);
+    item.hotScore = calculateHotScore(item);
     
     return item;
   });
@@ -187,7 +192,7 @@ function processItems(rawItems, date) {
 /**
  * 生成编辑备注
  */
-function generateEditorNote(items, featured) {
+function generateEditorNote(items) {
   const parts = [];
   
   // 根据内容生成一句话总结
@@ -244,7 +249,7 @@ function buildReport(rawItems, options = {}) {
       generatedAt,
       totalCount: items.length,
       tagStats,
-      editorNote: options.editorNote || generateEditorNote(items, featured),
+      editorNote: options.editorNote || generateEditorNote(items),
     },
     items,
     sourceStats,
@@ -392,6 +397,7 @@ function generateMockData() {
   
   return [
     {
+      id: 'mock-1',
       title: 'OpenAI 发布 GPT-5 预览版',
       summary: 'OpenAI 今日发布 GPT-5 预览版，在多模态理解和代码生成方面实现重大突破。',
       source: 'OpenAI Blog',
@@ -402,6 +408,7 @@ function generateMockData() {
       sourceType: 'api',
     },
     {
+      id: 'mock-2',
       title: 'Google DeepMind 开源新框架',
       summary: 'Google DeepMind 开源 JaxLearning 框架，简化分布式强化学习研究。',
       source: 'Google AI Blog',
@@ -411,6 +418,7 @@ function generateMockData() {
       sourceType: 'rss',
     },
     {
+      id: 'mock-3',
       title: 'Anthropic 发布 AI 安全研究报告',
       summary: '最新研究探讨了大语言模型的可解释性和对齐问题。',
       source: 'Anthropic',
@@ -420,6 +428,7 @@ function generateMockData() {
       sourceType: 'rss',
     },
     {
+      id: 'mock-4',
       title: 'AI 编程助手 Cursor 获新融资',
       summary: 'AI 编程工具 Cursor 宣布完成 B 轮融资，估值超 10 亿美元。',
       source: 'TechCrunch',
@@ -433,7 +442,10 @@ function generateMockData() {
 }
 
 // 运行主函数
-if (require.main === module) {
+const isMainModule = import.meta.url === `file://${process.argv[1]}` || 
+                     import.meta.url.endsWith(process.argv[1].replace('./', '/'));
+
+if (isMainModule) {
   main().catch(error => {
     console.error('💥 致命错误:', error);
     process.exit(1);
@@ -441,7 +453,7 @@ if (require.main === module) {
 }
 
 // 导出供其他模块使用
-module.exports = {
+export {
   buildReport,
   processItems,
   calculateHotScore,

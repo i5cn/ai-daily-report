@@ -7,14 +7,19 @@
  * 内容分类标签
  */
 export type ContentTag =
-  | 'model'      // 大模型/AI 模型
-  | 'product'    // AI 产品发布
-  | 'research'   // 学术研究
-  | 'industry'   // 行业动态
-  | 'policy'     // 政策法规
-  | 'tool'       // 开发工具
-  | 'event'      // 会议/活动
-  | 'funding';   // 融资/投资
+  | 'model'        // 大模型/AI 模型
+  | 'product'      // AI 产品发布
+  | 'research'     // 学术研究
+  | 'industry'     // 行业动态
+  | 'policy'       // 政策法规
+  | 'tool'         // 开发工具
+  | 'event'        // 会议/活动
+  | 'funding'      // 融资/投资
+  | 'discussion'   // 社区讨论
+  | 'community'    // 社区内容
+  | 'local-ai'     // 本地 AI
+  | 'open-source'  // 开源
+  | 'openai';      // OpenAI 相关
 
 /**
  * 内容来源类型
@@ -55,6 +60,16 @@ export interface ReportCard {
 }
 
 /**
+ * 社区统计项
+ */
+export interface CommunityStat {
+  name: string;
+  count: number;
+  url: string;
+  type: string;
+}
+
+/**
  * 日报元数据
  */
 export interface ReportMeta {
@@ -62,14 +77,34 @@ export interface ReportMeta {
   date: string;
   /** 日报版本/期号 */
   edition: string;
-  /** 生成时间 */
+  /** 生成时间（内部字段，不展示） */
   generatedAt: string;
   /** 内容总数 */
   totalCount: number;
+  /** 社区内容数量 */
+  communityCount?: number;
   /** 各分类统计 */
-  tagStats: Record<ContentTag, number>;
+  tagStats: Record<string, number>;
   /** 编辑备注 */
   editorNote?: string;
+  /** 来源健康状态（内部字段，不展示） */
+  sourceHealth?: {
+    total: number;
+    healthy: number;
+    failed: number;
+    fixed?: string[];
+    new?: string[];
+  };
+}
+
+/**
+ * 社区热议项（Reddit 等）
+ */
+export interface CommunityItem extends ReportCard {
+  /** 子版块 */
+  subreddit?: string;
+  /** 讨论链接 */
+  discussionUrl?: string;
 }
 
 /**
@@ -78,7 +113,7 @@ export interface ReportMeta {
  */
 export interface DailyReport {
   /** 版本号，用于数据迁移兼容 */
-  version: '1.0';
+  version: string;
   /** 日报元数据 */
   meta: ReportMeta;
   /** 日报内容列表（按时间倒序） */
@@ -89,6 +124,10 @@ export interface DailyReport {
     count: number;
     url: string;
   }[];
+  /** 社区热议列表 */
+  communityPulse?: CommunityItem[];
+  /** 社区统计 */
+  communityStats?: CommunityStat[];
 }
 
 /**
