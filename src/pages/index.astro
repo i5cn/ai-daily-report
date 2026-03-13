@@ -94,9 +94,6 @@ const displayDate = new Date(meta.date || Date.now()).toLocaleDateString('zh-CN'
 });
 
 // 生成时间
-const generatedTime = meta.generatedAt 
-  ? new Date(meta.generatedAt).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
-  : '06:00';
 ---
 
 <BaseLayout title="AI Daily Report - 每日 AI 行业动态">
@@ -113,7 +110,7 @@ const generatedTime = meta.generatedAt
     <div class="hero-content">
       <div class="hero-badge">
         <span class="pulse-dot"></span>
-        <span>每日更新 · 自动聚合 · {generatedTime} 生成</span>
+        <span>精选情报 · 深度提炼 · 视觉化呈现</span>
       </div>
       
       <h1 class="hero-title">
@@ -138,8 +135,8 @@ const generatedTime = meta.generatedAt
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-value">24h</span>
-          <span class="stat-label">自动更新</span>
+          <span class="stat-value">AI</span>
+          <span class="stat-label">行业焦点</span>
         </div>
       </div>
     </div>
@@ -197,8 +194,8 @@ const generatedTime = meta.generatedAt
         <h3 class="empty-title">正在整理今日 AI 资讯</h3>
         <p class="empty-desc">{meta.editorNote || '数据正在准备中，请稍后刷新页面'}</p>
         <div class="empty-meta">
-          <span>数据文件：data/reports/latest.json</span>
-          <span>最后检查：{new Date().toLocaleTimeString('zh-CN')}</span>
+          <span>内容正在整理中</span>
+          <span>请稍后再来查看</span>
         </div>
       </div>
     )}
@@ -219,13 +216,9 @@ const generatedTime = meta.generatedAt
       <p class="footer-brand">AI Daily Report</p>
       <p class="footer-meta">
         {hasData 
-          ? `${meta.edition} · 共 ${totalCount} 条 · `
-          : '每日自动更新 · '
+          ? `本期精选 ${totalCount} 条 · 聚焦值得关注的 AI 动态`
+          : '精选值得关注的 AI 动态'
         }
-        开源项目 · 
-        <a href="https://github.com/i5cn/ai-daily-report" target="_blank" rel="noopener">
-          GitHub
-        </a>
       </p>
     </div>
   </footer>
@@ -582,13 +575,4 @@ const generatedTime = meta.generatedAt
     color: var(--text-tertiary);
   }
 
-  .footer-meta a {
-    color: var(--lm-silver);
-    text-decoration: none;
-    transition: color var(--duration-fast) ease;
-  }
-
-  .footer-meta a:hover {
-    color: var(--lm-iridescent);
-  }
 </style>
