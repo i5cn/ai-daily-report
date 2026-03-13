@@ -652,9 +652,9 @@ const navLinks = [
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      padding: clamp(5rem, 8vw, 7rem) var(--space-xl) var(--space-4xl);
+      padding: clamp(4.4rem, 6.5vw, 5.8rem) var(--space-xl) var(--space-4xl);
       overflow: hidden;
     }
 
@@ -667,6 +667,7 @@ const navLinks = [
       align-items: center;
       gap: clamp(1.5rem, 3vw, 2.5rem);
       text-align: center;
+      margin-top: clamp(2.8rem, 6vh, 4.5rem);
     }
 
     .hero-brand-mark {
@@ -830,7 +831,7 @@ const navLinks = [
 
     .hero-marquee-shell {
       width: 100%;
-      padding-top: 1.25rem;
+      padding-top: 0.35rem;
     }
 
     .hero-marquee-header {
@@ -885,7 +886,7 @@ const navLinks = [
     }
 
     .signal-marquee-track {
-      --marquee-step: 21.5rem;
+      --marquee-step: 23.1rem;
       display: flex;
       gap: 1.25rem;
       width: max-content;
@@ -903,9 +904,9 @@ const navLinks = [
       grid-template-columns: auto 1fr;
       gap: 0.95rem;
       align-items: flex-start;
-      width: min(20.25rem, calc(100vw - 4rem));
-      min-height: 10rem;
-      padding: 1.1rem 1.15rem;
+      width: min(21.85rem, calc(100vw - 4rem));
+      min-height: 8.9rem;
+      padding: 0.95rem 1.05rem;
       border-radius: 1.45rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background:
@@ -931,8 +932,8 @@ const navLinks = [
     }
 
     .signal-marquee-avatar {
-      width: 3rem;
-      height: 3rem;
+      width: 2.55rem;
+      height: 2.55rem;
       border-radius: 9999px;
       display: grid;
       place-items: center;
@@ -940,7 +941,7 @@ const navLinks = [
         radial-gradient(circle at 30% 30%, rgba(255, 144, 144, 0.95), rgba(255, 87, 87, 0.88) 55%, rgba(255, 87, 87, 0.18) 100%);
       color: #fff7f7;
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 0.88rem;
       font-weight: 800;
       box-shadow:
         0 0 26px rgba(255, 92, 92, 0.26),
@@ -951,7 +952,7 @@ const navLinks = [
     .signal-marquee-content {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.48rem;
       text-align: left;
       min-width: 0;
     }
@@ -982,17 +983,20 @@ const navLinks = [
     .signal-marquee-card-title {
       margin: 0;
       color: rgba(247, 249, 255, 0.98);
-      font-size: 1.22rem;
-      line-height: 1.38;
+      font-size: 1.12rem;
+      line-height: 1.32;
       font-weight: 700;
-      text-wrap: balance;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
     }
 
     .signal-marquee-summary {
       margin: 0;
       color: rgba(201, 210, 230, 0.72);
-      font-size: 0.95rem;
-      line-height: 1.58;
+      font-size: 0.88rem;
+      line-height: 1.48;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
@@ -1910,7 +1914,11 @@ const navLinks = [
       }
 
       .hero {
-        padding: 5.5rem var(--space-lg) var(--space-3xl);
+        padding: 4.8rem var(--space-lg) var(--space-3xl);
+      }
+
+      .hero-stage {
+        margin-top: 2.2rem;
       }
 
       .hero-title {
@@ -1950,6 +1958,11 @@ const navLinks = [
 
       .signal-marquee-track {
         animation: none;
+      }
+
+      .signal-marquee-card {
+        width: min(19rem, calc(100vw - 3.4rem));
+        min-height: 8.6rem;
       }
 
       .signal-marquee-fade {
