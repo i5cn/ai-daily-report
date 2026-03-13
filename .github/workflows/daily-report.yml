@@ -86,10 +86,9 @@ jobs:
         with:
           path: |
             data/cache
-            data/reports
-          key: ${{ runner.os }}-data-${{ github.run_id }}
+          key: ${{ runner.os }}-data-cache-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-data-
+            ${{ runner.os }}-data-cache-
       
       # 5. 抓取最新新闻数据（定时触发或手动选择时）
       - name: Fetch latest news
