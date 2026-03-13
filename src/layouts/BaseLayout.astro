@@ -26,9 +26,9 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Fonts -->
-    <link 
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" 
-      rel="stylesheet" 
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
     />
     
     <title>{title}</title>
@@ -44,10 +44,35 @@ const {
     <meta name="twitter:description" content={description} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳转到主要内容</a>
     <slot />
   </body>
 </html>
 
 <style is:global>
   @import '../styles/global.css';
+
+  .skip-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    border-radius: 9999px;
+    background: rgba(9, 9, 11, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #f4f4f5;
+    text-decoration: none;
+    transform: translateY(-160%);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    border-color: rgba(245, 158, 75, 0.45);
+  }
 </style>

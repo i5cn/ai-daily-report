@@ -20,36 +20,36 @@
      ------------------------------------------ */
   
   /* Background Scale - 深色层次系统 */
-  --bg-primary: #09090b;
-  --bg-secondary: #0f0f11;
-  --bg-tertiary: #16161a;
-  --bg-elevated: #1c1c21;
+  --bg-primary: #06070a;
+  --bg-secondary: #0d1017;
+  --bg-tertiary: #131824;
+  --bg-elevated: #1a2130;
   
   /* Depth Colors - 发光/阴影深度 */
-  --depth-glow-1: rgba(251, 146, 60, 0.12);
-  --depth-glow-2: rgba(8, 145, 178, 0.10);
-  --depth-glow-3: rgba(124, 58, 237, 0.06);
+  --depth-glow-1: rgba(245, 158, 75, 0.24);
+  --depth-glow-2: rgba(69, 163, 255, 0.18);
+  --depth-glow-3: rgba(120, 119, 255, 0.12);
   --depth-shadow: rgba(0, 0, 0, 0.6);
   
   /* Stage Gradients - 舞台渐变 - 更克制的光晕 */
-  --gradient-stage: radial-gradient(ellipse 70% 45% at 50% 0%, rgba(251, 146, 60, 0.06) 0%, transparent 55%);
-  --gradient-ambient: radial-gradient(ellipse 50% 35% at 75% 25%, rgba(8, 145, 178, 0.05) 0%, transparent 50%);
-  --gradient-depth: radial-gradient(ellipse 100% 35% at 50% 100%, rgba(0, 0, 0, 0.7) 0%, transparent 65%);
+  --gradient-stage: radial-gradient(ellipse 74% 52% at 50% 0%, rgba(245, 158, 75, 0.18) 0%, rgba(245, 158, 75, 0.08) 24%, transparent 62%);
+  --gradient-ambient: radial-gradient(ellipse 55% 42% at 78% 22%, rgba(69, 163, 255, 0.14) 0%, transparent 58%);
+  --gradient-depth: radial-gradient(ellipse 120% 46% at 50% 100%, rgba(0, 0, 0, 0.86) 0%, transparent 70%);
   
   /* Warm Accents - 暖调强调 - 更稳重 */
-  --accent-warm: #f59e4b;
-  --accent-warm-light: #fbbf7a;
-  --accent-warm-soft: rgba(251, 158, 75, 0.12);
-  --accent-warm-dim: rgba(251, 158, 75, 0.06);
+  --accent-warm: #ff9f43;
+  --accent-warm-light: #ffd08b;
+  --accent-warm-soft: rgba(255, 159, 67, 0.18);
+  --accent-warm-dim: rgba(255, 159, 67, 0.08);
   
   /* Cool Accents - 冷调平衡 */
-  --accent-cool: #38bdf8;
-  --accent-cool-soft: rgba(56, 189, 248, 0.10);
-  --accent-cool-dim: rgba(56, 189, 248, 0.05);
+  --accent-cool: #45a3ff;
+  --accent-cool-soft: rgba(69, 163, 255, 0.14);
+  --accent-cool-dim: rgba(69, 163, 255, 0.08);
   
   /* Purple Accent - 第三强调色 */
-  --accent-purple: #a5b4fc;
-  --accent-purple-soft: rgba(165, 180, 252, 0.10);
+  --accent-purple: #9ea9ff;
+  --accent-purple-soft: rgba(158, 169, 255, 0.14);
   
   /* Neutral Accents */
   --accent-success: #4ade80;
@@ -74,8 +74,9 @@
      ------------------------------------------ */
   
   /* Font Families */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --font-display: 'Rajdhani', 'Arial Narrow', sans-serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
   
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -154,9 +155,10 @@
     0 2px 4px -1px rgba(0, 0, 0, 0.25);
   
   --shadow-card-hover:
-    0 0 0 1px var(--border-default),
-    0 12px 20px -5px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(251, 158, 75, 0.06);
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 18px 36px -10px rgba(0, 0, 0, 0.55),
+    0 0 42px rgba(255, 159, 67, 0.14),
+    0 0 28px rgba(69, 163, 255, 0.1);
 
   /* ------------------------------------------
      Z-INDEX SCALE
@@ -191,7 +193,10 @@ body {
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background:
+    radial-gradient(circle at top, rgba(255, 159, 67, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 15%, rgba(69, 163, 255, 0.12), transparent 26%),
+    var(--bg-primary);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -232,7 +237,9 @@ body {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: var(--bg-primary);
+  background:
+    linear-gradient(180deg, rgba(5, 8, 14, 0.18), transparent 30%),
+    var(--bg-primary);
 }
 
 /* 主舞台聚光 - 更集中的聚光效果 */
@@ -244,12 +251,13 @@ body {
   left: 0;
   background: radial-gradient(
     ellipse 50% 45% at 50% 0%,
-    rgba(251, 158, 75, 0.10) 0%,
-    rgba(251, 158, 75, 0.03) 35%,
-    transparent 65%
+    rgba(255, 159, 67, 0.22) 0%,
+    rgba(255, 159, 67, 0.12) 26%,
+    rgba(255, 159, 67, 0.04) 42%,
+    transparent 72%
   );
   animation: spotlightBreathe 12s ease-in-out infinite;
-  filter: blur(50px);
+  filter: blur(72px);
 }
 
 /* 环境光晕 - 右侧冷调 - 更微妙 */
@@ -261,11 +269,12 @@ body {
   right: -15vw;
   background: radial-gradient(
     ellipse 45% 35% at 100% 50%,
-    rgba(56, 189, 248, 0.06) 0%,
-    transparent 55%
+    rgba(69, 163, 255, 0.14) 0%,
+    rgba(69, 163, 255, 0.06) 28%,
+    transparent 60%
   );
   animation: ambientFloat 18s ease-in-out infinite;
-  filter: blur(70px);
+  filter: blur(86px);
 }
 
 /* 环境光晕 - 左侧紫调 - 更克制 */
@@ -277,11 +286,12 @@ body {
   left: -12vw;
   background: radial-gradient(
     ellipse 40% 35% at 0% 50%,
-    rgba(165, 180, 252, 0.04) 0%,
-    transparent 50%
+    rgba(158, 169, 255, 0.1) 0%,
+    rgba(158, 169, 255, 0.04) 28%,
+    transparent 54%
   );
   animation: ambientFloat 22s ease-in-out infinite reverse;
-  filter: blur(60px);
+  filter: blur(78px);
 }
 
 /* 底部暗部支撑 - 更深邃的暗部 */

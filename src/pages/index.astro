@@ -78,14 +78,6 @@ const sortedItems = [...items].sort((a, b) => (b.hotScore || 0) - (a.hotScore ||
 // 今日重点：取 hotScore 最高的 3 条
 const featuredItems = sortedItems.slice(0, 3);
 
-// 按标签分类
-const itemsByTag = {
-  model: sortedItems.filter(i => i.tags?.includes('model')).slice(0, 3),
-  product: sortedItems.filter(i => i.tags?.includes('product')).slice(0, 3),
-  research: sortedItems.filter(i => i.tags?.includes('research')).slice(0, 3),
-  industry: sortedItems.filter(i => i.tags?.includes('industry')).slice(0, 3),
-};
-
 // 社区热议按 hotScore 排序，取前 4 条
 const sortedCommunity = [...safeCommunityPulse].sort((a, b) => {
   return (b.hotScore || 0) - (a.hotScore || 0);
@@ -131,6 +123,44 @@ const tagIcons: Record<string, string> = {
   tool: '⚙',
   policy: '◆',
 };
+
+const primarySignal = featuredItems[0];
+const signalDeckSupport = featuredItems.slice(1, 3);
+const signalBrief = meta.editorNote || (hasData
+  ? `今日共收录 ${totalCount} 条 AI 资讯，覆盖 ${sourceCount} 个主要信源。`
+  : '暂无今日信号，请稍后刷新。');
+
+const sweepCategories = (['model', 'product', 'research', 'industry', 'tool', 'policy'] as const)
+  .map((tag) => {
+    const categoryItems = sortedItems.filter(item => item.tags?.includes(tag)).slice(0, 4);
+
+    return {
+      key: tag,
+      label: tagLabels[tag] || tag,
+      icon: tagIcons[tag] || '◆',
+      count: meta.tagStats?.[tag] || categoryItems.length,
+      items: categoryItems,
+    };
+  })
+  .filter(category => category.count > 0 && category.items.length > 0);
+
+const topTagSignals = Object.entries(meta.tagStats || {})
+  .filter(([, count]) => count > 0)
+  .sort(([, countA], [, countB]) => countB - countA)
+  .slice(0, 3)
+  .map(([tag, count]) => ({
+    tag,
+    count,
+    label: tagLabels[tag] || tag,
+  }));
+
+const generatedTime = new Date(meta.generatedAt || Date.now()).toLocaleTimeString('zh-CN', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+});
+
+const topSources = (sourceStats || []).slice(0, 5);
 ---
 
 <BaseLayout title="AI Daily Report - 每日 AI 行业动态">
@@ -145,45 +175,134 @@ const tagIcons: Record<string, string> = {
     <div class="stage-grid"></div>
   </div>
 
-  <!-- ========== BLOCK 1: HERO - 舞台首屏 ========== -->
-  <section class="hero">
+  <main id="main-content">
+    <div id="page-top" aria-hidden="true"></div>
+    <header class="global-rail" aria-label="Global Rail">
+      <div class="global-rail-inner">
+        <a href="#page-top" class="global-rail-brand">
+          <span class="global-rail-brand-mark"></span>
+          <span>AI Signal Surface</span>
+        </a>
+        <div class="global-rail-status">
+          <span class="global-rail-date">{shortDate}</span>
+          <span class="global-rail-separator">/</span>
+          <span>{hasData ? `${totalCount} items` : 'standby'}</span>
+        </div>
+        <nav class="global-rail-nav" aria-label="Primary">
+          <a href="#top-signals">Top Signals</a>
+          <a href="#categories">Categories</a>
+          <a href="#community">Community</a>
+          <a href="#source-ledger">Ledger</a>
+        </nav>
+      </div>
+    </header>
+
+  <!-- ========== BLOCK 1: SIGNAL DECK - 舞台首屏 ========== -->
+  <section class="hero" id="signal-deck" aria-labelledby="signal-deck-title">
     <div class="hero-stage">
-      <!-- 顶部日期标签 -->
-      <div class="hero-eyebrow">
-        <span class="eyebrow-badge">
-          <span class="badge-dot"></span>
-          <span>每日更新</span>
-        </span>
-        <span class="eyebrow-divider">·</span>
-        <span class="eyebrow-date">{shortDate}</span>
-      </div>
-      
-      <!-- 主标题区 -->
-      <div class="hero-title-group">
-        <h1 class="hero-title">
-          <span class="title-line">AI Daily</span>
-          <span class="title-line title-line-accent">Report</span>
-        </h1>
-        <p class="hero-subtitle">
-          追踪 AI 世界的脉搏
-          <span class="subtitle-line">每日精选 {hasData ? totalCount : '-'} 条高质量资讯</span>
-        </p>
-      </div>
-      
-      <!-- 数据指标 -->
-      <div class="hero-metrics">
-        <div class="metric-item">
-          <span class="metric-value">{hasData ? totalCount : '-'}</span>
-          <span class="metric-label">精选资讯</span>
+      <div class="signal-deck-shell">
+        <div class="signal-deck-copy">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-badge">
+              <span class="badge-dot"></span>
+              <span>Signal Deck</span>
+            </span>
+            <span class="eyebrow-divider">·</span>
+            <span class="eyebrow-date">{shortDate}</span>
+          </div>
+
+          <div class="hero-title-group">
+            <h1 class="hero-title" id="signal-deck-title">
+              <span class="title-line">AI Signal</span>
+              <span class="title-line title-line-accent">Surface</span>
+            </h1>
+            <p class="hero-subtitle">
+              个人 AI 资讯聚合台
+              <span class="subtitle-line">{displayDate} · 快速扫读今日脉冲</span>
+            </p>
+          </div>
+
+          <p class="signal-brief">{signalBrief}</p>
+
+          <div class="signal-metric-tape" role="list" aria-label="今日情报概览">
+            <div class="metric-item" role="listitem">
+              <span class="metric-label">Items</span>
+              <span class="metric-value">{hasData ? totalCount : '-'}</span>
+            </div>
+            <div class="metric-item" role="listitem">
+              <span class="metric-label">Sources</span>
+              <span class="metric-value">{sourceCount}</span>
+            </div>
+            <div class="metric-item" role="listitem">
+              <span class="metric-label">Community</span>
+              <span class="metric-value">{hasCommunityData ? communityCount : '-'}</span>
+            </div>
+            <div class="metric-item" role="listitem">
+              <span class="metric-label">Updated</span>
+              <span class="metric-value">{generatedTime}</span>
+            </div>
+          </div>
+
+          {topTagSignals.length > 0 && (
+            <div class="signal-tag-list" aria-label="活跃主题">
+              {topTagSignals.map(({ tag, label, count }) => (
+                <span class="signal-tag">
+                  <span class="signal-tag-name">{tagIcons[tag] || '◆'} {label}</span>
+                  <span class="signal-tag-count">{count}</span>
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-        <div class="metric-item">
-          <span class="metric-value">{sourceCount}+</span>
-          <span class="metric-label">信源</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value">{hasCommunityData ? communityCount : '-'}</span>
-          <span class="metric-label">社区热议</span>
-        </div>
+
+        {primarySignal && (
+          <a
+            href={primarySignal.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="primary-signal-panel"
+          >
+            <div class="primary-panel-surface"></div>
+            <div class="primary-panel-header">
+              <span class="primary-panel-kicker">Top Signal</span>
+              <span class="primary-panel-hot">{primarySignal.hotScore || 50}°</span>
+            </div>
+
+            {primarySignal.imageUrl ? (
+              <div class="primary-panel-media">
+                <img src={primarySignal.imageUrl} alt={primarySignal.title} loading="eager" />
+              </div>
+            ) : (
+              <div class="primary-panel-media primary-panel-media-fallback">
+                <span>{primarySignal.title.slice(0, 2).toUpperCase()}</span>
+              </div>
+            )}
+
+            <div class="primary-panel-body">
+              <p class="primary-panel-source">{primarySignal.source}</p>
+              <h2 class="primary-panel-title">{primarySignal.title}</h2>
+              <p class="primary-panel-summary">
+                {primarySignal.summary?.trim() || '今日最高热度信号，已进入主情报面板。'}
+              </p>
+              <div class="primary-panel-meta">
+                <span>{new Date(primarySignal.publishedAt).toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' })}</span>
+                <span>·</span>
+                <span>{(primarySignal.tags || []).slice(0, 2).map(tag => tagLabels[tag] || tag).join(' / ') || 'Signal'}</span>
+              </div>
+            </div>
+
+            {signalDeckSupport.length > 0 && (
+              <div class="primary-panel-support">
+                {signalDeckSupport.map((item, index) => (
+                  <div class="support-row">
+                    <span class="support-index">0{index + 2}</span>
+                    <span class="support-title">{item.title}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </a>
+        )}
       </div>
     </div>
     
@@ -198,15 +317,15 @@ const tagIcons: Record<string, string> = {
     </div>
   </section>
 
-  <!-- ========== BLOCK 2: 今日重点 - 焦点区域 ========== -->
+  <!-- ========== BLOCK 2: TOP SIGNALS - 焦点区域 ========== -->
   {hasData && featuredItems.length > 0 && (
-    <section class="block block-featured" id="featured">
+    <section class="block block-featured" id="top-signals" aria-labelledby="top-signals-title">
       <div class="block-container">
         <header class="block-header">
           <div class="header-accent"></div>
           <div class="header-content">
             <span class="header-eyebrow">今日焦点</span>
-            <h2 class="header-title">重点资讯</h2>
+            <h2 class="header-title" id="top-signals-title">Top Signals</h2>
           </div>
         </header>
         
@@ -216,7 +335,7 @@ const tagIcons: Record<string, string> = {
               <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="featured-link">
                 <div class="featured-image">
                   {item.imageUrl ? (
-                    <img src={item.imageUrl} alt="" loading={index === 0 ? 'eager' : 'lazy'} />
+                    <img src={item.imageUrl} alt={item.title} loading={index === 0 ? 'eager' : 'lazy'} />
                   ) : (
                     <div class="featured-image-placeholder">
                       <span>{item.title.slice(0, 2).toUpperCase()}</span>
@@ -248,27 +367,74 @@ const tagIcons: Record<string, string> = {
     </section>
   )}
 
-  <!-- ========== BLOCK 3: 主资讯分组 - 分类节奏 ========== -->
+  <!-- ========== BLOCK 3: CATEGORY SWEEP - 分类节奏 ========== -->
   {hasData && (
-    <section class="block block-categories" id="categories">
+    <section class="block block-categories" id="categories" aria-labelledby="category-sweep-title">
       <div class="block-container">
         <header class="block-header block-header-center">
           <span class="header-eyebrow">分类浏览</span>
-          <h2 class="header-title">精选资讯</h2>
+          <h2 class="header-title" id="category-sweep-title">Category Sweep</h2>
           <p class="header-desc">{displayDate} · 共 {totalCount} 条</p>
+          <div class="category-sweep-controls" role="tablist" aria-label="分类筛选">
+            <button type="button" class="category-sweep-control is-active" data-category-filter="all" role="tab" aria-selected="true">
+              全部
+            </button>
+            {sweepCategories.map((category) => (
+              <button
+                type="button"
+                class="category-sweep-control"
+                data-category-filter={category.key}
+                role="tab"
+                aria-selected="false"
+              >
+                <span>{category.icon} {category.label}</span>
+                <span class="category-sweep-control-count">{category.count}</span>
+              </button>
+            ))}
+          </div>
         </header>
         
-        <div class="categories-content">
-          {Object.entries(itemsByTag).map(([tag, tagItems]) => (
-            tagItems.length > 0 && (
+        <div class="category-sweep-panels" data-category-sweep-root>
+          <div class="category-sweep-panel is-active" data-category-panel="all">
+            <div class="categories-content">
+              {sweepCategories.map((category) => (
+                <div class="category-section">
+                  <div class="category-header">
+                    <span class="category-icon">{category.icon}</span>
+                    <h3 class="category-title">{category.label}</h3>
+                    <span class="category-count">{category.count}</span>
+                  </div>
+                  <div class="category-cards">
+                    {category.items.map((item, index) => (
+                      <ReportCard 
+                        id={item.id}
+                        title={item.title}
+                        summary={item.summary}
+                        source={item.source}
+                        sourceUrl={item.sourceUrl}
+                        publishedAt={item.publishedAt}
+                        imageUrl={item.imageUrl}
+                        tags={item.tags}
+                        index={index}
+                        variant="compact"
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {sweepCategories.map((category) => (
+            <div class="category-sweep-panel category-sweep-panel-single" data-category-panel={category.key} hidden>
               <div class="category-section">
                 <div class="category-header">
-                  <span class="category-icon">{tagIcons[tag] || '◆'}</span>
-                  <h3 class="category-title">{tagLabels[tag] || tag}</h3>
-                  <span class="category-count">{tagItems.length}</span>
+                  <span class="category-icon">{category.icon}</span>
+                  <h3 class="category-title">{category.label}</h3>
+                  <span class="category-count">{category.count}</span>
                 </div>
                 <div class="category-cards">
-                  {tagItems.map((item, index) => (
+                  {category.items.map((item, index) => (
                     <ReportCard 
                       id={item.id}
                       title={item.title}
@@ -284,54 +450,56 @@ const tagIcons: Record<string, string> = {
                   ))}
                 </div>
               </div>
-            )
+            </div>
           ))}
         </div>
       </div>
     </section>
   )}
 
-  <!-- ========== BLOCK 4: 社区热议 - 社交节奏 ========== -->
+  <!-- ========== BLOCK 4: COMMUNITY PULSE - 社交节奏 ========== -->
   {hasCommunityData && sortedCommunity.length > 0 && (
-    <section class="block block-community" id="community">
+    <section class="block block-community" id="community" aria-labelledby="community-pulse-title">
       <div class="block-container">
         <header class="block-header block-header-community">
           <div class="header-accent header-accent-community"></div>
           <div class="header-content">
             <span class="header-eyebrow">Reddit</span>
-            <h2 class="header-title">社区热议</h2>
+            <h2 class="header-title" id="community-pulse-title">Community Pulse</h2>
           </div>
           <p class="header-desc">来自 AI 社区的热门讨论</p>
         </header>
         
-        <div class="community-grid">
-          {sortedCommunity.map((item, index) => (
-            <article class="community-card" style={`--delay: ${index * 100}ms`}>
-              <div class="community-card-inner">
-                <div class="community-meta">
-                  <span class="community-subreddit">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 3.48 2.737 0 2.384-2.153 2.625-2.178 2.641l-.003.002c-.418.191-.706.159-1.122.241v.001c-.476.094-.798.137-1.179.137-.644 0-1.236-.093-1.754-.286-.647-.238-1.186-.59-1.592-1.035-.406-.445-.7-.978-.873-1.592a4.27 4.27 0 0 1-.077-1.887c.124-.511.355-.974.686-1.374.331-.4.753-.718 1.256-.949.503-.231 1.075-.347 1.703-.347.29 0 .574.02.848.061.273.04.544.104.81.188l.462-2.164h.002l.393-1.846c.032-.155.16-.27.319-.27h.002l2.53.533zm-5.077 5.827c-.521 0-.949.115-1.274.345-.325.23-.56.55-.695.956a2.49 2.49 0 0 0 .049 1.216c.125.41.349.752.668 1.019.319.267.72.401 1.195.401.277 0 .535-.04.772-.117.237-.078.46-.202.668-.37v-.001l.003-.002c.234-.19.408-.437.522-.737a2.22 2.22 0 0 0 .054-1.06 1.962 1.962 0 0 0-.597-.96 1.661 1.661 0 0 0-1.149-.425c-.166 0-.324.015-.472.044l-.016.003a1.94 1.94 0 0 0-.332.076l-.007.002h-.002c-.029.008-.057.018-.084.029l-.008.003zm8.58 1.17a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75zm-10.01 0a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75z"/>
+        <div class="community-pulse-band">
+          <div class="community-grid">
+            {sortedCommunity.map((item, index) => (
+              <article class="community-card" style={`--delay: ${index * 100}ms`}>
+                <div class="community-card-inner">
+                  <div class="community-meta">
+                    <span class="community-subreddit">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 3.48 2.737 0 2.384-2.153 2.625-2.178 2.641l-.003.002c-.418.191-.706.159-1.122.241v.001c-.476.094-.798.137-1.179.137-.644 0-1.236-.093-1.754-.286-.647-.238-1.186-.59-1.592-1.035-.406-.445-.7-.978-.873-1.592a4.27 4.27 0 0 1-.077-1.887c.124-.511.355-.974.686-1.374.331-.4.753-.718 1.256-.949.503-.231 1.075-.347 1.703-.347.29 0 .574.02.848.061.273.04.544.104.81.188l.462-2.164h.002l.393-1.846c.032-.155.16-.27.319-.27h.002l2.53.533zm-5.077 5.827c-.521 0-.949.115-1.274.345-.325.23-.56.55-.695.956a2.49 2.49 0 0 0 .049 1.216c.125.41.349.752.668 1.019.319.267.72.401 1.195.401.277 0 .535-.04.772-.117.237-.078.46-.202.668-.37v-.001l.003-.002c.234-.19.408-.437.522-.737a2.22 2.22 0 0 0 .054-1.06 1.962 1.962 0 0 0-.597-.96 1.661 1.661 0 0 0-1.149-.425c-.166 0-.324.015-.472.044l-.016.003a1.94 1.94 0 0 0-.332.076l-.007.002h-.002c-.029.008-.057.018-.084.029l-.008.003zm8.58 1.17a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75zm-10.01 0a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75z"/>
+                      </svg>
+                      r/{item.subreddit}
+                    </span>
+                    <span class="community-hot">{item.hotScore}°</span>
+                  </div>
+                  <h3 class="community-title">
+                    <a href={item.discussionUrl || item.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      {item.title}
+                    </a>
+                  </h3>
+                  <p class="community-summary">{item.summary}</p>
+                  <a href={item.discussionUrl || item.sourceUrl} target="_blank" rel="noopener noreferrer" class="community-link">
+                    查看讨论
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path d="M6 3H3v10h10V10M7 9l6-6m0 0v4m0-4H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    r/{item.subreddit}
-                  </span>
-                  <span class="community-hot">{item.hotScore}°</span>
-                </div>
-                <h3 class="community-title">
-                  <a href={item.discussionUrl || item.sourceUrl} target="_blank" rel="noopener noreferrer">
-                    {item.title}
                   </a>
-                </h3>
-                <p class="community-summary">{item.summary}</p>
-                <a href={item.discussionUrl || item.sourceUrl} target="_blank" rel="noopener noreferrer" class="community-link">
-                  查看讨论
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M6 3H3v10h10V10M7 9l6-6m0 0v4m0-4H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
-          ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
         
         <div class="community-footer">
@@ -346,32 +514,45 @@ const tagIcons: Record<string, string> = {
     </section>
   )}
 
-  <!-- ========== BLOCK 5: 继续浏览 - 行动召唤 ========== -->
-  <section class="block block-continue" id="continue">
+  <!-- ========== BLOCK 5: SOURCE LEDGER - 行动召唤 ========== -->
+  <section class="block block-continue" id="source-ledger" aria-labelledby="source-ledger-title">
     <div class="block-container">
-      <div class="continue-content">
-        <div class="continue-orb" aria-hidden="true"></div>
-        <h2 class="continue-title">探索更多</h2>
-        <p class="continue-desc">
-          {hasData 
-            ? `今日已精选 ${totalCount} 条资讯，来自 ${sourceCount}+ 个信源`
-            : '每日更新 AI 行业最新动态'
-          }
-        </p>
-        <div class="continue-actions">
-          <a href="#featured" class="continue-btn continue-btn-primary">
-            回到顶部
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href={`/archive`} class="continue-btn continue-btn-secondary">
-            浏览历史
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M8 4v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
+      <div class="source-ledger-grid">
+        <div class="source-ledger-note">
+          <div class="continue-orb" aria-hidden="true"></div>
+          <span class="source-ledger-kicker">Source Ledger</span>
+          <h2 class="continue-title" id="source-ledger-title">今日信号覆盖</h2>
+          <p class="continue-desc">{signalBrief}</p>
+          <div class="source-ledger-stats">
+            <span>Items {totalCount}</span>
+            <span>Sources {sourceCount}</span>
+            <span>Community {communityCount}</span>
+          </div>
+          <div class="continue-actions">
+            <a href="#page-top" class="continue-btn continue-btn-primary">
+              回到顶部
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#categories" class="continue-btn continue-btn-secondary">
+              浏览分类
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="source-ledger-stack">
+          {topSources.map((source, index) => (
+            <a href={source.url} target="_blank" rel="noopener noreferrer" class="source-ledger-row">
+              <span class="source-ledger-rank">0{index + 1}</span>
+              <span class="source-ledger-name">{source.name}</span>
+              <span class="source-ledger-count">{source.count}</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -393,8 +574,141 @@ const tagIcons: Record<string, string> = {
       </div>
     </div>
   </footer>
+  </main>
+
+  <script is:inline>
+    const sweepRoot = document.querySelector('[data-category-sweep-root]');
+    const sweepControls = Array.from(document.querySelectorAll('[data-category-filter]'));
+
+    if (sweepRoot && sweepControls.length > 0) {
+      const sweepPanels = Array.from(sweepRoot.querySelectorAll('[data-category-panel]'));
+
+      const activatePanel = (key) => {
+        sweepControls.forEach((control) => {
+          const isActive = control.dataset.categoryFilter === key;
+          control.classList.toggle('is-active', isActive);
+          control.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        sweepPanels.forEach((panel) => {
+          const isActive = panel.dataset.categoryPanel === key;
+          panel.hidden = !isActive;
+          panel.classList.toggle('is-active', isActive);
+        });
+      };
+
+      sweepControls.forEach((control) => {
+        control.addEventListener('click', () => activatePanel(control.dataset.categoryFilter || 'all'));
+      });
+
+      activatePanel('all');
+    }
+  </script>
 
   <style>
+    .global-rail {
+      position: sticky;
+      top: 0;
+      z-index: calc(var(--z-sticky) + 10);
+      padding: var(--space-md) var(--space-xl) 0;
+    }
+
+    .global-rail-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-full);
+      background:
+        linear-gradient(180deg, rgba(14, 17, 24, 0.88), rgba(8, 10, 15, 0.76));
+      backdrop-filter: blur(24px);
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.28),
+        0 0 32px rgba(69, 163, 255, 0.08);
+    }
+
+    .global-rail-brand,
+    .global-rail-nav a {
+      text-decoration: none;
+    }
+
+    .global-rail-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--text-primary);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+
+    .global-rail-brand-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, var(--accent-warm), var(--accent-cool));
+      box-shadow:
+        0 0 20px rgba(251, 158, 75, 0.22),
+        0 0 14px rgba(56, 189, 248, 0.18);
+    }
+
+    .global-rail-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--text-tertiary);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      font-family: var(--font-mono);
+    }
+
+    .global-rail-date {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .global-rail-separator {
+      color: var(--text-muted);
+    }
+
+    .global-rail-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .global-rail-nav a {
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      transition:
+        color var(--duration-fast) ease,
+        background-color var(--duration-fast) ease,
+        border-color var(--duration-fast) ease;
+      border: 1px solid transparent;
+    }
+
+    .global-rail-nav a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
     /* ============================================
        BLOCK 1: HERO - 舞台首屏
        ============================================ */
@@ -413,12 +727,48 @@ const tagIcons: Record<string, string> = {
     .hero-stage {
       position: relative;
       z-index: 2;
-      text-align: center;
-      max-width: 680px;
+      width: min(1160px, 100%);
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       gap: var(--space-2xl);
+    }
+
+    .signal-deck-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: var(--space-xl);
+      align-items: stretch;
+    }
+
+    .signal-deck-copy {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      padding: clamp(1.6rem, 3vw, 2.5rem);
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        linear-gradient(180deg, rgba(14, 16, 22, 0.84), rgba(8, 10, 14, 0.7)),
+        radial-gradient(circle at top left, rgba(255, 159, 67, 0.18), transparent 34%);
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.44),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 48px rgba(255, 159, 67, 0.1);
+      overflow: hidden;
+    }
+
+    .signal-deck-copy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
+      pointer-events: none;
     }
 
     /* Eyebrow */
@@ -428,6 +778,8 @@ const tagIcons: Record<string, string> = {
       gap: var(--space-sm);
       font-size: var(--text-sm);
       color: var(--text-tertiary);
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow-badge {
@@ -440,6 +792,9 @@ const tagIcons: Record<string, string> = {
       border-radius: var(--radius-full);
       font-weight: 500;
       color: var(--accent-warm);
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .badge-dot {
@@ -469,96 +824,336 @@ const tagIcons: Record<string, string> = {
     .hero-title-group {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: var(--space-md);
+      position: relative;
+      z-index: 1;
     }
 
     .hero-title {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 0.125em;
-      font-size: clamp(3.5rem, 10vw, 6rem);
-      font-weight: 800;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
+      align-items: flex-start;
+      gap: 0.04em;
+      font-size: clamp(4rem, 9vw, 7.4rem);
+      font-weight: 700;
+      line-height: 0.86;
+      letter-spacing: 0.01em;
       margin: 0;
+      font-family: var(--font-display);
+      text-transform: uppercase;
     }
 
     .title-line {
       display: block;
       color: var(--text-primary);
-      text-shadow: 0 0 60px rgba(251, 158, 75, 0.15);
+      text-shadow:
+        0 0 40px rgba(255, 159, 67, 0.18),
+        0 0 18px rgba(69, 163, 255, 0.08);
     }
 
     .title-line-accent {
       background: linear-gradient(
         135deg,
-        var(--accent-warm) 0%,
-        var(--accent-warm-light) 60%,
+        var(--accent-warm-light) 0%,
+        var(--accent-warm) 42%,
         var(--accent-cool) 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 0 30px rgba(251, 158, 75, 0.2));
+      filter: drop-shadow(0 0 30px rgba(255, 159, 67, 0.24));
     }
 
     .hero-subtitle {
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       color: var(--text-secondary);
-      font-weight: 400;
+      font-weight: 600;
       margin: 0;
       display: flex;
       flex-direction: column;
       gap: var(--space-xs);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
     }
 
     .subtitle-line {
       font-size: var(--text-sm);
       color: var(--text-tertiary);
       font-weight: 500;
+      letter-spacing: normal;
+      text-transform: none;
+      font-family: var(--font-sans);
     }
 
-    /* Metrics */
-    .hero-metrics {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-xl);
-      padding: var(--space-md) var(--space-xl);
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      backdrop-filter: blur(16px);
+    .signal-brief {
+      position: relative;
+      z-index: 1;
+      max-width: 44rem;
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.2vw, 1.08rem);
+      line-height: 1.75;
+    }
+
+    .signal-metric-tape {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-sm);
     }
 
     .metric-item {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: var(--space-xs);
       min-width: 72px;
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(14px);
     }
 
     .metric-value {
-      font-size: var(--text-2xl);
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
       font-weight: 700;
       color: var(--text-primary);
       line-height: 1;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-warm-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
     }
 
     .metric-label {
       font-size: var(--text-xs);
-      color: var(--text-tertiary);
+      color: var(--text-muted);
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .signal-tag-list {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .signal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.7rem 0.9rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+      font-size: var(--text-xs);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .signal-tag-name {
+      letter-spacing: 0.04em;
+    }
+
+    .signal-tag-count {
+      display: inline-flex;
+      min-width: 1.8rem;
+      justify-content: center;
+      padding: 0.2rem 0.45rem;
+      border-radius: 9999px;
+      background: rgba(255, 159, 67, 0.14);
+      color: var(--accent-warm-light);
+      font-family: var(--font-mono);
+    }
+
+    .primary-signal-panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: var(--space-lg);
+      border-radius: calc(var(--radius-2xl) + 4px);
+      overflow: hidden;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(16, 20, 28, 0.92), rgba(7, 10, 16, 0.84)),
+        radial-gradient(circle at top right, rgba(255, 159, 67, 0.16), transparent 34%);
+      box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(255, 159, 67, 0.18),
+        0 0 24px rgba(69, 163, 255, 0.14);
+      transition:
+        transform var(--duration-normal) var(--ease-out),
+        box-shadow var(--duration-normal) var(--ease-out),
+        border-color var(--duration-normal) var(--ease-out);
+    }
+
+    .primary-signal-panel:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 208, 139, 0.45);
+      box-shadow:
+        0 34px 92px rgba(0, 0, 0, 0.58),
+        0 0 74px rgba(255, 159, 67, 0.24),
+        0 0 30px rgba(69, 163, 255, 0.16);
+    }
+
+    .primary-panel-surface {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 24%),
+        radial-gradient(circle at 0% 0%, rgba(255, 159, 67, 0.18), transparent 38%);
+      pointer-events: none;
+    }
+
+    .primary-panel-header,
+    .primary-panel-body,
+    .primary-panel-support {
+      position: relative;
+      z-index: 1;
+    }
+
+    .primary-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .primary-panel-kicker,
+    .primary-panel-hot {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 9999px;
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .primary-panel-kicker {
+      background: rgba(69, 163, 255, 0.12);
+      color: var(--accent-cool);
+    }
+
+    .primary-panel-hot {
+      background: rgba(255, 159, 67, 0.14);
+      color: var(--accent-warm-light);
+    }
+
+    .primary-panel-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(135deg, rgba(255, 159, 67, 0.18), rgba(69, 163, 255, 0.14));
+      margin-bottom: var(--space-lg);
+    }
+
+    .primary-panel-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out);
+    }
+
+    .primary-signal-panel:hover .primary-panel-media img {
+      transform: scale(1.05);
+    }
+
+    .primary-panel-media-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      letter-spacing: 0.18em;
+    }
+
+    .primary-panel-body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .primary-panel-source {
+      margin: 0;
+      color: var(--accent-cool);
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .primary-panel-title {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .primary-panel-summary {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .primary-panel-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .primary-panel-support {
+      display: grid;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .support-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-sm);
+      align-items: flex-start;
+    }
+
+    .support-index {
+      color: var(--accent-warm-light);
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      font-family: var(--font-mono);
+    }
+
+    .support-title {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.5;
     }
 
     /* Scroll Hint */
@@ -871,6 +1466,66 @@ const tagIcons: Record<string, string> = {
       gap: var(--space-2xl);
     }
 
+    .category-sweep-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .category-sweep-control {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-secondary);
+      font: inherit;
+      font-size: var(--text-sm);
+      cursor: pointer;
+      transition:
+        border-color var(--duration-fast) ease,
+        background-color var(--duration-fast) ease,
+        color var(--duration-fast) ease,
+        transform var(--duration-fast) ease;
+    }
+
+    .category-sweep-control:hover,
+    .category-sweep-control.is-active {
+      color: var(--text-primary);
+      border-color: rgba(255, 159, 67, 0.24);
+      background: rgba(255, 159, 67, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .category-sweep-control-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.75rem;
+      min-height: 1.75rem;
+      border-radius: 9999px;
+      background: rgba(69, 163, 255, 0.12);
+      color: var(--accent-cool);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+    }
+
+    .category-sweep-panels {
+      position: relative;
+    }
+
+    .category-sweep-panel {
+      animation: fadeInUp 240ms var(--ease-out);
+    }
+
+    .category-sweep-panel[hidden] {
+      display: none;
+    }
+
     .category-section {
       display: flex;
       flex-direction: column;
@@ -932,6 +1587,18 @@ const tagIcons: Record<string, string> = {
       text-align: center;
       flex-direction: column;
       gap: var(--space-xs);
+    }
+
+    .community-pulse-band {
+      padding: var(--space-md);
+      border-radius: calc(var(--radius-2xl) + 2px);
+      border: 1px solid rgba(158, 169, 255, 0.14);
+      background:
+        linear-gradient(180deg, rgba(18, 20, 32, 0.84), rgba(10, 12, 18, 0.8)),
+        radial-gradient(circle at top, rgba(158, 169, 255, 0.14), transparent 34%);
+      box-shadow:
+        0 22px 64px rgba(0, 0, 0, 0.34),
+        0 0 44px rgba(158, 169, 255, 0.08);
     }
 
     .header-accent-community {
@@ -1093,6 +1760,91 @@ const tagIcons: Record<string, string> = {
       overflow: hidden;
     }
 
+    .source-ledger-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.85fr);
+      gap: var(--space-xl);
+      align-items: stretch;
+    }
+
+    .source-ledger-note,
+    .source-ledger-stack {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(18, 20, 24, 0.82), rgba(10, 12, 16, 0.76));
+      overflow: hidden;
+    }
+
+    .source-ledger-note {
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .source-ledger-kicker {
+      color: var(--accent-cool);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-family: var(--font-mono);
+    }
+
+    .source-ledger-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+
+    .source-ledger-stats span {
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .source-ledger-stack {
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-sm);
+      gap: var(--space-xs);
+    }
+
+    .source-ledger-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      color: inherit;
+      text-decoration: none;
+      transition:
+        background-color var(--duration-fast) ease,
+        transform var(--duration-fast) ease;
+    }
+
+    .source-ledger-row:hover {
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateX(2px);
+    }
+
+    .source-ledger-rank,
+    .source-ledger-count {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .source-ledger-name {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
     .continue-content {
       position: relative;
       z-index: 2;
@@ -1238,7 +1990,20 @@ const tagIcons: Record<string, string> = {
        RESPONSIVE
        ============================================ */
     @media (max-width: 1024px) {
+      .global-rail-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .signal-deck-shell {
+        grid-template-columns: 1fr;
+      }
+
       .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .source-ledger-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1258,18 +2023,29 @@ const tagIcons: Record<string, string> = {
     }
 
     @media (max-width: 768px) {
+      .global-rail {
+        padding: var(--space-sm) var(--space-lg) 0;
+      }
+
+      .global-rail-inner,
+      .global-rail-nav {
+        justify-content: center;
+      }
+
+      .global-rail-status {
+        order: 3;
+      }
+
       .hero {
         padding: var(--space-xl);
       }
 
-      .hero-metrics {
-        flex-direction: column;
-        gap: var(--space-md);
-        padding: var(--space-md) var(--space-lg);
+      .hero-title {
+        font-size: clamp(3.4rem, 12vw, 5rem);
       }
 
-      .hero-title {
-        font-size: clamp(3rem, 10vw, 4rem);
+      .signal-metric-tape {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .block {
@@ -1289,6 +2065,10 @@ const tagIcons: Record<string, string> = {
 
       .continue-btn {
         justify-content: center;
+      }
+
+      .signal-tag-list {
+        gap: var(--space-xs);
       }
     }
   </style>

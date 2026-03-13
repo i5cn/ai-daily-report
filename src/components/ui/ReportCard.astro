@@ -66,6 +66,13 @@ const gradients = [
 ];
 const gradientIndex = index % gradients.length;
 const fallbackGradient = gradients[gradientIndex];
+const cardHref = discussionUrl || sourceUrl;
+const hasSummary = Boolean(summary?.trim());
+const displaySummary = hasSummary
+  ? summary
+  : isCommunity
+    ? '打开社区讨论，快速浏览今日高热度观点。'
+    : '打开原文，查看完整资讯与上下文。';
 
 // 获取首字母用于占位显示
 const getInitials = (text: string) => {
@@ -80,92 +87,90 @@ const cardClasses = `report-card ${isCommunity ? 'community-card' : ''} report-c
   class={cardClasses}
   style={`--delay: ${animationDelay}`}
 >
-  {variant !== 'minimal' && (
-    <div class="card-image-wrapper">
-      {imageUrl ? (
-        <img 
-          src={imageUrl} 
-          alt=""
-          class="card-image"
-          loading="lazy"
-        />
-      ) : (
-        <div class="card-image-placeholder" style={`background: ${fallbackGradient}`}>
-          <span class="placeholder-initials">{getInitials(title)}</span>
-        </div>
-      )}
-      
-      {/* 标签 */}
-      {tags.length > 0 && variant === 'default' && (
-        <div class="card-tags">
-          {tags.slice(0, 2).map(tag => (
-            <span class={`tag ${isCommunity ? 'tag-community' : ''}`}>{tag}</span>
-          ))}
-        </div>
-      )}
-      
-      {/* 社区标识 */}
-      {isCommunity && subreddit && variant === 'default' && (
-        <div class="community-badge">
-          <span>r/{subreddit}</span>
-        </div>
-      )}
-    </div>
-  )}
-  
-  {/* 内容区域 */}
-  <div class="card-content">
-    {/* 来源信息 */}
-    <div class="card-meta">
-      <div class="source-info">
-        {isCommunity ? (
-          <>
-            <span class="source-icon-community">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 3.48 2.737 0 2.384-2.153 2.625-2.178 2.641l-.003.002c-.418.191-.706.159-1.122.241v.001c-.476.094-.798.137-1.179.137-.644 0-1.236-.093-1.754-.286-.647-.238-1.186-.59-1.592-1.035-.406-.445-.7-.978-.873-1.592a4.27 4.27 0 0 1-.077-1.887c.124-.511.355-.974.686-1.374.331-.4.753-.718 1.256-.949.503-.231 1.075-.347 1.703-.347.29 0 .574.02.848.061.273.04.544.104.81.188l.462-2.164h.002l.393-1.846c.032-.155.16-.27.319-.27h.002l2.53.533zm-5.077 5.827c-.521 0-.949.115-1.274.345-.325.23-.56.55-.695.956a2.49 2.49 0 0 0 .049 1.216c.125.41.349.752.668 1.019.319.267.72.401 1.195.401.277 0 .535-.04.772-.117.237-.078.46-.202.668-.37v-.001l.003-.002c.234-.19.408-.437.522-.737a2.22 2.22 0 0 0 .054-1.06 1.962 1.962 0 0 0-.597-.96 1.661 1.661 0 0 0-1.149-.425c-.166 0-.324.015-.472.044l-.016.003a1.94 1.94 0 0 0-.332.076l-.007.002h-.002c-.029.008-.057.018-.084.029l-.008.003zm8.58 1.17a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75zm-10.01 0a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75z"/>
-              </svg>
-            </span>
-            <span class="source-name">r/{subreddit}</span>
-          </>
+  <a
+    href={cardHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="report-card-link"
+  >
+    {variant !== 'minimal' && (
+      <div class="card-image-wrapper">
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={title}
+            class="card-image"
+            loading="lazy"
+          />
         ) : (
-          <>
-            <span class="source-icon"></span>
-            <span class="source-name">{source}</span>
-          </>
+          <div class="card-image-placeholder" style={`background: ${fallbackGradient}`}>
+            <span class="placeholder-initials">{getInitials(title)}</span>
+          </div>
+        )}
+        
+        {/* 标签 */}
+        {tags.length > 0 && variant === 'default' && (
+          <div class="card-tags">
+            {tags.slice(0, 2).map(tag => (
+              <span class={`tag ${isCommunity ? 'tag-community' : ''}`}>{tag}</span>
+            ))}
+          </div>
+        )}
+        
+        {/* 社区标识 */}
+        {isCommunity && subreddit && variant === 'default' && (
+          <div class="community-badge">
+            <span>r/{subreddit}</span>
+          </div>
         )}
       </div>
-      <time class="publish-time" datetime={publishedAt}>
-        {formatDate(publishedAt)}
-      </time>
-    </div>
-    
-    {/* 标题 */}
-    <h3 class="card-title">
-      <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
-        {title}
-      </a>
-    </h3>
-    
-    {/* 摘要 - 仅在 default 和 compact 变体中显示 */}
-    {variant !== 'minimal' && (
-      <p class="card-summary">{summary}</p>
     )}
     
-    {/* 操作栏 */}
-    <div class="card-actions">
-      <a 
-        href={discussionUrl || sourceUrl} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class={`action-link ${isCommunity ? 'action-link-community' : ''}`}
-      >
-        <span>{isCommunity ? '查看讨论' : '阅读'}</span>
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-          <path d="M6 3H3v10h10V10M7 9l6-6m0 0v4m0-4H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+    {/* 内容区域 */}
+    <div class="card-content">
+      {/* 来源信息 */}
+      <div class="card-meta">
+        <div class="source-info">
+          {isCommunity ? (
+            <>
+              <span class="source-icon-community">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 3.48 2.737 0 2.384-2.153 2.625-2.178 2.641l-.003.002c-.418.191-.706.159-1.122.241v.001c-.476.094-.798.137-1.179.137-.644 0-1.236-.093-1.754-.286-.647-.238-1.186-.59-1.592-1.035-.406-.445-.7-.978-.873-1.592a4.27 4.27 0 0 1-.077-1.887c.124-.511.355-.974.686-1.374.331-.4.753-.718 1.256-.949.503-.231 1.075-.347 1.703-.347.29 0 .574.02.848.061.273.04.544.104.81.188l.462-2.164h.002l.393-1.846c.032-.155.16-.27.319-.27h.002l2.53.533zm-5.077 5.827c-.521 0-.949.115-1.274.345-.325.23-.56.55-.695.956a2.49 2.49 0 0 0 .049 1.216c.125.41.349.752.668 1.019.319.267.72.401 1.195.401.277 0 .535-.04.772-.117.237-.078.46-.202.668-.37v-.001l.003-.002c.234-.19.408-.437.522-.737a2.22 2.22 0 0 0 .054-1.06 1.962 1.962 0 0 0-.597-.96 1.661 1.661 0 0 0-1.149-.425c-.166 0-.324.015-.472.044l-.016.003a1.94 1.94 0 0 0-.332.076l-.007.002h-.002c-.029.008-.057.018-.084.029l-.008.003zm8.58 1.17a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75zm-10.01 0a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75z"/>
+                </svg>
+              </span>
+              <span class="source-name">r/{subreddit}</span>
+            </>
+          ) : (
+            <>
+              <span class="source-icon"></span>
+              <span class="source-name">{source}</span>
+            </>
+          )}
+        </div>
+        <time class="publish-time" datetime={publishedAt}>
+          {formatDate(publishedAt)}
+        </time>
+      </div>
+      
+      {/* 标题 */}
+      <h3 class="card-title">{title}</h3>
+      
+      {/* 摘要 - 仅在 default 和 compact 变体中显示 */}
+      {variant !== 'minimal' && (
+        <p class="card-summary">{displaySummary}</p>
+      )}
+      
+      {/* 操作栏 */}
+      <div class="card-actions">
+        <span class={`card-cta ${isCommunity ? 'card-cta-community' : ''}`}>
+          <span>{isCommunity ? '查看讨论' : '阅读原文'}</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M6 3H3v10h10V10M7 9l6-6m0 0v4m0-4H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
     </div>
-  </div>
+  </a>
 </article>
 
 <style>
@@ -185,6 +190,15 @@ const cardClasses = `report-card ${isCommunity ? 'community-card' : ''} report-c
     animation-delay: var(--delay);
     box-shadow: var(--shadow-card);
     border: 1px solid var(--border-subtle);
+  }
+
+  .report-card-link {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   @keyframes cardEnter {
@@ -405,6 +419,41 @@ const cardClasses = `report-card ${isCommunity ? 'community-card' : ''} report-c
     margin: 0;
   }
 
+  .card-title {
+    color: var(--text-primary);
+    background: linear-gradient(
+      to right,
+      var(--accent-cool) 0%,
+      var(--accent-cool) 50%,
+      var(--text-primary) 50%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: background-position var(--duration-normal) ease;
+  }
+
+  .community-card .card-title {
+    background: linear-gradient(
+      to right,
+      var(--accent-warm) 0%,
+      var(--accent-warm) 50%,
+      var(--text-primary) 50%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .report-card-link:hover .card-title,
+  .report-card-link:focus-visible .card-title {
+    background-position: 0 0;
+  }
+
   .card-title a {
     color: var(--text-primary);
     text-decoration: none;
@@ -459,7 +508,7 @@ const cardClasses = `report-card ${isCommunity ? 'community-card' : ''} report-c
     padding-top: var(--space-md);
   }
 
-  .action-link {
+  .card-cta {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
@@ -470,31 +519,33 @@ const cardClasses = `report-card ${isCommunity ? 'community-card' : ''} report-c
     color: var(--accent-cool);
     font-size: var(--text-xs);
     font-weight: 500;
-    text-decoration: none;
     transition: all var(--duration-fast) var(--ease-out);
   }
 
-  .action-link-community {
+  .card-cta-community {
     background: var(--accent-warm-soft);
     border-color: rgba(251, 158, 75, 0.12);
     color: var(--accent-warm);
   }
 
-  .action-link:hover {
+  .report-card-link:hover .card-cta,
+  .report-card-link:focus-visible .card-cta {
     background: rgba(56, 189, 248, 0.12);
     border-color: rgba(56, 189, 248, 0.2);
   }
 
-  .action-link-community:hover {
+  .report-card-link:hover .card-cta-community,
+  .report-card-link:focus-visible .card-cta-community {
     background: rgba(251, 158, 75, 0.12);
     border-color: rgba(251, 158, 75, 0.2);
   }
 
-  .action-link svg {
+  .card-cta svg {
     transition: transform var(--duration-fast) ease;
   }
 
-  .action-link:hover svg {
+  .report-card-link:hover .card-cta svg,
+  .report-card-link:focus-visible .card-cta svg {
     transform: translate(2px, -2px);
   }
 </style>
