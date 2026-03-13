@@ -1,13 +1,12 @@
 /**
- * AI Daily Report - Global Styles
- * Liquid Metal Design System 2.0
+ * AI Daily Report - Global Styles v3
+ * Stage-like Design System: 舞台感、空气感、暗部支撑、节奏分区
  * 
- * 设计哲学：高级液态金属美学
- * - 银白镜面质感基底
- * - 流动的光线与反射
- * - 冷峻的金属色调
- * - 微妙的动态质感
- * - 未来主义产品感
+ * 设计理念：
+ * - 首屏为舞台，深底+聚光氛围
+ * - 内容区分区块，节奏清晰
+ * - 卡片有主次权重
+ * - 动态柔和可感知
  */
 
 /* ============================================
@@ -16,53 +15,62 @@
 
 :root {
   /* ------------------------------------------
-     LIQUID METAL COLOR PALETTE
-     液态金属色彩系统 - 银白镜面风格
+     COLOR PALETTE - 深底舞台色系 v4 refined
+     更精致的色彩层次，更稳重的舞台感
      ------------------------------------------ */
   
-  /* Core Metallic Tones - 核心金属色调 */
-  --lm-chrome: #ffffff;
-  --lm-silver: #f5f6f8;
-  --lm-steel: #e8eaed;
-  --lm-graphite: #9aa0a6;
-  --lm-obsidian: #3c4043;
+  /* Background Scale - 深色层次系统 */
+  --bg-primary: #09090b;
+  --bg-secondary: #0f0f11;
+  --bg-tertiary: #16161a;
+  --bg-elevated: #1c1c21;
   
-  /* Iridescent Accents - 虹彩强调色 */
-  --lm-iridescent: #669df6;
-  --lm-iridescent-warm: #fbbc04;
-  --lm-iridescent-cool: #34a853;
+  /* Depth Colors - 发光/阴影深度 */
+  --depth-glow-1: rgba(251, 146, 60, 0.12);
+  --depth-glow-2: rgba(8, 145, 178, 0.10);
+  --depth-glow-3: rgba(124, 58, 237, 0.06);
+  --depth-shadow: rgba(0, 0, 0, 0.6);
   
-  /* Surface Colors - 表面层级 - 银白镜面风格 */
-  --surface-base: #f8f9fa;
-  --surface-elevated: rgba(255, 255, 255, 0.85);
-  --surface-glass: rgba(255, 255, 255, 0.65);
-  --surface-metal: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(248, 249, 250, 0.9) 50%,
-    rgba(245, 246, 248, 0.85) 100%
-  );
+  /* Stage Gradients - 舞台渐变 - 更克制的光晕 */
+  --gradient-stage: radial-gradient(ellipse 70% 45% at 50% 0%, rgba(251, 146, 60, 0.06) 0%, transparent 55%);
+  --gradient-ambient: radial-gradient(ellipse 50% 35% at 75% 25%, rgba(8, 145, 178, 0.05) 0%, transparent 50%);
+  --gradient-depth: radial-gradient(ellipse 100% 35% at 50% 100%, rgba(0, 0, 0, 0.7) 0%, transparent 65%);
+  
+  /* Warm Accents - 暖调强调 - 更稳重 */
+  --accent-warm: #f59e4b;
+  --accent-warm-light: #fbbf7a;
+  --accent-warm-soft: rgba(251, 158, 75, 0.12);
+  --accent-warm-dim: rgba(251, 158, 75, 0.06);
+  
+  /* Cool Accents - 冷调平衡 */
+  --accent-cool: #38bdf8;
+  --accent-cool-soft: rgba(56, 189, 248, 0.10);
+  --accent-cool-dim: rgba(56, 189, 248, 0.05);
+  
+  /* Purple Accent - 第三强调色 */
+  --accent-purple: #a5b4fc;
+  --accent-purple-soft: rgba(165, 180, 252, 0.10);
+  
+  /* Neutral Accents */
+  --accent-success: #4ade80;
+  --accent-warning: #fbbf24;
+  --accent-error: #f87171;
 
-  /* Text Colors - 文字层级 - 深色文字配浅背景 */
-  --text-primary: #202124;
-  --text-secondary: #5f6368;
-  --text-tertiary: #80868b;
-  --text-muted: #9aa0a6;
+  /* Text Colors - 文字层级（暗底）- 更柔和的对比 */
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-muted: #52525b;
+  --text-inverse: #18181b;
   
-  /* Border Colors - 边框层级 */
-  --border-subtle: rgba(0, 0, 0, 0.04);
-  --border-default: rgba(0, 0, 0, 0.06);
-  --border-strong: rgba(0, 0, 0, 0.1);
-  
-  /* Accent Colors - 功能色 */
-  --accent-info: var(--lm-iridescent);
-  --accent-success: #34a853;
-  --accent-warning: #fbbc04;
-  --accent-error: #ea4335;
+  /* Border Colors - 暗色边框 - 更精致 */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(251, 158, 75, 0.15);
 
   /* ------------------------------------------
      TYPOGRAPHY SCALE
-     字体层级系统
      ------------------------------------------ */
   
   /* Font Families */
@@ -77,32 +85,32 @@
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
-  --text-4xl: 2.5rem;
-  --text-5xl: 3.5rem;
-  --text-6xl: 5rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
   
   /* Line Heights */
-  --leading-tight: 1.2;
+  --leading-tight: 1.1;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.7;
+  --leading-relaxed: 1.75;
 
   /* ------------------------------------------
-     SPACING SCALE
-     间距系统
+     SPACING SCALE - v4 refined
      ------------------------------------------ */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 6rem;
-  --space-5xl: 8rem;
+  --space-md: 0.875rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.75rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3.5rem;
+  --space-4xl: 5rem;
+  --space-5xl: 7rem;
+  --space-6xl: 10rem;
 
   /* ------------------------------------------
      BORDER RADIUS
-     圆角系统
      ------------------------------------------ */
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -112,64 +120,52 @@
   --radius-full: 9999px;
 
   /* ------------------------------------------
-     MOTION TOKENS (Animation)
-     动效令牌 - 克制优雅
+     MOTION TOKENS - 舞台级动效
      ------------------------------------------ */
   
   /* Durations */
-  --duration-instant: 0ms;
   --duration-fast: 150ms;
   --duration-normal: 300ms;
   --duration-slow: 500ms;
-  --duration-slower: 800ms;
+  --duration-dramatic: 800ms;
   
-  /* Easing Functions */
-  --ease-linear: linear;
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Liquid Metal Special Easings */
-  --ease-liquid: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-metallic: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-magnetic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
 
   /* ------------------------------------------
-     EFFECTS & SHADOWS
-     特效与阴影 - 轻盈镜面风格
+     SHADOWS - 暗色发光阴影 v4 refined
      ------------------------------------------ */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
   
-  /* Liquid Shadows - 层级阴影 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.04);
-  --shadow-floating: 0 24px 64px rgba(0, 0, 0, 0.12), 0 12px 32px rgba(0, 0, 0, 0.06);
+  /* Glow Effects - 更克制的光晕 */
+  --glow-warm: 0 0 30px rgba(251, 158, 75, 0.12);
+  --glow-cool: 0 0 30px rgba(56, 189, 248, 0.08);
+  --glow-subtle: 0 0 40px rgba(251, 158, 75, 0.06);
   
-  /* Metallic Glows */
-  --glow-chrome: 0 0 40px rgba(255, 255, 255, 0.6);
-  --glow-silver: 0 0 60px rgba(245, 246, 248, 0.5);
-  --glow-iridescent: 0 0 40px rgba(102, 157, 246, 0.2);
+  /* Card specific - 更精致的卡片阴影 */
+  --shadow-card: 
+    0 0 0 1px var(--border-subtle),
+    0 2px 4px -1px rgba(0, 0, 0, 0.25);
   
-  /* Blur Values */
-  --blur-sm: 8px;
-  --blur-md: 16px;
-  --blur-lg: 32px;
-  --blur-xl: 60px;
+  --shadow-card-hover:
+    0 0 0 1px var(--border-default),
+    0 12px 20px -5px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(251, 158, 75, 0.06);
 
   /* ------------------------------------------
      Z-INDEX SCALE
-     层级系统
      ------------------------------------------ */
   --z-base: 0;
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-fixed: 300;
-  --z-modal-backdrop: 400;
-  --z-modal: 500;
-  --z-popover: 600;
-  --z-tooltip: 700;
-  --z-toast: 800;
+  --z-content: 10;
+  --z-sticky: 100;
+  --z-fixed: 200;
+  --z-modal: 300;
 }
 
 /* ============================================
@@ -195,197 +191,207 @@ body {
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: var(--text-primary);
-  background-color: var(--surface-base);
+  background-color: var(--bg-primary);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(102, 157, 246, 0.25);
+  background: rgba(251, 146, 60, 0.3);
   color: var(--text-primary);
 }
 
-/* Scrollbar */
+/* Scrollbar - 暗色主题 */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--lm-steel);
+  background: var(--text-muted);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--lm-graphite);
+  background: var(--text-tertiary);
 }
 
 /* ============================================
-   LIQUID METAL BACKGROUND SYSTEM
-   液态金属背景系统 - 克制的高级感
+   STAGE BACKGROUND SYSTEM
+   舞台感背景 - 聚光、空气、暗部支撑
    ============================================ */
 
-.liquid-bg {
+.stage-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: 
-    /* 主背景 - 极浅银白 */
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 255, 255, 1) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 50% 120%, rgba(248, 249, 250, 0.8) 0%, transparent 40%),
-    var(--surface-base);
+  background: var(--bg-primary);
 }
 
-/* 液态金属球体 - 大面积柔和雾化效果 */
-.liquid-blob {
+/* 主舞台聚光 - 更集中的聚光效果 */
+.stage-spotlight {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(var(--blur-xl));
-  opacity: 0.5;
-  animation: blobBreath 25s ease-in-out infinite;
-}
-
-/* 主光球 - 顶部大面积镜面高光 */
-.blob-1 {
-  width: 120vw;
-  height: 80vh;
+  width: 100vw;
+  height: 70vh;
+  top: -15vh;
+  left: 0;
   background: radial-gradient(
-    ellipse at 50% 0%,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(248, 249, 250, 0.5) 30%,
-    rgba(245, 246, 248, 0.2) 50%,
-    transparent 70%
+    ellipse 50% 45% at 50% 0%,
+    rgba(251, 158, 75, 0.10) 0%,
+    rgba(251, 158, 75, 0.03) 35%,
+    transparent 65%
   );
-  top: -30vh;
-  left: -10vw;
-  animation-delay: 0s;
+  animation: spotlightBreathe 12s ease-in-out infinite;
+  filter: blur(50px);
 }
 
-/* 次光球 - 右下角柔和反射 */
-.blob-2 {
-  width: 80vw;
+/* 环境光晕 - 右侧冷调 - 更微妙 */
+.stage-ambient-cool {
+  position: absolute;
+  width: 60vw;
+  height: 50vh;
+  top: 25%;
+  right: -15vw;
+  background: radial-gradient(
+    ellipse 45% 35% at 100% 50%,
+    rgba(56, 189, 248, 0.06) 0%,
+    transparent 55%
+  );
+  animation: ambientFloat 18s ease-in-out infinite;
+  filter: blur(70px);
+}
+
+/* 环境光晕 - 左侧紫调 - 更克制 */
+.stage-ambient-purple {
+  position: absolute;
+  width: 50vw;
+  height: 45vh;
+  top: 45%;
+  left: -12vw;
+  background: radial-gradient(
+    ellipse 40% 35% at 0% 50%,
+    rgba(165, 180, 252, 0.04) 0%,
+    transparent 50%
+  );
+  animation: ambientFloat 22s ease-in-out infinite reverse;
+  filter: blur(60px);
+}
+
+/* 底部暗部支撑 - 更深邃的暗部 */
+.stage-depth {
+  position: absolute;
+  width: 100vw;
   height: 60vh;
-  background: radial-gradient(
-    ellipse at 50% 100%,
-    rgba(232, 234, 237, 0.4) 0%,
-    rgba(245, 246, 248, 0.2) 40%,
-    transparent 70%
-  );
-  bottom: -20vh;
-  right: -20vw;
-  animation-delay: -8s;
-}
-
-/* 虹彩微光 - 左上角冷色 */
-.blob-3 {
-  width: 40vw;
-  height: 40vw;
-  max-width: 600px;
-  max-height: 600px;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(102, 157, 246, 0.08) 0%,
-    rgba(255, 255, 255, 0.15) 40%,
-    transparent 70%
-  );
-  top: 10%;
-  left: -10%;
-  animation-delay: -16s;
-}
-
-/* 暖色微光 - 右侧 */
-.blob-4 {
-  width: 30vw;
-  height: 30vw;
-  max-width: 500px;
-  max-height: 500px;
-  background: radial-gradient(
-    circle at 70% 70%,
-    rgba(251, 188, 4, 0.04) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
-  );
-  top: 40%;
-  right: -5%;
-  animation-delay: -5s;
-}
-
-@keyframes blobBreath {
-  0%, 100% {
-    transform: scale(1) translate(0, 0);
-    opacity: 0.5;
-  }
-  33% {
-    transform: scale(1.05) translate(2%, -1%);
-    opacity: 0.55;
-  }
-  66% {
-    transform: scale(0.98) translate(-1%, 1%);
-    opacity: 0.48;
-  }
-}
-
-/* 光线扫过效果 - 极其克制 */
-.liquid-shine {
-  position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
   background: linear-gradient(
-    105deg,
-    transparent 0%,
-    transparent 40%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 60%,
+    to top,
+    rgba(9, 9, 11, 0.95) 0%,
+    rgba(9, 9, 11, 0.7) 25%,
+    rgba(9, 9, 11, 0.3) 50%,
     transparent 100%
   );
-  background-size: 300% 100%;
-  animation: shineSweep 20s ease-in-out infinite;
-  opacity: 0.6;
-}
-
-@keyframes shineSweep {
-  0%, 100% {
-    background-position: 300% 0;
-  }
-  50% {
-    background-position: -300% 0;
-  }
-}
-
-/* 镜面反射覆盖层 */
-.chrome-gradient {
-  position: absolute;
-  inset: 0;
-  background: 
-    /* 顶部镜面高光 */
-    linear-gradient(180deg, 
-      rgba(255, 255, 255, 0.6) 0%, 
-      rgba(255, 255, 255, 0.15) 25%,
-      transparent 50%
-    ),
-    /* 底部柔和反射 */
-    linear-gradient(0deg,
-      rgba(248, 249, 250, 0.4) 0%,
-      rgba(248, 249, 250, 0.1) 20%,
-      transparent 40%
-    );
   pointer-events: none;
 }
 
-/* 噪点纹理 - 增加金属质感 */
-.metallic-noise {
+/* 微光粒子 - 更稀疏精致 */
+.stage-particles {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-image: 
+    radial-gradient(circle at 25% 35%, rgba(251, 158, 75, 0.025) 0%, transparent 2px),
+    radial-gradient(circle at 75% 65%, rgba(56, 189, 248, 0.02) 0%, transparent 2px),
+    radial-gradient(circle at 45% 75%, rgba(251, 158, 75, 0.015) 0%, transparent 1.5px);
+  background-size: 220px 220px, 280px 280px, 200px 200px;
+  animation: particleDrift 35s linear infinite;
+  opacity: 0.8;
+}
+
+/* 噪点纹理 - 更细腻的质感 */
+.stage-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   opacity: 0.015;
   pointer-events: none;
   mix-blend-mode: overlay;
+}
+
+/* 网格结构线 - 更淡更精致 */
+.stage-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 140px 140px;
+  pointer-events: none;
+}
+
+/* 动画定义 - 更克制的呼吸感 */
+@keyframes spotlightBreathe {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-1%);
+  }
+}
+
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(1.5%, -0.5%) rotate(0.5deg);
+    opacity: 0.65;
+  }
+  66% {
+    transform: translate(-0.5%, 1.5%) rotate(-0.5deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes particleDrift {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 200px 200px, 250px 250px, 180px 180px, 220px 220px;
+  }
+}
+
+/* ============================================
+   CONTENT SECTION TRANSITIONS
+   内容区块过渡
+   ============================================ */
+
+.section-transition {
+  position: relative;
+  height: 200px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--bg-secondary) 100%
+  );
 }
 
 /* ============================================
@@ -405,7 +411,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--lm-iridescent);
+  outline: 2px solid var(--accent-warm);
   outline-offset: 2px;
 }
 
