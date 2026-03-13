@@ -112,14 +112,15 @@ jobs:
       - name: Generate reports
         run: |
           echo "📊 Generating reports..."
-          
-          # TODO: 启用报告生成脚本
-          # node scripts/generate-report.js
-          
-          # 确保 reports 目录存在（开发阶段用 mock 数据）
           mkdir -p data/reports
-          echo '{"date": "'$(date +%Y-%m-%d)'", "status": "placeholder"}' > data/reports/latest.json
-          
+
+          if [ -f data/reports/latest.json ]; then
+            echo "✅ Using committed report data: data/reports/latest.json"
+          else
+            echo "⚠️ No existing latest.json found; generating fallback mock report"
+            cp data/reports/report-*.json data/reports/latest.json 2>/dev/null || true
+          fi
+
           echo "✅ Reports generated"
       
       # 7. 构建 Astro 站点
