@@ -20,36 +20,36 @@
      ------------------------------------------ */
   
   /* Background Scale - 深色层次系统 */
-  --bg-primary: #06070a;
-  --bg-secondary: #0d1017;
-  --bg-tertiary: #131824;
-  --bg-elevated: #1a2130;
+  --bg-primary: #030714;
+  --bg-secondary: #091122;
+  --bg-tertiary: #10192d;
+  --bg-elevated: #182238;
   
   /* Depth Colors - 发光/阴影深度 */
-  --depth-glow-1: rgba(245, 158, 75, 0.24);
-  --depth-glow-2: rgba(69, 163, 255, 0.18);
-  --depth-glow-3: rgba(120, 119, 255, 0.12);
+  --depth-glow-1: rgba(255, 89, 89, 0.28);
+  --depth-glow-2: rgba(0, 221, 255, 0.2);
+  --depth-glow-3: rgba(107, 143, 255, 0.12);
   --depth-shadow: rgba(0, 0, 0, 0.6);
   
   /* Stage Gradients - 舞台渐变 - 更克制的光晕 */
-  --gradient-stage: radial-gradient(ellipse 74% 52% at 50% 0%, rgba(245, 158, 75, 0.18) 0%, rgba(245, 158, 75, 0.08) 24%, transparent 62%);
-  --gradient-ambient: radial-gradient(ellipse 55% 42% at 78% 22%, rgba(69, 163, 255, 0.14) 0%, transparent 58%);
-  --gradient-depth: radial-gradient(ellipse 120% 46% at 50% 100%, rgba(0, 0, 0, 0.86) 0%, transparent 70%);
+  --gradient-stage: radial-gradient(ellipse 74% 52% at 32% 12%, rgba(255, 84, 84, 0.22) 0%, rgba(255, 84, 84, 0.08) 26%, transparent 62%);
+  --gradient-ambient: radial-gradient(ellipse 56% 44% at 80% 18%, rgba(0, 221, 255, 0.18) 0%, transparent 58%);
+  --gradient-depth: radial-gradient(ellipse 120% 50% at 50% 100%, rgba(2, 5, 16, 0.92) 0%, transparent 72%);
   
   /* Warm Accents - 暖调强调 - 更稳重 */
-  --accent-warm: #ff9f43;
-  --accent-warm-light: #ffd08b;
-  --accent-warm-soft: rgba(255, 159, 67, 0.18);
-  --accent-warm-dim: rgba(255, 159, 67, 0.08);
+  --accent-warm: #ff5d5d;
+  --accent-warm-light: #ffb2b2;
+  --accent-warm-soft: rgba(255, 93, 93, 0.18);
+  --accent-warm-dim: rgba(255, 93, 93, 0.08);
   
   /* Cool Accents - 冷调平衡 */
-  --accent-cool: #45a3ff;
-  --accent-cool-soft: rgba(69, 163, 255, 0.14);
-  --accent-cool-dim: rgba(69, 163, 255, 0.08);
+  --accent-cool: #23d7ff;
+  --accent-cool-soft: rgba(35, 215, 255, 0.14);
+  --accent-cool-dim: rgba(35, 215, 255, 0.08);
   
   /* Purple Accent - 第三强调色 */
-  --accent-purple: #9ea9ff;
-  --accent-purple-soft: rgba(158, 169, 255, 0.14);
+  --accent-purple: #7ea2ff;
+  --accent-purple-soft: rgba(126, 162, 255, 0.14);
   
   /* Neutral Accents */
   --accent-success: #4ade80;
@@ -57,10 +57,10 @@
   --accent-error: #f87171;
 
   /* Text Colors - 文字层级（暗底）- 更柔和的对比 */
-  --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --text-tertiary: #71717a;
-  --text-muted: #52525b;
+  --text-primary: #f3f6ff;
+  --text-secondary: #bac4da;
+  --text-tertiary: #8995af;
+  --text-muted: #64708c;
   --text-inverse: #18181b;
   
   /* Border Colors - 暗色边框 - 更精致 */
@@ -74,7 +74,7 @@
      ------------------------------------------ */
   
   /* Font Families */
-  --font-display: 'Rajdhani', 'Arial Narrow', sans-serif;
+  --font-display: 'Outfit', 'Arial Narrow', sans-serif;
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
   
@@ -194,8 +194,9 @@ body {
   line-height: var(--leading-normal);
   color: var(--text-primary);
   background:
-    radial-gradient(circle at top, rgba(255, 159, 67, 0.08), transparent 30%),
-    radial-gradient(circle at 80% 15%, rgba(69, 163, 255, 0.12), transparent 26%),
+    radial-gradient(circle at 24% 12%, rgba(255, 76, 76, 0.18), transparent 34%),
+    radial-gradient(circle at 82% 18%, rgba(0, 214, 255, 0.2), transparent 28%),
+    radial-gradient(circle at 50% 120%, rgba(19, 38, 82, 0.34), transparent 42%),
     var(--bg-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -238,63 +239,64 @@ body {
   overflow: hidden;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(5, 8, 14, 0.18), transparent 30%),
+    radial-gradient(circle at 26% 15%, rgba(255, 70, 70, 0.16), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(0, 209, 255, 0.16), transparent 24%),
+    linear-gradient(180deg, rgba(5, 10, 20, 0.12), transparent 34%),
     var(--bg-primary);
 }
 
-/* 主舞台聚光 - 更集中的聚光效果 */
+/* 主舞台聚光 */
 .stage-spotlight {
   position: absolute;
   width: 100vw;
-  height: 70vh;
-  top: -15vh;
-  left: 0;
+  height: 78vh;
+  top: -18vh;
+  left: -8vw;
   background: radial-gradient(
-    ellipse 50% 45% at 50% 0%,
-    rgba(255, 159, 67, 0.22) 0%,
-    rgba(255, 159, 67, 0.12) 26%,
-    rgba(255, 159, 67, 0.04) 42%,
+    ellipse 58% 50% at 28% 10%,
+    rgba(255, 80, 80, 0.32) 0%,
+    rgba(255, 80, 80, 0.16) 24%,
+    rgba(255, 80, 80, 0.05) 46%,
     transparent 72%
   );
   animation: spotlightBreathe 12s ease-in-out infinite;
-  filter: blur(72px);
+  filter: blur(82px);
 }
 
-/* 环境光晕 - 右侧冷调 - 更微妙 */
+/* 环境光晕 - 右侧冷调 */
 .stage-ambient-cool {
   position: absolute;
-  width: 60vw;
-  height: 50vh;
-  top: 25%;
-  right: -15vw;
+  width: 72vw;
+  height: 58vh;
+  top: 12%;
+  right: -18vw;
   background: radial-gradient(
-    ellipse 45% 35% at 100% 50%,
-    rgba(69, 163, 255, 0.14) 0%,
-    rgba(69, 163, 255, 0.06) 28%,
+    ellipse 48% 38% at 100% 40%,
+    rgba(0, 216, 255, 0.2) 0%,
+    rgba(0, 216, 255, 0.08) 30%,
     transparent 60%
   );
   animation: ambientFloat 18s ease-in-out infinite;
-  filter: blur(86px);
+  filter: blur(90px);
 }
 
-/* 环境光晕 - 左侧紫调 - 更克制 */
+/* 辅助环境层 */
 .stage-ambient-purple {
   position: absolute;
-  width: 50vw;
-  height: 45vh;
-  top: 45%;
-  left: -12vw;
+  width: 62vw;
+  height: 58vh;
+  top: 34%;
+  left: 8vw;
   background: radial-gradient(
-    ellipse 40% 35% at 0% 50%,
-    rgba(158, 169, 255, 0.1) 0%,
-    rgba(158, 169, 255, 0.04) 28%,
-    transparent 54%
+    ellipse 46% 38% at 50% 30%,
+    rgba(84, 119, 255, 0.12) 0%,
+    rgba(84, 119, 255, 0.04) 30%,
+    transparent 58%
   );
   animation: ambientFloat 22s ease-in-out infinite reverse;
-  filter: blur(78px);
+  filter: blur(84px);
 }
 
-/* 底部暗部支撑 - 更深邃的暗部 */
 .stage-depth {
   position: absolute;
   width: 100vw;
@@ -303,25 +305,27 @@ body {
   left: 0;
   background: linear-gradient(
     to top,
-    rgba(9, 9, 11, 0.95) 0%,
-    rgba(9, 9, 11, 0.7) 25%,
-    rgba(9, 9, 11, 0.3) 50%,
+    rgba(3, 6, 18, 0.96) 0%,
+    rgba(3, 6, 18, 0.72) 25%,
+    rgba(3, 6, 18, 0.28) 52%,
     transparent 100%
   );
   pointer-events: none;
 }
 
-/* 微光粒子 - 更稀疏精致 */
+/* 星空点状背景 */
 .stage-particles {
   position: absolute;
   inset: 0;
   background-image: 
-    radial-gradient(circle at 25% 35%, rgba(251, 158, 75, 0.025) 0%, transparent 2px),
-    radial-gradient(circle at 75% 65%, rgba(56, 189, 248, 0.02) 0%, transparent 2px),
-    radial-gradient(circle at 45% 75%, rgba(251, 158, 75, 0.015) 0%, transparent 1.5px);
-  background-size: 220px 220px, 280px 280px, 200px 200px;
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.55) 0, transparent 1.1px),
+    radial-gradient(circle at 28% 72%, rgba(255, 90, 90, 0.4) 0, transparent 1.2px),
+    radial-gradient(circle at 62% 28%, rgba(255, 255, 255, 0.48) 0, transparent 1px),
+    radial-gradient(circle at 84% 62%, rgba(0, 216, 255, 0.36) 0, transparent 1.3px),
+    radial-gradient(circle at 48% 52%, rgba(255, 255, 255, 0.34) 0, transparent 1px);
+  background-size: 180px 180px, 240px 240px, 210px 210px, 260px 260px, 190px 190px;
   animation: particleDrift 35s linear infinite;
-  opacity: 0.8;
+  opacity: 0.92;
 }
 
 /* 噪点纹理 - 更细腻的质感 */
@@ -329,20 +333,21 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.015;
+  opacity: 0.012;
   pointer-events: none;
   mix-blend-mode: overlay;
 }
 
-/* 网格结构线 - 更淡更精致 */
+/* 网格线更弱，只保留一点结构感 */
 .stage-grid {
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
-  background-size: 140px 140px;
+    linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
+  background-size: 180px 180px;
   pointer-events: none;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 78%);
 }
 
 /* 动画定义 - 更克制的呼吸感 */

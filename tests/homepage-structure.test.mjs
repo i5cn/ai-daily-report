@@ -34,11 +34,12 @@ test('homepage exposes semantic navigation and avoids broken archive links', () 
 test('homepage signal deck exposes a summary brief and primary signal panel', () => {
   const html = buildHomepage();
 
-  assert.match(html, /class="signal-deck-shell"/);
-  assert.match(html, /class="signal-brief"/);
-  assert.match(html, /class="signal-metric-tape"/);
-  assert.match(html, /class="primary-signal-panel"/);
-  assert.match(html, /今日 AI 领域重点关注：18 个大模型相关更新、9 项产品发布、6 个开发工具更新。/);
+  assert.match(html, /class="hero-brand-mark"/);
+  assert.match(html, /AI Signal Surface/);
+  assert.match(html, /class="hero-status-pill"/);
+  assert.match(html, /class="signal-marquee"/);
+  assert.match(html, /class="signal-marquee-track"/);
+  assert.match(html, /class="signal-marquee-card"/);
 });
 
 test('homepage category cards expose a unified full-card link pattern', () => {
@@ -54,6 +55,8 @@ test('homepage exposes interactive category sweep controls and source ledger met
   assert.match(html, /class="category-sweep-controls"/);
   assert.match(html, /data-category-filter="all"/);
   assert.match(html, /data-category-panel="all"/);
+  assert.doesNotMatch(html, /role="tablist"/);
+  assert.doesNotMatch(html, /role="tab"/);
   assert.match(html, /class="community-pulse-band"/);
   assert.match(html, /class="source-ledger-grid"/);
 });
