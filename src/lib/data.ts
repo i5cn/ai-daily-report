@@ -130,7 +130,7 @@ export function getTopTagSignals(tagStats: Record<string, number>) {
 export function getSweepCategories(sortedItems: ReportCard[], tagStats: Record<string, number>) {
   return (['model', 'product', 'research', 'industry', 'tool', 'policy'] as const)
     .map((tag) => {
-      const categoryItems = sortedItems.filter(item => item.tags?.includes(tag)).slice(0, 8);
+      const categoryItems = sortedItems.filter(item => item.tags?.includes(tag)).slice(0, 9);
       return {
         key: tag,
         label: tagLabels[tag] || tag,
