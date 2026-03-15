@@ -61,7 +61,7 @@ const tagLabels: Record<string, string> = {
             <div class="signal-marquee-fade signal-marquee-fade-left" aria-hidden="true"></div>
             <div class="signal-marquee-fade signal-marquee-fade-right" aria-hidden="true"></div>
             <div class="signal-marquee-track signal-marquee-track-left" style={`--marquee-count: ${Math.ceil(heroSignals.length / 2)};`}>
-              {[...heroSignals.slice(0, 4), ...heroSignals.slice(0, 4)].map((item, index) => (
+              {[...heroSignals.slice(0, 6), ...heroSignals.slice(0, 6)].map((item, index) => (
                 <a
                   key={`row1-${index}`}
                   href={item.sourceUrl}
@@ -95,7 +95,7 @@ const tagLabels: Record<string, string> = {
             <div class="signal-marquee-fade signal-marquee-fade-left" aria-hidden="true"></div>
             <div class="signal-marquee-fade signal-marquee-fade-right" aria-hidden="true"></div>
             <div class="signal-marquee-track signal-marquee-track-right" style={`--marquee-count: ${Math.ceil(heroSignals.length / 2)};`}>
-              {[...heroSignals.slice(4, 8), ...heroSignals.slice(4, 8)].map((item, index) => (
+              {[...heroSignals.slice(6, 12), ...heroSignals.slice(6, 12)].map((item, index) => (
                 <a
                   key={`row2-${index}`}
                   href={item.sourceUrl}
