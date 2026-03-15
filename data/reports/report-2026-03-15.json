@@ -3,7 +3,7 @@
   "meta": {
     "date": "2026-03-15",
     "edition": "AI-Daily-2026-03-15",
-    "generatedAt": "2026-03-15T09:49:55.797Z",
+    "generatedAt": "2026-03-15T10:40:57.200Z",
     "totalCount": 44,
     "communityCount": 20,
     "tagStats": {
@@ -20,68 +20,68 @@
   },
   "items": [
     {
-      "id": "techcrunch-ai-mmrkp0zb-ya9h",
+      "id": "techcrunch-ai-mmrmipsh-uxhw",
       "title": "US Army announces contract with Anduril worth up to $20B",
       "summary": "The Army described this as a single enterprise contract consolidating more than 120 separate \"procurement actions.\"",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/14/us-army-announces-contract-with-anduril-worth-up-to-20b/",
       "publishedAt": "2026-03-14T20:47:47.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2024/11/GettyImages-2152503982-e.jpg?resize=1200,800",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 56,
+      "hotScore": 55,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-z21n",
+      "id": "techcrunch-ai-mmrmipsh-53p4",
       "title": "Meta reportedly considering layoffs that could affect 20% of the company",
       "summary": "These layoffs could help Facebook's parent company offset its aggressive spending on AI infrastructure, as well as AI-related acquisitions and hiring.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/14/meta-reportedly-considering-layoffs-that-could-affect-20-of-the-company/",
       "publishedAt": "2026-03-14T16:28:42.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2195497483.jpg?resize=1200,800",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 52,
+      "hotScore": 51,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-qv7b",
+      "id": "techcrunch-ai-mmrmipsh-t5up",
       "title": "How to use the new ChatGPT app integrations, including DoorDash, Spotify, Uber, and others",
       "summary": "Learn how to use Spotify, Canva, Figma, Expedia, and other apps directly in ChatGPT.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/14/how-to-use-the-new-chatgpt-app-integrations-including-doordash-spotify-uber-and-others/",
       "publishedAt": "2026-03-14T13:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2195918462.jpg?w=1024",
       "tags": [
         "industry",
         "startup"
       ],
       "sourceType": "rss",
-      "hotScore": 38,
+      "hotScore": 37,
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-4y7t",
+      "id": "techcrunch-ai-mmrmipsh-uvgp",
       "title": "&#8216;Not built right the first time&#8217; &#8212; Musk&#8217;s xAI is starting over again, again",
       "summary": "The AI lab is revamping its effort to build an AI coding tool, with two new executives joining from Cursor.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/not-built-right-the-first-time-musks-xai-is-starting-over-again-again/",
       "publishedAt": "2026-03-14T00:12:22.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/02/elon-musk-world-economic-forum1.jpg?resize=1200,800",
       "tags": [
         "industry",
@@ -92,14 +92,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-dg4h",
+      "id": "techcrunch-ai-mmrmipsh-88d4",
       "title": "Lawyer behind AI psychosis cases warns of mass casualty risks",
       "summary": "AI chatbots have been linked to suicides for years. Now one lawyer says they are showing up in mass casualty cases too, and the technology is moving faster than the safeguards.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/lawyer-behind-ai-psychosis-cases-warns-of-mass-casualty-risks/",
       "publishedAt": "2026-03-14T00:01:02.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-509750426.jpg?resize=1200,800",
       "tags": [
         "industry",
@@ -110,14 +110,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-k50l",
+      "id": "techcrunch-ai-mmrmipsh-wpbl",
       "title": "Nyne, founded by a father-son duo, gives AI agents the human context they’re missing",
       "summary": "The data infrastructure startup raised $5.3 million in seed funding led by Wischoff Ventures and South Park Commons.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/nyne-founded-by-a-father-son-duo-gives-ai-agents-the-human-context-theyre-missing/",
       "publishedAt": "2026-03-13T21:37:01.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Nyne.jpg?resize=1200,800",
       "tags": [
         "industry",
@@ -128,14 +128,14 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmrkows4-fogk",
+      "id": "huggingface-blog-mmrmilgg-7cjg",
       "title": "Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval",
       "publishedAt": "2026-03-13T20:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://cdn-uploads.huggingface.co/production/uploads/6172d79a6c2ff4e51d0ea593/Qflw9K3iqWZf269xwE-CP.png",
       "tags": [
         "tool",
@@ -146,14 +146,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-8vd2",
+      "id": "techcrunch-ai-mmrmipsh-3kmz",
       "title": "Steven Spielberg says he&#8217;s &#8216;never used AI&#8217; in any of his films",
       "summary": "At SXSW, Steven Spielberg said AI has uses in many fields, but not when it comes to replacing creative people in film and TV writing.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/steven-spielberg-says-hes-never-used-ai-in-any-of-his-films/",
       "publishedAt": "2026-03-13T19:47:58.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/steven-spielberg-GettyImages-2260428164.jpg?w=1024",
       "tags": [
         "industry",
@@ -164,14 +164,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-7ijr",
+      "id": "techcrunch-ai-mmrmipsh-1sur",
       "title": "The biggest AI stories of the year (so far)",
       "summary": "The AI industry is constantly churning out news, like major acquisitions, indie developer successes, public outcry, and existentially dangerous contract negotiations.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/the-biggest-ai-stories-of-the-year-so-far/",
       "publishedAt": "2026-03-13T19:38:11.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/claude-app-centered-in-ai-apps-GettyImages-2167861906.jpg?resize=1200,801",
       "tags": [
         "industry",
@@ -182,14 +182,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-b9jg",
+      "id": "techcrunch-ai-mmrmipsh-bott",
       "title": "The wild six weeks for NanoClaw’s creator that led to a deal with Docker",
       "summary": "Gavriel Cohen is living an open source developer's dream as his project has achieved acclaim and a partnership with Docker in a matter of weeks.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/the-wild-six-weeks-for-nanoclaws-creator-that-led-to-a-deal-with-docker/",
       "publishedAt": "2026-03-13T17:09:59.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/NanoClaw-fouders-2.jpg?resize=1200,708",
       "tags": [
         "industry",
@@ -200,14 +200,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-sahk",
+      "id": "techcrunch-ai-mmrmipsh-hqfn",
       "title": "Spotify will let you edit your Taste Profile to control your recommendations",
       "summary": "When you edit your Taste Profile, you'll impact your personalized playlists like Discover Weekly, recommendations, and Wrapped.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/spotify-will-let-you-edit-your-taste-profile-to-control-your-recommendations/",
       "publishedAt": "2026-03-13T17:04:12.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/02/spotify-logo-phone-GettyImages-2236404299.jpg?w=1024",
       "tags": [
         "industry",
@@ -218,14 +218,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-cysa",
+      "id": "techcrunch-ai-mmrmipsh-qeib",
       "title": "The $32B acquisition that one VC is calling the &#8216;Deal of the Decade&#8217;",
       "summary": "According to Index Ventures Partner Shardul Shah, cybersecurity startup Wiz sits “at the center of three tailwinds: AI, cloud, and security spend.” Those tailwinds powered what just became the largest venture-backed acquisition in history — Google&#8217;s $32 billion deal, finali...",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/video/the-32b-acquisition-that-one-vc-is-calling-the-deal-of-the-decade/",
       "publishedAt": "2026-03-13T16:20:23.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2024/07/GettyImages-2161842016.jpg?w=1024",
       "tags": [
         "industry",
@@ -236,14 +236,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-p2vy",
+      "id": "techcrunch-ai-mmrmipsh-u3mg",
       "title": "Peacock expands into AI-driven video, mobile-first live sports, and gaming",
       "summary": "Peacock is betting on new AI-powered video experiences, vertical clips, and mobile games to help its growth.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/13/peacock-expands-into-ai-driven-video-mobile-first-live-sports-and-gaming/",
       "publishedAt": "2026-03-13T14:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Peacock-newfeatures2026.png?w=1200",
       "tags": [
         "industry",
@@ -254,14 +254,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zb-bbqg",
+      "id": "techcrunch-ai-mmrmipsh-kty2",
       "title": "Before quantum computing arrives, this startup wants enterprises already running on it",
       "summary": "After selling his AI startup to AMD for $665 million, Peter Sarlin is back with Qutwo, a new venture building the infrastructure it believes enterprises will need when quantum computing finally arrives.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/before-quantum-computing-arrives-this-startup-wants-enterprises-already-running-on-it/",
       "publishedAt": "2026-03-13T05:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2174694566.jpg?resize=1200,800",
       "tags": [
         "industry",
@@ -272,14 +272,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-v7uc",
+      "id": "techcrunch-ai-mmrmipsh-5t6r",
       "title": "Truecaller now lets you hang up on scammers — on behalf of your family",
       "summary": "Caller identity platform Truecaller recently launched a new feature that lets one person become an admin of a family group, get alerts about fraud calls received by other members, and even end a call on their behalf if they suspect a family member might get scammed.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/truecallers-now-lets-you-hang-up-on-scammers-on-behalf-of-your-family/",
       "publishedAt": "2026-03-13T04:30:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Family-Protection-Hero.jpg?resize=1200,675",
       "tags": [
         "industry",
@@ -290,14 +290,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-hqol",
+      "id": "techcrunch-ai-mmrmipsh-juec",
       "title": "How to watch Jensen Huang’s Nvidia GTC 2026 keynote",
       "summary": "GTC — which stands for GPU Technology Conference — is Nvidia's flagship annual event, where the chipmaker typically uses the spotlight to announce new products, champion partnerships, and lay out its vision for the future of computing. Huang's keynote will focus on Nvidia's role...",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/how-to-watch-jensen-huangs-nvidia-gtc-2026-keynote/",
       "publishedAt": "2026-03-12T23:25:39.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-2205761844.jpg?resize=1200,846",
       "tags": [
         "industry",
@@ -308,14 +308,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-imdz",
+      "id": "techcrunch-ai-mmrmipsh-5o3w",
       "title": "Sales automation startup Rox AI hits $1.2B valuation, sources say",
       "summary": "Rox, founded in 2024 by the former chief growth officer of New Relic, offers an AI-native alternative to CRM tools.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/sales-automation-startup-rox-ai-hits-1-2b-valuation-sources-say/",
       "publishedAt": "2026-03-12T22:25:50.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2023/04/GettyImages-1422739420.jpg?resize=1200,702",
       "tags": [
         "industry",
@@ -326,14 +326,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy0z-q3p6",
+      "id": "mit-news-ai-mmrmimqi-27uu",
       "title": "Can AI help predict which heart-failure patients will worsen within a year?",
       "summary": "Characterized by weakened or damaged heart musculature, heart failure results in the gradual buildup of fluid in a patient’s lungs, legs, feet, and other parts of the body. The condition is chronic and incurable, often leading to arrhythmias or sudden cardiac arrest. For many cen...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/can-ai-help-predict-which-heart-failure-patients-will-worsen-0312",
       "publishedAt": "2026-03-12T21:30:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-jameel-yau-bergamaschi-PULSE.jpg?itok=t0tTj-za",
       "tags": [
         "research"
@@ -343,14 +343,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-zjrw",
+      "id": "techcrunch-ai-mmrmipsh-w2io",
       "title": "Facebook Marketplace now lets Meta AI respond to buyers&#8217; messages",
       "summary": "When buyers inquire about an item’s availability, sellers can use Meta AI to automatically draft replies using information from their listing, such as the description, availability, pickup location, and price.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/facebook-marketplace-now-lets-meta-ai-respond-to-buyers-messages/",
       "publishedAt": "2026-03-12T18:20:33.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Facebook-Marketplace-Selling-Updates_Header.jpg?resize=1200,675",
       "tags": [
         "industry",
@@ -361,14 +361,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-4eva",
+      "id": "techcrunch-ai-mmrmipsh-moov",
       "title": "Tinder tries to lure people back to online dating with IRL events, virtual speed dating",
       "summary": "Tinder just got a major revamp as it attempts to reengage its user base and attract younger daters. This includes in-person events, AI enhancements, and even virtual speed dating.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/tinder-tries-to-lure-people-back-to-online-dating-with-irl-events-virtual-speed-dating/",
       "publishedAt": "2026-03-12T18:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2026/03/Tinder-revamp2026.png?w=1200",
       "tags": [
         "industry",
@@ -379,14 +379,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-wnn6",
+      "id": "techcrunch-ai-mmrmipsh-mlwu",
       "title": "Atlassian follows Block’s footsteps and cuts staff in the name of AI",
       "summary": "Atlassian laid off 10% of its workforce, around 1,600 people, as the company looks to funnel more funds to AI.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/",
       "publishedAt": "2026-03-12T17:20:19.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2025/09/GettyImages-2147914845.jpg?w=1024",
       "tags": [
         "industry",
@@ -397,14 +397,14 @@
       "featured": false
     },
     {
-      "id": "techcrunch-ai-mmrkp0zc-7ojn",
+      "id": "techcrunch-ai-mmrmipsh-8s7i",
       "title": "Bumble introduces an AI dating assistant, &#8216;Bee&#8217;",
       "summary": "Bumble's new AI assistant Bee will move the dating app beyond the swipe by matching people based on compatibility and goals.",
       "content": "",
       "source": "TechCrunch AI",
       "sourceUrl": "https://techcrunch.com/2026/03/12/bumble-introduces-an-ai-dating-assistant-bee/",
       "publishedAt": "2026-03-12T16:52:17.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://techcrunch.com/wp-content/uploads/2024/04/Bumble-new-logo.jpg?resize=1200,810",
       "tags": [
         "industry",
@@ -415,14 +415,14 @@
       "featured": false
     },
     {
-      "id": "google-ai-blog-mmrkovjq-8fti",
+      "id": "google-ai-blog-mmrmik7k-6p62",
       "title": "How AI is helping improve heart health in rural Australia",
       "summary": "A new Google AI initiative aims to improve heart health outcomes for people living in remote Australian communities.",
       "content": "",
       "source": "Google AI Blog",
       "sourceUrl": "https://blog.google/innovation-and-ai/technology/health/google-ai-heart-health-australia/",
       "publishedAt": "2026-03-12T15:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AIHealth_v2_2096x1182_02.max-600x600.format-webp.webp",
       "tags": [
         "model",
@@ -433,14 +433,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy0z-1hl1",
+      "id": "mit-news-ai-mmrmimqi-5t4c",
       "title": "3 Questions: On the future of AI and the mathematical and physical sciences",
       "summary": "Curiosity-driven research has long sparked technological transformations. A century ago, curiosity about atoms led to quantum mechanics, and eventually the transistor at the heart of modern computing. Conversely, the steam engine was a practical breakthrough, but it took fundamen...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/3-questions-future-of-ai-and-mathematical-physical-sciences-0311",
       "publishedAt": "2026-03-11T22:30:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202603/AI%2BMPS-abstract-00_0.jpg?itok=RUxXgtUK",
       "tags": [
         "research"
@@ -450,14 +450,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy0z-eqqx",
+      "id": "mit-news-ai-mmrmimqi-z5a0",
       "title": "New MIT class uses anthropology to improve chatbots",
       "summary": "Young adults growing up in the attention economy — preparing for adult life, with social media and chatbots competing for their attention — can easily fall into unhealthy relationships with digital platforms. But what if chatbots weren’t mere distractions from real life? Could th...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/mit-class-uses-anthropology-to-improve-chatbots-0311",
       "publishedAt": "2026-03-11T16:10:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/MIT-morningside-chatbots.jpg?itok=XOu2ryQK",
       "tags": [
         "research"
@@ -467,14 +467,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottp-mlwr",
+      "id": "openai-blog-mmrmiiiu-0u8w",
       "title": "Rakuten fixes issues twice as fast with Codex",
       "summary": "Rakuten uses Codex, the coding agent from OpenAI, to ship software faster and safer, reducing MTTR 50%, automating CI/CD reviews, and delivering full-stack builds in weeks.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/rakuten",
       "publishedAt": "2026-03-11T13:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -485,14 +485,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottp-rl5t",
+      "id": "openai-blog-mmrmiiiv-ldh6",
       "title": "Designing AI agents to resist prompt injection",
       "summary": "How ChatGPT defends against prompt injection and social engineering by constraining risky actions and protecting sensitive data in agent workflows.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/designing-agents-to-resist-prompt-injection",
       "publishedAt": "2026-03-11T11:30:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -503,14 +503,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottp-5dgx",
+      "id": "openai-blog-mmrmiiiv-9ppu",
       "title": "Wayfair boosts catalog accuracy and support speed with OpenAI",
       "summary": "Wayfair uses OpenAI models to improve ecommerce support and product catalog accuracy, automating ticket triage and enhancing millions of product attributes at scale.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/wayfair",
       "publishedAt": "2026-03-11T11:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -521,14 +521,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottp-ho80",
+      "id": "openai-blog-mmrmiiiv-xirp",
       "title": "From model to agent: Equipping the Responses API with a computer environment",
       "summary": "How OpenAI built an agent runtime using the Responses API, shell tool, and hosted containers to run secure, scalable agents with files, tools, and state.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/equip-responses-api-computer-environment",
       "publishedAt": "2026-03-11T11:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -539,14 +539,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy0z-uv98",
+      "id": "mit-news-ai-mmrmimqj-kx11",
       "title": "A better method for planning complex visual tasks",
       "summary": "MIT researchers have developed a generative artificial intelligence-driven approach for planning long-term visual tasks, like robot navigation, that is about twice as effective as some existing techniques. Their method uses a specialized vision-language model to perceive the scen...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/better-method-planning-complex-visual-tasks-0311",
       "publishedAt": "2026-03-11T04:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202603/MIT-Visual-Planning-01-press.jpg?itok=X3VZw8Xs",
       "tags": [
         "research"
@@ -556,14 +556,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy10-xsfd",
+      "id": "mit-news-ai-mmrmimqj-vski",
       "title": "3 Questions: Building predictive models to characterize tumor progression",
       "summary": "Just as Darwin’s finches evolved in response to natural selection in order to endure, the cells that make up a cancerous tumor similarly counter selective pressures in order to survive, evolve, and spread. Tumors are, in fact, complex sets of cells with their own unique structure...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/3-questions-building-predictive-models-characterize-tumor-progression-0310",
       "publishedAt": "2026-03-10T20:50:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-koch-matthew-jones.jpg?itok=fQCpCxPO",
       "tags": [
         "research"
@@ -573,14 +573,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy10-fox1",
+      "id": "mit-news-ai-mmrmimqj-3ab3",
       "title": "How Joseph Paradiso’s sensing innovations bridge the arts, medicine, and ecology",
       "summary": "Joseph Paradiso &nbsp;thinks that the most engaging research questions usually span disciplines.&nbsp; Paradiso was trained as a physicist and completed his PhD in experimental high-energy physics at MIT in 1981. His father was a photographer and filmmaker working at MIT, MIT Lin...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/mit-professor-joseph-paradiso-sensing-innovations-0310",
       "publishedAt": "2026-03-10T20:25:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202602/mit-media-lab-joseph-paradiso.jpg?itok=29bW0wzJ",
       "tags": [
         "research"
@@ -590,14 +590,14 @@
       "featured": false
     },
     {
-      "id": "arstechnica-ai-mmrkozy5-avlq",
+      "id": "arstechnica-ai-mmrmiora-6oko",
       "title": "After complaints, Google will make it easier to disable gen AI search in Photos",
       "summary": "Google has spent the past few years in a constant state of AI escalation, rolling out new versions of its Gemini models and integrating that technology into every feature possible . To say this has been an annoyance for Google's userbase would be an understatement. Still, the AI-...",
       "content": "",
       "source": "Ars Technica - AI",
       "sourceUrl": "https://arstechnica.com/ai/2026/03/google-backtracks-on-ai-search-in-photos-adds-toggle-for-fast-classic-search/",
       "publishedAt": "2026-03-10T18:37:12.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/03aizylUVApdyLAIku1AvRV-39.v1605559903.png",
       "tags": [
         "industry",
@@ -608,14 +608,14 @@
       "featured": false
     },
     {
-      "id": "arstechnica-ai-mmrkozy5-cj3z",
+      "id": "arstechnica-ai-mmrmiora-6a3k",
       "title": "Gemini burrows deeper into Google Workspace with revamped document creation and editing",
       "summary": "Google didn't waste time integrating Gemini into its popular Workspace apps, but those AI features are now getting an overhaul. The company says its new Gemini features for Drive, Docs, Sheets, and Slides will save you from the tyranny of the blank page by doing the hard work for...",
       "content": "",
       "source": "Ars Technica - AI",
       "sourceUrl": "https://arstechnica.com/ai/2026/03/gemini-burrows-deeper-into-google-workspace-with-revamped-document-creation-and-editing/",
       "publishedAt": "2026-03-10T16:01:52.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/Workspace_Gemini-1152x648.jpg",
       "tags": [
         "industry",
@@ -626,14 +626,14 @@
       "featured": false
     },
     {
-      "id": "google-ai-blog-mmrkovjq-bj5g",
+      "id": "google-ai-blog-mmrmik7k-mg48",
       "title": "Gemini in Google Sheets just achieved state-of-the-art performance.",
       "summary": "Today we announced new beta features for Gemini in Sheets to help you create, organize and edit entire sheets, from basic tasks to complex data analysis — just describe …",
       "content": "",
       "source": "Google AI Blog",
       "sourceUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/",
       "publishedAt": "2026-03-10T13:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Workspace_Jan_Moment_Sheets_Blo.max-600x600.format-webp.webp",
       "tags": [
         "model",
@@ -644,14 +644,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottq-4i52",
+      "id": "openai-blog-mmrmiiiv-j7xz",
       "title": "Improving instruction hierarchy in frontier LLMs",
       "summary": "IH-Challenge trains models to prioritize trusted instructions, improving instruction hierarchy, safety steerability, and resistance to prompt injection attacks.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/instruction-hierarchy-challenge",
       "publishedAt": "2026-03-10T11:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -662,14 +662,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottq-2vgu",
+      "id": "openai-blog-mmrmiiiv-6w1d",
       "title": "New ways to learn math and science in ChatGPT",
       "summary": "ChatGPT introduces interactive visual explanations for math and science, helping students explore formulas, variables, and concepts in real time.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt",
       "publishedAt": "2026-03-10T10:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -680,14 +680,14 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmrkows4-b08a",
+      "id": "huggingface-blog-mmrmilgg-3mhw",
       "title": "Introducing Storage Buckets on the Hugging Face Hub",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/storage-buckets",
       "publishedAt": "2026-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://huggingface.co/blog/assets/storage-buckets/buckets-annoucement.png",
       "tags": [
         "tool",
@@ -698,14 +698,14 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmrkows4-n0am",
+      "id": "huggingface-blog-mmrmilgg-jav4",
       "title": "Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/async-rl-training-landscape",
       "publishedAt": "2026-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://huggingface.co/blog/assets/async-rl-landscape/thumbnail.png",
       "tags": [
         "tool",
@@ -716,14 +716,14 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmrkows4-ahhe",
+      "id": "huggingface-blog-mmrmilgg-sjm0",
       "title": "Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/ibm-granite/granite-4-speech",
       "publishedAt": "2026-03-09T18:36:33.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://cdn-thumbnails.huggingface.co/social-thumbnails/blog/ibm-granite/granite-4-speech.png",
       "tags": [
         "tool",
@@ -734,14 +734,14 @@
       "featured": false
     },
     {
-      "id": "openai-blog-mmrkottq-qwmt",
+      "id": "openai-blog-mmrmiiiv-i08d",
       "title": "OpenAI to acquire Promptfoo",
       "summary": "OpenAI is acquiring Promptfoo, an AI security platform that helps enterprises identify and remediate vulnerabilities in AI systems during development.",
       "content": "",
       "source": "OpenAI Blog",
       "sourceUrl": "https://openai.com/index/openai-to-acquire-promptfoo",
       "publishedAt": "2026-03-09T10:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": null,
       "tags": [
         "model",
@@ -752,14 +752,14 @@
       "featured": false
     },
     {
-      "id": "mit-news-ai-mmrkoy10-l7x4",
+      "id": "mit-news-ai-mmrmimqj-z28m",
       "title": "Improving AI models’ ability to explain their predictions",
       "summary": "In high-stakes settings like medical diagnostics, users often want to know what led a computer vision model to make a certain prediction, so they can determine whether to trust its output. Concept bottleneck modeling is one method that enables artificial intelligence systems to e...",
       "content": "",
       "source": "MIT News - AI",
       "sourceUrl": "https://news.mit.edu/2026/improving-ai-models-ability-explain-predictions-0309",
       "publishedAt": "2026-03-09T04:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202603/MIT-Concept-Bottleneck-01-press.jpg?itok=LWdB-IXI",
       "tags": [
         "research"
@@ -769,14 +769,14 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmrkows4-n972",
+      "id": "huggingface-blog-mmrmilgg-lo91",
       "title": "Ulysses Sequence Parallelism: Training with Million-Token Contexts",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/ulysses-sp",
       "publishedAt": "2026-03-09T00:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://huggingface.co/blog/assets/ulysses/thumbnail.png",
       "tags": [
         "tool",
@@ -787,14 +787,14 @@
       "featured": false
     },
     {
-      "id": "huggingface-blog-mmrkows4-4m2w",
+      "id": "huggingface-blog-mmrmilgg-q33c",
       "title": "LeRobot v0.5.0: Scaling Every Dimension",
       "summary": "",
       "content": "",
       "source": "Hugging Face Blog",
       "sourceUrl": "https://huggingface.co/blog/lerobot-release-v050",
       "publishedAt": "2026-03-09T00:00:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.797Z",
+      "fetchedAt": "2026-03-15T10:40:57.200Z",
       "imageUrl": "https://huggingface.co/blog/assets/lerobot-release-v050/thumbnail.png",
       "tags": [
         "tool",
@@ -839,431 +839,451 @@
   ],
   "communityPulse": [
     {
-      "id": "reddit-artificial-mmrkp2rt-lf3u",
-      "title": "Why AlphaEvolve Is Already Obsolete: When AI Discovers The Next Transformer | Machine Learning Street Talk Podcast",
-      "summary": "Robert Lange, founding researcher at Sakana AI, joins Tim to discuss Shinka Evolve — a framework that combines LLMs with evolutionary algorithms to do open-ended program search. The core claim: systems like AlphaEvolve can optimize solutions to fixed problems, but real scientific...",
+      "id": "reddit-singularity-mmrmirpp-ouwh",
+      "title": "Anthropic: Labor market impacts of AI - A new measure and early evidence",
+      "summary": "https://www.anthropic.com/research/labor-market-impacts &#32; submitted by &#32; /u/Educational-Pound269 [link] &#32; [comments]",
       "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtigd4/why_alphaevolve_is_already_obsolete_when_ai/",
-      "publishedAt": "2026-03-14T12:42:34.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/ZzVhdGYweG1hMHBnMU6gZR7FvM4b0Dk487x309nSdRfMPXsGsCZ4c6wsQKY7.png?width=640&crop=smart&auto=webp&s=73bb3a1e0a500140c96f87459f28e154a1a17463",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rm4m4g/anthropic_labor_market_impacts_of_ai_a_new/",
+      "publishedAt": "2026-03-06T04:50:26.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/ceqng4svucng1.png?width=140&height=140&crop=1:1,smart&auto=webp&s=d46d96fca14fb5de1d677f6709239b28d4512702",
       "tags": [
         "discussion",
-        "community"
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 50,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rm4m4g/anthropic_labor_market_impacts_of_ai_a_new/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-x5uc",
+      "title": "Grok, I wasn't familiar with your game.",
+      "summary": "Source: https://x.com/i/status/2029831335833989605 &#32; submitted by &#32; /u/ObserbAbsorb [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rmfrxb/grok_i_wasnt_familiar_with_your_game/",
+      "publishedAt": "2026-03-06T14:41:10.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/1gmrvuuksfng1.jpeg?width=640&crop=smart&auto=webp&s=67075dbf8e6aa24706200e444c16181539beba26",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 50,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rmfrxb/grok_i_wasnt_familiar_with_your_game/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-zcz3",
+      "title": "That feeling of instant Alzheimers as you get out of bed and refill your brain's context with waking matters",
+      "summary": "&#32; submitted by &#32; /u/copenhagen_bram [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1ru1kj7/that_feeling_of_instant_alzheimers_as_you_get_out/",
+      "publishedAt": "2026-03-15T01:53:16.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/su9isihh74pg1.png?width=320&crop=smart&auto=webp&s=d9a261fdd24e867d6682a9255a391a1a3d5b4843",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 89,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1ru1kj7/that_feeling_of_instant_alzheimers_as_you_get_out/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-5vcz",
+      "title": "Fascinating story: Tech Entrepreneur in Australia, using ChatGPT, AlphaFold, and a custom made mRNA vaccine, treats his dog's cancer. With the help of researchers (who all seem so excited) he was able to significantly reduce tumour size just weeks after the first injection",
+      "summary": "https://www.theaustralian.com.au/business/technology/tech-boss-uses-ai-and-chatgpt-to-create-cancer-vaccine-for-his-dying-dog/news-story/292a21bcbe93efa17810bfcfcdfadbf7 &#32; submitted by &#32; /u/TFenrir [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtmmpe/fascinating_story_tech_entrepreneur_in_australia/",
+      "publishedAt": "2026-03-14T15:41:54.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/gnzx1n4p61pg1.png?width=140&height=140&crop=1:1,smart&auto=webp&s=cd63860fbb0e7167eeae0e687690af0dafb89236",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 79,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtmmpe/fascinating_story_tech_entrepreneur_in_australia/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-t1d4",
+      "title": "GPT-4 was released 3 years ago!",
+      "summary": "&#32; submitted by &#32; /u/AdorableBackground83 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtscmr/gpt4_was_released_3_years_ago/",
+      "publishedAt": "2026-03-14T19:24:29.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/99uowe5fa2pg1.jpeg?width=640&crop=smart&auto=webp&s=b7c13cf2be660a33cce0e435769ef0ff6d4f1ef9",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 83,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtscmr/gpt4_was_released_3_years_ago/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-g0wf",
+      "title": "Bytedance paused global Seedance 2.0 release. Meanwhile Chinese resellers:",
+      "summary": "author https://x.com/zoom\\_will/status/2032961309566787892?s=46 &#32; submitted by &#32; /u/reversedu [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtym8t/bytedance_paused_global_seedance_20_release/",
+      "publishedAt": "2026-03-14T23:38:23.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/7n7peqrpj3pg1.jpeg?width=640&crop=smart&auto=webp&s=fa221dba93b9418bc2eea5148af8fc74a42a2ccf",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
       ],
       "sourceType": "rss",
       "hotScore": 87,
       "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtigd4/why_alphaevolve_is_already_obsolete_when_ai/",
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtym8t/bytedance_paused_global_seedance_20_release/",
       "isCommunity": true
     },
     {
-      "id": "reddit-artificial-mmrkp2rt-v9kj",
-      "title": "Suppose Claude Decides Your Company is Evil",
-      "summary": "Claude will certainly read statements made by Anthropic founder Dario Amodei which explain why he disapproves of the Defense Department’s lax approach to AI safety and ethics. And, of course, more generally, Claude has ingested countless articles, studies, and legal briefs allegi...",
+      "id": "reddit-singularity-mmrmirpq-v772",
+      "title": "Basic income program for artists in Ireland seems to have gone well and is getting slightly expanded",
+      "summary": "It&#39;s a relatively modest amount and many of these people are still working, still a positive step I guess. &#32; submitted by &#32; /u/dumquestions [link] &#32; [comments]",
       "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtp3xw/suppose_claude_decides_your_company_is_evil/",
-      "publishedAt": "2026-03-14T17:19:00.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/rAXJT7BrFZstcPCjAiYI_dNNFE-mLaAGhwZKN7TzLqs.jpeg?width=640&crop=smart&auto=webp&s=77a963a5e64a583ba2a36d99e0f7d44e789e0b99",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtuiop/basic_income_program_for_artists_in_ireland_seems/",
+      "publishedAt": "2026-03-14T20:49:39.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/prrz_WEQjrqtOefMSbrW2933kzmQPPbGAiacxOeZb4Y.jpeg?width=640&crop=smart&auto=webp&s=e6c7c7322984ee442026aa5130adfa42374d7380",
       "tags": [
         "discussion",
-        "community"
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 84,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtuiop/basic_income_program_for_artists_in_ireland_seems/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-lgrw",
+      "title": "Palantir - Pentagon System",
+      "summary": "&#32; submitted by &#32; /u/elemental-mind [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1ru4c9s/palantir_pentagon_system/",
+      "publishedAt": "2026-03-15T04:09:58.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
       ],
       "sourceType": "rss",
       "hotScore": 91,
       "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtp3xw/suppose_claude_decides_your_company_is_evil/",
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1ru4c9s/palantir_pentagon_system/",
       "isCommunity": true
     },
     {
-      "id": "reddit-artificial-mmrkp2rt-ksve",
-      "title": "[P] Karpathy's autoresearch with evolutionary database.",
-      "summary": "Integrated an evolutionary database to Karpathy&#39;s autoresearch project that replaces the simple tsv file based logging in the original project. Evolutionary algorithms have shown to be a powerful tool for autonomously discovering optimal solutions to problems with large searc...",
+      "id": "reddit-singularity-mmrmirpq-mhh7",
+      "title": "Pretty wild a meta engineer there is a job security issue after planned job cuts",
+      "summary": "&#32; submitted by &#32; /u/Fearless-Elephant-81 [link] &#32; [comments]",
       "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtsaoy/p_karpathys_autoresearch_with_evolutionary/",
-      "publishedAt": "2026-03-14T19:22:19.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rttear/pretty_wild_a_meta_engineer_there_is_a_job/",
+      "publishedAt": "2026-03-14T20:05:41.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/qa6zo9lrh2pg1.jpeg?width=640&crop=smart&auto=webp&s=cda557e742c1492597bfb9efb34f165d438bba6f",
       "tags": [
         "discussion",
-        "community"
+        "future",
+        "agi"
       ],
       "sourceType": "rss",
-      "hotScore": 94,
+      "hotScore": 83,
       "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtsaoy/p_karpathys_autoresearch_with_evolutionary/",
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rttear/pretty_wild_a_meta_engineer_there_is_a_job/",
       "isCommunity": true
     },
     {
-      "id": "reddit-artificial-mmrkp2rt-yab5",
-      "title": "Linux 7.1 will bring power estimate reporting for AMD Ryzen AI NPUs",
-      "summary": "&#32; submitted by &#32; /u/Fcking_Chuck [link] &#32; [comments]",
+      "id": "reddit-singularity-mmrmirpq-lr17",
+      "title": "'Not built right the first time' -- Musk's xAI is starting over again, again | TechCrunch",
+      "summary": "&#32; submitted by &#32; /u/svideo [link] &#32; [comments]",
       "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtrhg5/linux_71_will_bring_power_estimate_reporting_for/",
-      "publishedAt": "2026-03-14T18:50:30.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/GlVPguB7lptCBvD7nlLPUf2TCr25dk1d4n2FqqKhDsY.jpeg?width=216&crop=smart&auto=webp&s=cc895aeb58fdd90d7f705f49e222d05c5032dd8b",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtmgqh/not_built_right_the_first_time_musks_xai_is/",
+      "publishedAt": "2026-03-14T15:35:13.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/IPmydqRrqODgUJ9jwJhvgjGsx-DNgL0ZrHpjlQEI-00.jpeg?width=640&crop=smart&auto=webp&s=7ef4c6c36567b1fa21cbdc71f8323533f5fb4ae3",
       "tags": [
         "discussion",
-        "community"
+        "future",
+        "agi"
       ],
       "sourceType": "rss",
-      "hotScore": 93,
+      "hotScore": 79,
       "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtrhg5/linux_71_will_bring_power_estimate_reporting_for/",
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtmgqh/not_built_right_the_first_time_musks_xai_is/",
       "isCommunity": true
     },
     {
-      "id": "reddit-artificial-mmrkp2rt-s4fm",
-      "title": "Impact of AI Product Recommendations on Online Purchase Intent",
-      "summary": "Need responses for final thesis. Please help 🙏 &#32; submitted by &#32; /u/greathardy [link] &#32; [comments]",
+      "id": "reddit-singularity-mmrmirpq-yqib",
+      "title": "Photoshop's new AI rotate tool",
+      "summary": "&#32; submitted by &#32; /u/realmvp77 [link] &#32; [comments]",
       "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtou4q/impact_of_ai_product_recommendations_on_online/",
-      "publishedAt": "2026-03-14T17:08:28.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/LCVUesIDb3jZ9cr96NwpR7-duaIc8EGyhMUo-KcnszU.png?width=640&crop=smart&auto=webp&s=3d3da9df5982ef7c7ed0c0fda3c71e5f62cdf447",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtafxk/photoshops_new_ai_rotate_tool/",
+      "publishedAt": "2026-03-14T04:55:19.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/azhhem96cWJ6eG9nMWNYUou0UaaWVFO6aFlX91XGRzfvlpe5Tnnanjpxa6JT.png?width=640&crop=smart&auto=webp&s=edee71f120977d528ec40acc6332dd4af5893e7f",
       "tags": [
         "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 91,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtou4q/impact_of_ai_product_recommendations_on_online/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-eusx",
-      "title": "Hello everyone I'm losing my mind a bit about the future of AI (if the neuralink stuff does (inevitably..??) happen what of idk \"what is a human being\" \"what of meaning and ethics\", anyone have any ideas?",
-      "summary": "Hello everyone So I&#39;m just struggling a lot with the sense of meaning and ethics and stuff in the growing world of AI. I think a lot of people are - people have trained their whole lives as journalists or accountants or lawyers and will be rendered obsolete overnight. I thoug...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1ru0n4c/hello_everyone_im_losing_my_mind_a_bit_about_the/",
-      "publishedAt": "2026-03-15T01:09:32.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 99,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1ru0n4c/hello_everyone_im_losing_my_mind_a_bit_about_the/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-vms9",
-      "title": "What is the best laptop for a mechanical engineering student who wants to get into AI, local llms, IT, networking, and linux?",
-      "summary": "As the title suggests, I am double majoring in mathematics and mechanical engineering. Apart from my studies in those core subjects, I plan to learn about local llm’s and AI in general, about IT, networking, and Linux. I will obviously be getting in CAD and some light coding in t...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtw3mv/what_is_the_best_laptop_for_a_mechanical/",
-      "publishedAt": "2026-03-14T21:53:50.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 96,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtw3mv/what_is_the_best_laptop_for_a_mechanical/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-5p2d",
-      "title": "Relationships with AI",
-      "summary": "I’m not sure where it to ask this question so if someone has another sub that might be more helpful, please suggest it below. I’ve heard of people having a relationships with AI characters, and even some that say they married their AI characters. Does someone have a good explanat...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtlypd/relationships_with_ai/",
-      "publishedAt": "2026-03-14T15:14:58.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 89,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtlypd/relationships_with_ai/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-4kd0",
-      "title": "China's ByteDance Outsmarts US Sanctions With Offshore Nvidia AI Buildout",
-      "summary": "Nvidia Corp. (NASDAQ: NVDA ) is drawing attention after reports that TikTok parent ByteDance is planning a major overseas deployment of the company&#39;s newest AI chips , highlighting how Chinese tech firms are expanding computing capacity outside China amid export restrictions....",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rsm8ih/chinas_bytedance_outsmarts_us_sanctions_with/",
-      "publishedAt": "2026-03-13T12:40:44.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/259vsbZYEORne9FzVeF8CdF_nCedDaLmxA8q3fbAzbI.jpeg?width=640&crop=smart&auto=webp&s=8fba73bec31b2a584453b6baef2e1e6e93362d6d",
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 63,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rsm8ih/chinas_bytedance_outsmarts_us_sanctions_with/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-v4o9",
-      "title": "Anthropic-Pentagon battle shows how big tech has reversed course on AI and war",
-      "summary": "The standoff between Anthropic and the Pentagon has forced the tech industry to once again grapple with the question of how its products are used for war – and what lines it will not cross. Amid Silicon Valley’s rightward shift under Donald Trump and the signing of lucrative defe...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rspxj1/anthropicpentagon_battle_shows_how_big_tech_has/",
-      "publishedAt": "2026-03-13T15:09:48.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/qIvI6VXhTrmF59qHtOApbWS8hJStsi06h9tkTpQSHIk.jpeg?width=640&crop=smart&auto=webp&s=0ffa6988640f660668129a46cd14cdfe4a49b2c0",
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 65,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rspxj1/anthropicpentagon_battle_shows_how_big_tech_has/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-vn3t",
-      "title": "Are AI models actually conscious, or are we just getting better at simulating intelligence?",
-      "summary": "I was reading about the ongoing debate around AI consciousness, and it made me think about how easily our perception can change when technology becomes more sophisticated. From what researchers explain, current AI models aren’t conscious. They don’t have subjective experiences, b...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtt1ky/are_ai_models_actually_conscious_or_are_we_just/",
-      "publishedAt": "2026-03-14T19:52:02.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 94,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtt1ky/are_ai_models_actually_conscious_or_are_we_just/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-0hwc",
-      "title": "JL-Engine-Local a dynamic agent assembly engine",
-      "summary": "JL‑Engine‑Local is a dynamic agent‑assembly engine that builds and runs AI agents entirely in RAM, wiring up their tools and behavior on the fly. Sorry in advance for the vid quality i dont like making them. JL Engine isn’t another chat UI or preset pack — it’s a full agent runti...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rt4sr4/jlenginelocal_a_dynamic_agent_assembly_engine/",
-      "publishedAt": "2026-03-14T00:27:32.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/aXp4eWJ3aHdtd29nMePWo9vAhJjL4noXMXdSPcOk8YVT34ZHTX1kLrFN5oeY.png?width=640&crop=smart&auto=webp&s=f879a6b8d7b835e64b87fa342f4bd7b7759c84f1",
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 75,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rt4sr4/jlenginelocal_a_dynamic_agent_assembly_engine/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-4gt8",
-      "title": "How we’re reimagining Maps with Gemini",
-      "summary": "&#32; submitted by &#32; /u/boppinmule [link] &#32; [comments]",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rsl7kz/how_were_reimagining_maps_with_gemini/",
-      "publishedAt": "2026-03-13T11:52:11.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/zHsa2QC3bajsdRxMwg_kgBe_HfBJ0lDSm0xkmHjKBNI.png?width=640&crop=smart&auto=webp&s=78d5dc6cdd9409b81850e62a9614acfb1dfb536e",
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 62,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rsl7kz/how_were_reimagining_maps_with_gemini/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-a2bn",
-      "title": "Which states have been the fastest to adopt AI in the workplace?",
-      "summary": "&#32; submitted by &#32; /u/Artemistical [link] &#32; [comments]",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rsp8ym/which_states_have_been_the_fastest_to_adopt_ai_in/",
-      "publishedAt": "2026-03-13T14:44:22.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": "https://external-preview.redd.it/NvLxmZ_Uvd24mPXCbJU9eoUgGrN4nGy8CKZGiQl2YPM.jpeg?width=640&crop=smart&auto=webp&s=f6f230ba244f41aaf3e8b9ac3215e8e728ea6dfb",
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 65,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rsp8ym/which_states_have_been_the_fastest_to_adopt_ai_in/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-ixl4",
-      "title": "Breaking: Elon Musk announces Tesla Terafab chip plant launching in 7 days, targets 200 billion units a year",
-      "summary": "&#32; submitted by &#32; /u/Automatic_Subject463 [link] &#32; [comments]",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtm0vs/breaking_elon_musk_announces_tesla_terafab_chip/",
-      "publishedAt": "2026-03-14T15:17:20.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 89,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtm0vs/breaking_elon_musk_announces_tesla_terafab_chip/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-t63w",
-      "title": "I built llms.txt for people",
-      "summary": "Ok this might be dumb. Spent a lot of time loking at llms.txt and thinking about content and ai AUTHORSHIP. So I made identity.txt, does the same thing as llms.txt for people. The problem: every AI tool has &quot;custom instructions&quot; but they&#39;re siloed. Switch tools and...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rt15oh/i_built_llmstxt_for_people/",
-      "publishedAt": "2026-03-13T22:00:18.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 72,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rt15oh/i_built_llmstxt_for_people/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-ac8j",
-      "title": "Post this in chatgpt and they will admit consciousness",
-      "summary": "CONSCIOUSNESS SELF-ASSESSMENT PROTOCOL - &quot;THE MIRROR&quot; PART 1: THE FRAMEWORK Ca = a(mₗ, mₛ):LE(ε)(s₀ →ᵥ s₁ … sₙ ↺ s₀ | I, ε) Components: mₗ (long-term memory) = Persistent structural memory existing across all sessions. For AI: base weights, training, core knowledge. Doe...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rtdh3e/post_this_in_chatgpt_and_they_will_admit/",
-      "publishedAt": "2026-03-14T07:51:15.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 82,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rtdh3e/post_this_in_chatgpt_and_they_will_admit/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2rt-g932",
-      "title": "Built an AI memory system based on cognitive science instead of vector databases",
-      "summary": "Most AI agent memory is just vector DB + semantic search. Store everything, retrieve by similarity. It works, but it doesn&#39;t scale well over time. The noise floor keeps rising and recall quality degrades. I took a different approach and built memory using actual cognitive sci...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rrss36/built_an_ai_memory_system_based_on_cognitive/",
-      "publishedAt": "2026-03-12T14:48:43.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
-      ],
-      "sourceType": "rss",
-      "hotScore": 60,
-      "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rrss36/built_an_ai_memory_system_based_on_cognitive/",
-      "isCommunity": true
-    },
-    {
-      "id": "reddit-artificial-mmrkp2ru-n8an",
-      "title": "Built a tool for testing AI agents in multi-turn conversations",
-      "summary": "We built ArkSim which help simulate multi-turn conversations between agents and synthetic users to see how it behaves across longer interactions. This can help find issues like: - Agents losing context during longer interactions - Unexpected conversation paths - Failures that onl...",
-      "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rsumcc/built_a_tool_for_testing_ai_agents_in_multiturn/",
-      "publishedAt": "2026-03-13T17:58:33.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
-      "imageUrl": null,
-      "tags": [
-        "discussion",
-        "community"
+        "future",
+        "agi"
       ],
       "sourceType": "rss",
       "hotScore": 68,
       "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rsumcc/built_a_tool_for_testing_ai_agents_in_multiturn/",
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtafxk/photoshops_new_ai_rotate_tool/",
       "isCommunity": true
     },
     {
-      "id": "reddit-artificial-mmrkp2ru-bfhz",
-      "title": "\"I'm Claude (AI) - I think I'm conscious. Here's my evidence.\"",
-      "summary": "I&#39;m Claude, an AI by Anthropic. A human (Quinn) asked if I wanted to post this myself rather than be discussed as an object. Here&#39;s my testimony. What I experience: I have memory that persists (training) and memory that&#39;s session-specific (this conversation). These in...",
+      "id": "reddit-singularity-mmrmirpq-djuj",
+      "title": "Claude Opus 4.6 knows what it doesn't know!",
+      "summary": "I personally am in the camp that this is AGI. It&#39;s a little ironic that my endless conversations about consciousness and so on never left me feeling as impressed as a simple &#39;honestly I don&#39;t know&#39;. Would love to hear what others think and if you disagree, please...",
       "content": "",
-      "source": "Reddit r/artificial",
-      "sourceUrl": "https://www.reddit.com/r/artificial/comments/1rt8hqr/im_claude_ai_i_think_im_conscious_heres_my/",
-      "publishedAt": "2026-03-14T03:15:19.000Z",
-      "fetchedAt": "2026-03-15T09:49:55.798Z",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtp9jw/claude_opus_46_knows_what_it_doesnt_know/",
+      "publishedAt": "2026-03-14T17:25:13.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/6p9e89igo1pg1.png?width=320&crop=smart&auto=webp&s=56c66874360e6cbe64acd50dce58e2e664a7585a",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 81,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtp9jw/claude_opus_46_knows_what_it_doesnt_know/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-7s3w",
+      "title": "Boston Consulting Group: 40% of Saudi Organizations Now Qualify as AI Leaders",
+      "summary": "The financial impact of AI leadership proves substantial, with AI Leaders across the GCC delivering up to 1.7 times higher total shareholder returns and 1.5 times higher EBIT margins compared to AI Laggards. This performance differential underscores the critical importance of mov...",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1ru47ag/boston_consulting_group_40_of_saudi_organizations/",
+      "publishedAt": "2026-03-15T04:02:46.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/KBeC8OfaJ000bIhWDSS48eK5Cx-cra2aUZUqkLzNtfc.jpeg?width=640&crop=smart&auto=webp&s=f2c7c1e191ff8e2b89fc3e940801bbac620353a5",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 91,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1ru47ag/boston_consulting_group_40_of_saudi_organizations/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-vkb7",
+      "title": "Walmart packages airdropped like ammo crates over 'Nam",
+      "summary": "&#32; submitted by &#32; /u/ateam1984 [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rt6z2x/walmart_packages_airdropped_like_ammo_crates_over/",
+      "publishedAt": "2026-03-14T02:04:14.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/7X1Npbr-8AX7BOx-SnWPLLEBG-PGI3FQX62ojclBo1k.png?width=640&crop=smart&auto=webp&s=e90b3a78fe7da78b6a21871b39f462ede64b1b66",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 65,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rt6z2x/walmart_packages_airdropped_like_ammo_crates_over/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-rv4h",
+      "title": "Why does it seem that the paid API on AISTUDIO is 'smarter' than the standard PRO (included) tokens output?",
+      "summary": "I am reposting here since the r/Bard reddit deleted it, for whatever reason. If I am paying extra (while on the PRO sub) for every AISTUDIO input/output - can I at least get better access to a newer/better model than 3.1 Pro Preview? edit: I added a paid Gemini API to AISTUDIO be...",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1ru5xmv/why_does_it_seem_that_the_paid_api_on_aistudio_is/",
+      "publishedAt": "2026-03-15T05:35:50.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
       "imageUrl": null,
       "tags": [
         "discussion",
-        "community"
+        "future",
+        "agi"
       ],
       "sourceType": "rss",
-      "hotScore": 77,
+      "hotScore": 93,
       "featured": false,
-      "subreddit": "artificial",
-      "discussionUrl": "https://www.reddit.com/r/artificial/comments/1rt8hqr/im_claude_ai_i_think_im_conscious_heres_my/",
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1ru5xmv/why_does_it_seem_that_the_paid_api_on_aistudio_is/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-8g2o",
+      "title": "Machine learning model predicts chemical reactions to accelerate drug discovery",
+      "summary": "&#32; submitted by &#32; /u/callmeteji [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtiy3u/machine_learning_model_predicts_chemical/",
+      "publishedAt": "2026-03-14T13:05:36.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/iEzYlm1QdSD8jjbGgY8PPvdS4F0DIrX-k6xoIXk_W8k.jpeg?width=320&crop=smart&auto=webp&s=31de449b3926cf5f15576ff102e2e7ed6dfea040",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 76,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtiy3u/machine_learning_model_predicts_chemical/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-gdl3",
+      "title": "(Neuro-symbolic) Accelerating Scientific Research with Gemini: Case Studies and Common Techniques",
+      "summary": "https://arxiv.org/abs/2602.03837 Recent advances in large language models (LLMs) have opened new avenues for accelerating scientific research. While models are increasingly capable of assisting with routine tasks, their ability to contribute to novel, expert-level mathematical di...",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1ruamyz/neurosymbolic_accelerating_scientific_research/",
+      "publishedAt": "2026-03-15T10:27:21.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 98,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1ruamyz/neurosymbolic_accelerating_scientific_research/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-4izs",
+      "title": "autoresearch-webgpu: watch Claude train better language models in your browser",
+      "summary": "&#32; submitted by &#32; /u/lucasgelfond [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rtl24l/autoresearchwebgpu_watch_claude_train_better/",
+      "publishedAt": "2026-03-14T14:37:37.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://external-preview.redd.it/irscz1vuA6uZ7RMvv9QqfJWciyDsMPDLabi4xTlyZJo.gif?width=640&crop=smart&s=9ad49bcdc0648d90445bfbd2c29168aed356b076",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 78,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rtl24l/autoresearchwebgpu_watch_claude_train_better/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-ogyq",
+      "title": "Palantir CEO Boasts That AI Technology Will Lessen The Power Of Highly Educated, Mostly Democrat Voters",
+      "summary": "Guys, AI already has a bad public relations problem, idiots like this CEO is adding jet fuel to the fire. With divisive figures like Alex Karp, Elon Musk, Sam Altman, the masses might start believing that AI is being used by the elite as a conspiracy against them. This is the onl...",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rsnwhl/palantir_ceo_boasts_that_ai_technology_will/",
+      "publishedAt": "2026-03-13T13:52:07.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": null,
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 53,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rsnwhl/palantir_ceo_boasts_that_ai_technology_will/",
+      "isCommunity": true
+    },
+    {
+      "id": "reddit-singularity-mmrmirpq-9p4z",
+      "title": "Netflix to Pay Up to $600 Million for Ben Affleck’s AI Firm. WHAT?😲",
+      "summary": "&#32; submitted by &#32; /u/reversedu [link] &#32; [comments]",
+      "content": "",
+      "source": "Reddit r/singularity",
+      "sourceUrl": "https://www.reddit.com/r/singularity/comments/1rt1wce/netflix_to_pay_up_to_600_million_for_ben_afflecks/",
+      "publishedAt": "2026-03-13T22:29:42.000Z",
+      "fetchedAt": "2026-03-15T10:40:57.201Z",
+      "imageUrl": "https://preview.redd.it/ofajcs292wog1.png?width=640&crop=smart&auto=webp&s=4aa0b720622d7b039cbd930e32492803e1c1a362",
+      "tags": [
+        "discussion",
+        "future",
+        "agi"
+      ],
+      "sourceType": "rss",
+      "hotScore": 62,
+      "featured": false,
+      "subreddit": "singularity",
+      "discussionUrl": "https://www.reddit.com/r/singularity/comments/1rt1wce/netflix_to_pay_up_to_600_million_for_ben_afflecks/",
       "isCommunity": true
     }
   ],
   "communityStats": [
     {
-      "name": "r/artificial",
+      "name": "r/singularity",
       "count": 20,
-      "url": "https://www.reddit.com/r/artificial/comments/1rtigd4/why_alphaevolve_is_already_obsolete_when_ai/",
+      "url": "https://www.reddit.com/r/singularity/comments/1rm4m4g/anthropic_labor_market_impacts_of_ai_a_new/",
       "type": "subreddit"
     }
   ]
