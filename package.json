@@ -11,7 +11,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "fetch": "node scripts/fetch-news.js",
-    "generate": "node scripts/generate-report.js"
+    "generate": "node scripts/generate-report.js",
+    "update": "node scripts/fetch-news.js --source=all && node scripts/generate-report.js",
+    "og": "node scripts/generate-og-image.js"
   },
   "dependencies": {
     "astro": "^5.0.0",

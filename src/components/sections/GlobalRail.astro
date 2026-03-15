@@ -1,0 +1,172 @@
+---
+export interface Props {
+  shortDate: string;
+  totalCount: number;
+  hasData: boolean;
+  navLinks: { href: string; label: string }[];
+  showPageLinks?: boolean;
+}
+
+const { shortDate, totalCount, hasData, navLinks, showPageLinks = true } = Astro.props;
+---
+
+<header class="global-rail" aria-label="Global Rail">
+  <div class="global-rail-inner">
+    <a href="/ai-daily-report/" class="global-rail-brand">
+      <span class="global-rail-brand-mark"></span>
+      <span>AI Signal Surface</span>
+    </a>
+    <div class="global-rail-status">
+      <span class="global-rail-date">{shortDate}</span>
+      <span class="global-rail-separator">/</span>
+      <span>{hasData ? `${totalCount} items` : 'standby'}</span>
+    </div>
+    <nav class="global-rail-nav" aria-label="Primary">
+      {navLinks.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+      {showPageLinks && (
+        <>
+          <a href="/ai-daily-report/archive">Archive</a>
+          <a href="/ai-daily-report/about">About</a>
+        </>
+      )}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .global-rail {
+    position: sticky;
+    top: 0;
+    z-index: calc(var(--z-sticky) + 10);
+    padding: clamp(0.75rem, 2vw, 1.15rem) var(--space-xl) 0;
+  }
+
+  .global-rail-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-full);
+    background:
+      linear-gradient(180deg, rgba(10, 12, 22, 0.82), rgba(8, 10, 18, 0.62)),
+      radial-gradient(circle at left, rgba(255, 92, 92, 0.14), transparent 34%);
+    backdrop-filter: blur(26px);
+    box-shadow:
+      0 12px 44px rgba(0, 0, 0, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 0 40px rgba(38, 216, 255, 0.08);
+  }
+
+  .global-rail-brand,
+  .global-rail-nav a {
+    text-decoration: none;
+  }
+
+  .global-rail-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--text-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+  }
+
+  .global-rail-brand-mark {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(255, 99, 99, 1), rgba(0, 232, 255, 0.95));
+    box-shadow:
+      0 0 18px rgba(255, 92, 92, 0.48),
+      0 0 22px rgba(0, 232, 255, 0.24);
+  }
+
+  .global-rail-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: rgba(212, 219, 235, 0.72);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+  }
+
+  .global-rail-date {
+    color: rgba(248, 250, 255, 0.88);
+    font-weight: 600;
+  }
+
+  .global-rail-separator {
+    color: rgba(255, 255, 255, 0.24);
+  }
+
+  .global-rail-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .global-rail-nav a {
+    padding: 0.45rem 0.7rem;
+    border-radius: var(--radius-full);
+    color: rgba(232, 238, 250, 0.74);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    transition:
+      color var(--duration-fast) ease,
+      background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      box-shadow var(--duration-fast) ease;
+    border: 1px solid transparent;
+  }
+
+  .global-rail-nav a:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 24px rgba(0, 232, 255, 0.08);
+  }
+
+  @media (max-width: 1024px) {
+    .global-rail-inner {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .global-rail {
+      padding: var(--space-sm) var(--space-lg) 0;
+    }
+
+    .global-rail-inner,
+    .global-rail-nav {
+      justify-content: center;
+    }
+
+    .global-rail-status {
+      order: 3;
+    }
+
+    .global-rail-nav a {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.65rem;
+    }
+  }
+</style>

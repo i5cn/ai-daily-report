@@ -1,0 +1,341 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadLatestReport, formatDisplayDate, tagLabels } from '../lib/data';
+
+const report = loadLatestReport();
+const { meta, items, sourceStats } = report;
+
+// 按日期分组
+const itemsByDate = items.reduce((acc, item) => {
+  const date = item.publishedAt.split('T')[0];
+  if (!acc[date]) acc[date] = [];
+  acc[date].push(item);
+  return acc;
+}, {} as Record<string, typeof items>);
+
+const sortedDates = Object.keys(itemsByDate).sort().reverse();
+---
+
+<BaseLayout title="Archive - AI Signal Surface" description="历史 AI 资讯归档">
+  <div class="stage-bg" aria-hidden="true">
+    <div class="stage-spotlight"></div>
+    <div class="stage-ambient-cool"></div>
+    <div class="stage-depth"></div>
+  </div>
+
+  <main id="main-content" class="archive-page">
+    <header class="page-header">
+      <div class="page-header-inner">
+        <a href="/ai-daily-report" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          返回首页
+        </a>
+        <h1 class="page-title">Archive</h1>
+        <p class="page-subtitle">历史资讯归档 · 共 {items.length} 条</p>
+      </div>
+    </header>
+
+    <div class="archive-container">
+      {sortedDates.length === 0 ? (
+        <div class="empty-state">
+          <p>暂无归档数据</p>
+          <a href="/ai-daily-report" class="btn-primary">返回首页</a>
+        </div>
+      ) : (
+        <div class="archive-timeline">
+          {sortedDates.map((date) => (
+            <section class="archive-day">
+              <h2 class="archive-date">
+                <time datetime={date}>{formatDisplayDate(date)}</time>
+                <span class="archive-count">{itemsByDate[date].length} 条</span>
+              </h2>
+              <div class="archive-items">
+                {itemsByDate[date].map((item) => (
+                  <article class="archive-item">
+                    <div class="archive-item-meta">
+                      <span class="archive-item-source">{item.source}</span>
+                      <span class="archive-item-tags">
+                        {item.tags.slice(0, 2).map(tag => (
+                          <span class="tag">{tagLabels[tag] || tag}</span>
+                        ))}
+                      </span>
+                    </div>
+                    <h3 class="archive-item-title">
+                      <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
+                        {item.title}
+                      </a>
+                    </h3>
+                    <p class="archive-item-summary">{item.summary}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <footer class="page-footer">
+      <p>AI Signal Surface · 每日 AI 资讯聚合</p>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .stage-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--bg-primary);
+  }
+
+  .stage-spotlight {
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+    top: -10vh;
+    left: -8vw;
+    background: radial-gradient(
+      ellipse 58% 50% at 28% 10%,
+      rgba(255, 80, 80, 0.2) 0%,
+      transparent 72%
+    );
+    filter: blur(82px);
+  }
+
+  .stage-ambient-cool {
+    position: absolute;
+    width: 72vw;
+    height: 40vh;
+    top: 20%;
+    right: -18vw;
+    background: radial-gradient(
+      ellipse 48% 38% at 100% 40%,
+      rgba(0, 216, 255, 0.15) 0%,
+      transparent 60%
+    );
+    filter: blur(90px);
+  }
+
+  .stage-depth {
+    position: absolute;
+    width: 100vw;
+    height: 40vh;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      to top,
+      rgba(3, 6, 18, 0.96) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+</style>
+
+<style>
+  .archive-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-bottom: var(--space-4xl);
+  }
+
+  .page-header {
+    padding: var(--space-xl);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .page-header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+
+  .page-title {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    font-family: var(--font-display);
+  }
+
+  .page-subtitle {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin: var(--space-xs) 0 0;
+  }
+
+  .archive-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: var(--space-5xl) var(--space-xl);
+    color: var(--text-secondary);
+  }
+
+  .empty-state p {
+    margin-bottom: var(--space-lg);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--accent-warm);
+    color: var(--text-inverse);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform var(--duration-fast) ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .archive-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  .archive-day {
+    position: relative;
+  }
+
+  .archive-date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .archive-count {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    background: var(--bg-elevated);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+  }
+
+  .archive-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .archive-item {
+    padding: var(--space-lg);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--duration-fast) ease;
+  }
+
+  .archive-item:hover {
+    border-color: var(--border-default);
+  }
+
+  .archive-item-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .archive-item-source {
+    font-size: var(--text-xs);
+    color: var(--accent-cool);
+    font-weight: 500;
+  }
+
+  .archive-item-tags {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  .archive-item-tags .tag {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: 2px var(--space-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  .archive-item-title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin: 0 0 var(--space-xs);
+    line-height: 1.4;
+  }
+
+  .archive-item-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--duration-fast) ease;
+  }
+
+  .archive-item-title a:hover {
+    color: var(--accent-warm);
+  }
+
+  .archive-item-summary {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .page-footer {
+    max-width: 900px;
+    margin: var(--space-4xl) auto 0;
+    padding: var(--space-xl);
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .page-footer p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .archive-container {
+      padding: var(--space-xl) var(--space-lg);
+    }
+  }
+</style>

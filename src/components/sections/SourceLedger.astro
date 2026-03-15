@@ -1,0 +1,259 @@
+---
+export interface Props {
+  signalBrief: string;
+  totalCount: number;
+  sourceCount: number;
+  communityCount: number;
+  topSources: Array<{
+    name: string;
+    count: number;
+    url?: string;
+  }>;
+}
+
+const { signalBrief, totalCount, sourceCount, communityCount, topSources } = Astro.props;
+---
+
+<section class="block block-continue" id="source-ledger" aria-labelledby="source-ledger-title">
+  <div class="block-container">
+    <div class="source-ledger-grid">
+      <div class="source-ledger-note">
+        <div class="continue-orb" aria-hidden="true"></div>
+        <span class="source-ledger-kicker">Source Ledger</span>
+        <h2 class="continue-title" id="source-ledger-title">今日信号覆盖</h2>
+        <p class="continue-desc">{signalBrief}</p>
+        <div class="source-ledger-stats">
+          <span>Items {totalCount}</span>
+          <span>Sources {sourceCount}</span>
+          <span>Community {communityCount}</span>
+        </div>
+        <div class="continue-actions">
+          <a href="#page-top" class="continue-btn continue-btn-primary">
+            回到顶部
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#categories" class="continue-btn continue-btn-secondary">
+            浏览分类
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 4v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="source-ledger-stack">
+        {topSources.map((source, index) => (
+          <a href={source.url} target="_blank" rel="noopener noreferrer" class="source-ledger-row">
+            <span class="source-ledger-rank">0{index + 1}</span>
+            <span class="source-ledger-name">{source.name}</span>
+            <span class="source-ledger-count">{source.count}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .block {
+    position: relative;
+    z-index: var(--z-content);
+    padding: var(--space-4xl) var(--space-xl);
+  }
+
+  .block-container {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .block-continue {
+    padding: var(--space-5xl) var(--space-xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .source-ledger-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.85fr);
+    gap: var(--space-xl);
+    align-items: stretch;
+  }
+
+  .source-ledger-note,
+  .source-ledger-stack {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(18, 20, 24, 0.82), rgba(10, 12, 16, 0.76));
+    overflow: hidden;
+  }
+
+  .source-ledger-note {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .source-ledger-kicker {
+    color: var(--accent-cool);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-family: var(--font-mono);
+  }
+
+  .source-ledger-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .source-ledger-stats span {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .source-ledger-stack {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    gap: var(--space-xs);
+  }
+
+  .source-ledger-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background-color var(--duration-fast) ease,
+      transform var(--duration-fast) ease;
+  }
+
+  .source-ledger-row:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateX(2px);
+  }
+
+  .source-ledger-rank,
+  .source-ledger-count {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  .source-ledger-name {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .continue-orb {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle,
+      rgba(251, 158, 75, 0.08) 0%,
+      transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    animation: orbPulse 5s ease-in-out infinite;
+  }
+
+  @keyframes orbPulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.08); }
+  }
+
+  .continue-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .continue-desc {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+
+  .continue-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .continue-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .continue-btn-primary {
+    background: var(--accent-warm);
+    color: var(--text-inverse);
+  }
+
+  .continue-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(251, 158, 75, 0.25);
+  }
+
+  .continue-btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-default);
+  }
+
+  .continue-btn-secondary:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+
+  @media (max-width: 1024px) {
+    .source-ledger-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .block {
+      padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .continue-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .continue-btn {
+      justify-content: center;
+    }
+  }
+</style>

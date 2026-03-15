@@ -2,12 +2,22 @@
 export interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  canonicalURL?: string;
+  pageType?: 'website' | 'article';
 }
 
 const { 
-  title = 'AI Daily Report', 
-  description = '每日 AI 行业动态聚合站点 - 追踪 AI 世界的脉搏' 
+  title = 'AI Signal Surface', 
+  description = '每日 AI 行业动态聚合站点 - 追踪 AI 世界的脉搏',
+  image = '/og-image.png',
+  canonicalURL = Astro.url.pathname,
+  pageType = 'website'
 } = Astro.props;
+
+const siteURL = 'https://i5cn.github.io/ai-daily-report';
+const fullCanonicalURL = `${siteURL}${canonicalURL === '/' ? '' : canonicalURL}`;
+const fullImageURL = image.startsWith('http') ? image : `${siteURL}${image}`;
 ---
 
 <!DOCTYPE html>
@@ -16,16 +26,16 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="theme-color" content="#030714" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/ai-daily-report/favicon.svg" />
     
-    <!-- Preconnect -->
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Fonts -->
+    <!-- Fonts with font-display: swap for Performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -33,15 +43,43 @@ const {
     
     <title>{title}</title>
     
-    <!-- Open Graph -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullCanonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={pageType} />
+    <meta property="og:url" content={fullCanonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content={fullImageURL} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="AI Signal Surface" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={fullCanonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageURL} />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": pageType === 'article' ? 'Article' : 'WebSite',
+      "name": title,
+      "description": description,
+      "url": fullCanonicalURL,
+      ...(pageType === 'website' && {
+        "publisher": {
+          "@type": "Organization",
+          "name": "AI Signal Surface",
+          "url": siteURL
+        }
+      })
+    })} />
+    
+    <!-- Performance: Preload Critical Resources -->
+    <link rel="preload" href="/ai-daily-report/favicon.svg" as="image" type="image/svg+xml" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳转到主要内容</a>
@@ -51,6 +89,21 @@ const {
 
 <style is:global>
   @import '../styles/global.css';
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    html {
+      scroll-behavior: auto;
+    }
+  }
 
   .skip-link {
     position: absolute;

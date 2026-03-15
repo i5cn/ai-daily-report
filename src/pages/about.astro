@@ -1,0 +1,340 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About - AI Signal Surface" description="关于 AI Signal Surface">
+  <div class="stage-bg" aria-hidden="true">
+    <div class="stage-spotlight"></div>
+    <div class="stage-ambient-cool"></div>
+    <div class="stage-depth"></div>
+  </div>
+
+  <main id="main-content" class="about-page">
+    <header class="page-header">
+      <div class="page-header-inner">
+        <a href="/ai-daily-report" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          返回首页
+        </a>
+        <h1 class="page-title">About</h1>
+      </div>
+    </header>
+
+    <div class="about-container">
+      <section class="about-section">
+        <h2>什么是 AI Signal Surface？</h2>
+        <p>
+          AI Signal Surface 是一个每日 AI 资讯聚合站点，旨在为关注 AI 领域发展的读者提供一个
+          轻量、高效、有判断感的信息入口。
+        </p>
+        <p>
+          我们自动抓取来自 OpenAI、Google AI、Hugging Face、MIT 等知名机构和社区的 RSS 源，
+          结合 Reddit 等社区的热门讨论，为你筛选出最有价值的 AI 信号。
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>设计理念</h2>
+        <ul class="feature-list">
+          <li>
+            <strong>轻量</strong>
+            <span>去除冗余信息，只保留核心内容</span>
+          </li>
+          <li>
+            <strong>高效</strong>
+            <span>分类清晰，快速扫读感兴趣的话题</span>
+          </li>
+          <li>
+            <strong>有判断感</strong>
+            <span>热度排序，优先展示高价值内容</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="about-section">
+        <h2>数据来源</h2>
+        <div class="source-grid">
+          <div class="source-category">
+            <h3>官方博客</h3>
+            <ul>
+              <li>OpenAI Blog</li>
+              <li>Google AI Blog</li>
+              <li>Hugging Face Blog</li>
+            </ul>
+          </div>
+          <div class="source-category">
+            <h3>科技媒体</h3>
+            <ul>
+              <li>TechCrunch AI</li>
+              <li>Ars Technica</li>
+              <li>MIT News</li>
+            </ul>
+          </div>
+          <div class="source-category">
+            <h3>社区讨论</h3>
+            <ul>
+              <li>Reddit r/artificial</li>
+              <li>Reddit r/MachineLearning</li>
+              <li>Reddit r/LocalLLaMA</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>技术栈</h2>
+        <div class="tech-stack">
+          <span class="tech-badge">Astro</span>
+          <span class="tech-badge">Tailwind CSS</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">GitHub Actions</span>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>开源</h2>
+        <p>
+          AI Signal Surface 是开源项目，代码托管在 
+          <a href="https://github.com/i5cn/ai-daily-report" target="_blank" rel="noopener noreferrer">GitHub</a>。
+          欢迎 Star、Issue 和 PR！
+        </p>
+      </section>
+    </div>
+
+    <footer class="page-footer">
+      <p>AI Signal Surface · 每日 AI 资讯聚合</p>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .stage-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--bg-primary);
+  }
+
+  .stage-spotlight {
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+    top: -10vh;
+    left: -8vw;
+    background: radial-gradient(
+      ellipse 58% 50% at 28% 10%,
+      rgba(255, 80, 80, 0.2) 0%,
+      transparent 72%
+    );
+    filter: blur(82px);
+  }
+
+  .stage-ambient-cool {
+    position: absolute;
+    width: 72vw;
+    height: 40vh;
+    top: 20%;
+    right: -18vw;
+    background: radial-gradient(
+      ellipse 48% 38% at 100% 40%,
+      rgba(0, 216, 255, 0.15) 0%,
+      transparent 60%
+    );
+    filter: blur(90px);
+  }
+
+  .stage-depth {
+    position: absolute;
+    width: 100vw;
+    height: 40vh;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      to top,
+      rgba(3, 6, 18, 0.96) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+</style>
+
+<style>
+  .about-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-bottom: var(--space-4xl);
+  }
+
+  .page-header {
+    padding: var(--space-xl);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .page-header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+
+  .page-title {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    font-family: var(--font-display);
+  }
+
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .about-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .about-section h2 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-md);
+  }
+
+  .about-section p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0 0 var(--space-md);
+  }
+
+  .about-section a {
+    color: var(--accent-warm);
+    text-decoration: none;
+  }
+
+  .about-section a:hover {
+    text-decoration: underline;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .feature-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  .feature-list strong {
+    color: var(--text-primary);
+    font-size: var(--text-base);
+  }
+
+  .feature-list span {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .source-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .source-category {
+    padding: var(--space-md);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  .source-category h3 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .source-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .source-category li {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    padding: var(--space-xs) 0;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tech-badge {
+    padding: var(--space-xs) var(--space-md);
+    background: var(--accent-cool-soft);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: var(--radius-full);
+    color: var(--accent-cool);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .page-footer {
+    max-width: 800px;
+    margin: var(--space-4xl) auto 0;
+    padding: var(--space-xl);
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .page-footer p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .source-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

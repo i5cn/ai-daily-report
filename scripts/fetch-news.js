@@ -696,7 +696,7 @@ async function main() {
   const tasks = [];
 
   // RSS 主资讯源
-  if (!sourceFilter || sourceFilter === 'rss' || sourceFilter === 'primary') {
+  if (!sourceFilter || sourceFilter === 'rss' || sourceFilter === 'primary' || sourceFilter === 'all') {
     const enabledRssSources = RSS_SOURCES.filter(s => s.enabled);
     for (const source of enabledRssSources) {
       tasks.push(await fetchRssSource(source));
@@ -705,7 +705,7 @@ async function main() {
   }
 
   // 社区热议源
-  if (!sourceFilter || sourceFilter === 'community') {
+  if (!sourceFilter || sourceFilter === 'community' || sourceFilter === 'all') {
     const enabledCommunitySources = COMMUNITY_SOURCES.filter(s => s.enabled);
     for (const source of enabledCommunitySources) {
       tasks.push(await fetchRssSource(source));
@@ -714,7 +714,7 @@ async function main() {
   }
 
   // API 源
-  if (!sourceFilter || sourceFilter === 'api') {
+  if (!sourceFilter || sourceFilter === 'api' || sourceFilter === 'all') {
     const enabledApiSources = API_SOURCES.filter(s => s.enabled);
     for (const source of enabledApiSources) {
       tasks.push(await fetchApiSource(source));

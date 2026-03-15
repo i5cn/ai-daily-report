@@ -1,0 +1,592 @@
+---
+export interface Props {
+  heroSignals: Array<{
+    id: string;
+    title: string;
+    source: string;
+    sourceUrl: string;
+    summary?: string;
+    hotScore?: number;
+    tags?: string[];
+  }>;
+  heroStatusSummary: string;
+  hasData: boolean;
+}
+
+const { heroSignals, heroStatusSummary, hasData } = Astro.props;
+const heroMarqueeItems = heroSignals.length > 0 ? [...heroSignals, ...heroSignals] : [];
+
+const tagLabels: Record<string, string> = {
+  model: '模型',
+  product: '产品',
+  research: '研究',
+  industry: '行业',
+  tool: '工具',
+  policy: '政策',
+};
+---
+
+<section class="hero" id="signal-deck" aria-labelledby="signal-deck-title">
+  <div class="hero-stage">
+    <div class="hero-brand-mark" aria-hidden="true">
+      <span class="hero-brand-core"></span>
+      <span class="hero-brand-ring hero-brand-ring-red"></span>
+      <span class="hero-brand-ring hero-brand-ring-blue"></span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="hero-kicker">Personal AI Signal Surface</p>
+      <h1 class="hero-title" id="signal-deck-title">AI Signal Surface</h1>
+      <p class="hero-subtitle">The AI feed that actually matters.</p>
+      <p class="hero-lead">
+        每日聚合 AI signals，快速扫读模型、产品、研究与 community pulse。
+        为自己保留一个更轻、更快、更有判断感的资讯入口。
+      </p>
+      <a class="hero-status-pill" href={hasData ? '#categories' : '#source-ledger'}>
+        <span class="hero-status-badge">NEW</span>
+        <span class="hero-status-copy">{heroStatusSummary}</span>
+        <span class="hero-status-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    {heroSignals.length > 0 && (
+      <section class="hero-marquee-shell" id="top-signals" aria-labelledby="top-signals-title">
+        <div class="hero-marquee-header">
+          <h2 class="hero-marquee-title" id="top-signals-title">What People Scan</h2>
+          <a href="#categories" class="hero-marquee-link">View all →</a>
+        </div>
+        <div class="signal-marquee">
+          <div class="signal-marquee-fade signal-marquee-fade-left" aria-hidden="true"></div>
+          <div class="signal-marquee-fade signal-marquee-fade-right" aria-hidden="true"></div>
+          <div class="signal-marquee-track" style={`--marquee-count: ${heroSignals.length};`}>
+            {heroMarqueeItems.map((item) => (
+              <a
+                href={item.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="signal-marquee-card"
+                aria-label={`打开资讯：${item.title}`}
+              >
+                <div class="signal-marquee-avatar" aria-hidden="true">
+                  {(item.source || 'AI').slice(0, 1).toUpperCase()}
+                </div>
+                <div class="signal-marquee-content">
+                  <div class="signal-marquee-meta">
+                    <span class="signal-marquee-source">{item.source}</span>
+                    <span class="signal-marquee-hot">{item.hotScore || 50}°</span>
+                  </div>
+                  <h3 class="signal-marquee-card-title">{item.title}</h3>
+                  <p class="signal-marquee-summary">
+                    {item.summary?.trim() || 'High-signal item from today\'s feed.'}
+                  </p>
+                  <div class="signal-marquee-tags">
+                    <span>{(item.tags || []).slice(0, 2).map((tag) => tagLabels[tag] || tag).join(' / ') || 'Signal'}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+  </div>
+  
+  <div class="hero-scroll">
+    <div class="scroll-hint">
+      <span>向下探索</span>
+      <div class="scroll-line">
+        <div class="scroll-line-progress"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(4.4rem, 6.5vw, 5.8rem) var(--space-xl) var(--space-4xl);
+    overflow: hidden;
+  }
+
+  .hero-stage {
+    position: relative;
+    z-index: 2;
+    width: min(1040px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    text-align: center;
+    margin-top: clamp(2.8rem, 6vh, 4.5rem);
+  }
+
+  .hero-brand-mark {
+    position: relative;
+    width: clamp(4.6rem, 9vw, 6rem);
+    height: clamp(4.6rem, 9vw, 6rem);
+    display: grid;
+    place-items: center;
+    margin-bottom: 0.5rem;
+    animation: heroMarkFloat 7s ease-in-out infinite;
+  }
+
+  .hero-brand-core {
+    width: 54%;
+    height: 54%;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 38% 34%, rgba(255, 244, 244, 0.95), rgba(255, 122, 122, 0.9) 34%, rgba(255, 82, 82, 0.88) 58%, rgba(219, 38, 38, 0.92) 100%);
+    box-shadow:
+      0 0 28px rgba(255, 87, 87, 0.72),
+      0 0 60px rgba(255, 87, 87, 0.34);
+  }
+
+  .hero-brand-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    pointer-events: none;
+    opacity: 0.7;
+    filter: blur(12px);
+  }
+
+  .hero-brand-ring-red {
+    background: radial-gradient(circle, rgba(255, 84, 84, 0.3) 0%, transparent 68%);
+    transform: scale(1.14);
+  }
+
+  .hero-brand-ring-blue {
+    background: radial-gradient(circle, rgba(0, 213, 255, 0.2) 0%, transparent 74%);
+    transform: translate(18%, 10%) scale(1.32);
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 56rem;
+  }
+
+  .hero-kicker {
+    margin: 0;
+    color: rgba(255, 122, 122, 0.95);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+  }
+
+  .hero-title {
+    margin: 0;
+    font-size: clamp(4rem, 11vw, 6.9rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    font-weight: 900;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    text-wrap: balance;
+    text-shadow:
+      0 0 42px rgba(255, 86, 86, 0.14),
+      0 0 56px rgba(0, 217, 255, 0.12);
+  }
+
+  .hero-subtitle {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.32rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 103, 103, 0.94);
+    font-family: var(--font-display);
+  }
+
+  .hero-lead {
+    max-width: 48rem;
+    margin: 0;
+    color: rgba(223, 230, 246, 0.74);
+    font-size: clamp(1rem, 1.45vw, 1.18rem);
+    line-height: 1.85;
+    text-wrap: balance;
+  }
+
+  .hero-status-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    max-width: min(48rem, calc(100vw - 4rem));
+    padding: 0.78rem 1.05rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+      linear-gradient(180deg, rgba(12, 16, 30, 0.86), rgba(8, 10, 20, 0.72)),
+      radial-gradient(circle at 20% 50%, rgba(255, 90, 90, 0.12), transparent 34%);
+    color: var(--text-primary);
+    box-shadow:
+      0 16px 40px rgba(3, 5, 10, 0.26),
+      0 0 36px rgba(255, 84, 84, 0.08);
+    transition:
+      border-color var(--duration-fast) ease,
+      transform var(--duration-fast) ease,
+      box-shadow var(--duration-fast) ease;
+    text-decoration: none;
+  }
+
+  .hero-status-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 18px 44px rgba(3, 5, 10, 0.32),
+      0 0 44px rgba(255, 84, 84, 0.12),
+      0 0 28px rgba(0, 213, 255, 0.08);
+  }
+
+  .hero-status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.3rem;
+    min-height: 1.85rem;
+    padding: 0 0.85rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(255, 88, 88, 1), rgba(255, 118, 118, 0.94));
+    color: #fff5f5;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 0 24px rgba(255, 84, 84, 0.28);
+  }
+
+  .hero-status-copy {
+    min-width: 0;
+    color: rgba(240, 245, 255, 0.86);
+    font-size: 0.96rem;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  .hero-status-arrow {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.05rem;
+    transform: translateX(0);
+    transition: transform var(--duration-fast) ease;
+  }
+
+  .hero-status-pill:hover .hero-status-arrow {
+    transform: translateX(3px);
+  }
+
+  .hero-marquee-shell {
+    width: 100%;
+    padding-top: 0.35rem;
+  }
+
+  .hero-marquee-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.15rem;
+    padding: 0 0.2rem;
+  }
+
+  .hero-marquee-title {
+    margin: 0;
+    color: rgba(244, 246, 255, 0.96);
+    font-size: clamp(1.85rem, 3vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    font-family: var(--font-display);
+    text-align: left;
+  }
+
+  .hero-marquee-link {
+    color: rgba(255, 95, 95, 0.92);
+    font-size: 0.96rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .signal-marquee {
+    position: relative;
+    overflow: hidden;
+    padding: 0 0.25rem;
+  }
+
+  .signal-marquee-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: min(9vw, 6rem);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .signal-marquee-fade-left {
+    left: 0;
+    background: linear-gradient(90deg, rgba(5, 8, 20, 0.96), transparent);
+  }
+
+  .signal-marquee-fade-right {
+    right: 0;
+    background: linear-gradient(270deg, rgba(5, 8, 20, 0.96), transparent);
+  }
+
+  .signal-marquee-track {
+    --marquee-step: 23.1rem;
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    animation: marqueeOscillate 24s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .signal-marquee:hover .signal-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .signal-marquee-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.95rem;
+    align-items: flex-start;
+    width: min(21.85rem, calc(100vw - 4rem));
+    min-height: 8.9rem;
+    padding: 0.95rem 1.05rem;
+    border-radius: 1.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background:
+      linear-gradient(180deg, rgba(10, 14, 26, 0.78), rgba(8, 11, 20, 0.68)),
+      radial-gradient(circle at right top, rgba(0, 232, 255, 0.08), transparent 34%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 20px 42px rgba(0, 0, 0, 0.22);
+    color: inherit;
+    transition:
+      transform var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      box-shadow var(--duration-fast) ease;
+    text-decoration: none;
+  }
+
+  .signal-marquee-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 24px 50px rgba(0, 0, 0, 0.28),
+      0 0 36px rgba(255, 92, 92, 0.08);
+  }
+
+  .signal-marquee-avatar {
+    width: 2.55rem;
+    height: 2.55rem;
+    border-radius: 9999px;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255, 144, 144, 0.95), rgba(255, 87, 87, 0.88) 55%, rgba(255, 87, 87, 0.18) 100%);
+    color: #fff7f7;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 800;
+    box-shadow:
+      0 0 26px rgba(255, 92, 92, 0.26),
+      0 0 18px rgba(255, 92, 92, 0.18);
+    flex-shrink: 0;
+  }
+
+  .signal-marquee-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.48rem;
+    text-align: left;
+    min-width: 0;
+  }
+
+  .signal-marquee-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: rgba(205, 214, 231, 0.72);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-family: var(--font-mono);
+  }
+
+  .signal-marquee-source {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .signal-marquee-hot {
+    color: rgba(255, 129, 129, 0.94);
+    white-space: nowrap;
+  }
+
+  .signal-marquee-card-title {
+    margin: 0;
+    color: rgba(247, 249, 255, 0.98);
+    font-size: 1.12rem;
+    line-height: 1.32;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .signal-marquee-summary {
+    margin: 0;
+    color: rgba(201, 210, 230, 0.72);
+    font-size: 0.88rem;
+    line-height: 1.48;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .signal-marquee-tags {
+    color: rgba(255, 108, 108, 0.88);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: clamp(1rem, 3vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    color: rgba(216, 225, 242, 0.5);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease-out 1s both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42%;
+    background: linear-gradient(to bottom, rgba(255, 92, 92, 1), transparent);
+    animation: scrollProgress 2.5s ease-in-out infinite;
+  }
+
+  @keyframes heroMarkFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes marqueeOscillate {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(var(--marquee-count) * var(--marquee-step) * -1));
+    }
+  }
+
+  @keyframes scrollProgress {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4.8rem var(--space-lg) var(--space-3xl);
+    }
+
+    .hero-stage {
+      margin-top: 2.2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3.4rem, 12vw, 5rem);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+    }
+
+    .hero-lead {
+      font-size: 1rem;
+    }
+
+    .hero-status-pill {
+      align-items: flex-start;
+      padding: 0.9rem 1rem;
+    }
+
+    .hero-status-copy {
+      font-size: 0.88rem;
+    }
+
+    .hero-marquee-header {
+      align-items: flex-start;
+    }
+
+    .signal-marquee {
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+    }
+
+    .signal-marquee::-webkit-scrollbar {
+      display: none;
+    }
+
+    .signal-marquee-track {
+      animation: none;
+    }
+
+    .signal-marquee-card {
+      width: min(19rem, calc(100vw - 3.4rem));
+      min-height: 8.6rem;
+    }
+
+    .signal-marquee-fade {
+      display: none;
+    }
+  }
+</style>

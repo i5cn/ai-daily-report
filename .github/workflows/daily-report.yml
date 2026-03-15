@@ -98,10 +98,10 @@ jobs:
           echo "Current time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           echo "Shanghai time: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S CST')"
           
-          # TODO: 启用抓取脚本
-          # node scripts/fetch-news.js
+          # 抓取所有数据源
+          node scripts/fetch-news.js --source=all
           
-          echo "✅ News fetch completed (placeholder)"
+          echo "✅ News fetch completed"
         env:
           # 如需 API Key，在这里配置
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -113,11 +113,15 @@ jobs:
           echo "📊 Generating reports..."
           mkdir -p data/reports
 
-          if [ -f data/reports/latest.json ]; then
-            echo "✅ Using committed report data: data/reports/latest.json"
+          # 如果有抓取结果，生成报告；否则使用 mock 数据
+          if [ -f data/raw/fetch-latest.json ]; then
+            echo "✅ Generating report from fetched data"
+            node scripts/generate-report.js
+          elif [ -f data/reports/latest.json ]; then
+            echo "✅ Using existing report data: data/reports/latest.json"
           else
-            echo "⚠️ No existing latest.json found; generating fallback mock report"
-            cp data/reports/report-*.json data/reports/latest.json 2>/dev/null || true
+            echo "⚠️ No data found; generating mock report"
+            node scripts/generate-report.js --mock
           fi
 
           echo "✅ Reports generated"

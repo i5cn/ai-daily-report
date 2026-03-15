@@ -1,0 +1,79 @@
+---
+export interface Props {
+  displayDate: string;
+  totalCount: number;
+  hasData: boolean;
+  communityCount: number;
+  hasCommunityData: boolean;
+}
+
+const { displayDate, totalCount, hasData, communityCount, hasCommunityData } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">AI Signal Surface</span>
+        <span class="footer-dot"></span>
+        <span class="footer-date">{displayDate}</span>
+      </div>
+      <p class="footer-meta">
+        每日 AI 行业动态聚合 · {hasData ? `${totalCount} 条精选` : '数据加载中'}
+        {hasCommunityData && ` · ${communityCount} 条热议`}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    z-index: var(--z-content);
+    padding: var(--space-2xl) var(--space-xl);
+    border-top: 1px solid var(--border-subtle);
+    background: var(--bg-primary);
+  }
+
+  .footer-container {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .footer-logo {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .footer-dot {
+    width: 3px;
+    height: 3px;
+    background: var(--accent-warm);
+    border-radius: 50%;
+  }
+
+  .footer-date {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+  }
+
+  .footer-meta {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>
