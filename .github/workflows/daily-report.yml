@@ -132,6 +132,10 @@ jobs:
           echo "🔨 Building Astro site..."
           npm run build
           echo "✅ Build completed"
+          echo "📁 dist directory contents:"
+          ls -la dist/
+          echo "📄 index.html exists:"
+          test -f dist/index.html && echo "YES" || echo "NO"
         env:
           SITE_URL: ${{ vars.SITE_URL || 'https://i5cn.github.io/ai-daily-report' }}
       
