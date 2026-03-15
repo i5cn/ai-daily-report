@@ -233,10 +233,16 @@ const { sortedCommunity } = Astro.props;
   }
 
   .community-title {
-    font-size: var(--text-base);
+    font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1.45;
     margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .community-title {
+      font-size: 0.8125rem;
+    }
   }
 
   .community-title a {
@@ -250,7 +256,7 @@ const { sortedCommunity } = Astro.props;
   }
 
   .community-summary {
-    font-size: var(--text-sm);
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     line-height: 1.55;
     display: -webkit-box;
@@ -258,6 +264,13 @@ const { sortedCommunity } = Astro.props;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .community-summary {
+      font-size: 0.75rem;
+      -webkit-line-clamp: 1;
+    }
   }
 
   .community-link {
