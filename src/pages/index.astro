@@ -30,7 +30,7 @@ const safeCommunityStats = communityStats || [];
 const sortedItems = sortByHotScore(items);
 
 // ========== 数据分组 ==========
-const heroSignals = sortedItems.slice(0, 8);
+const heroSignals = sortByHotScore(safeCommunityPulse).slice(0, 8);
 const sortedCommunity = sortByHotScore(safeCommunityPulse).slice(0, 4);
 
 // 统计数据
