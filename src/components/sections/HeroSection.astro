@@ -108,8 +108,8 @@ const tagLabels: Record<string, string> = {
     min-height: 100dvh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: clamp(2rem, 4vw, 3rem) var(--space-xl) var(--space-4xl);
+    align-items: flex-start;
+    padding: clamp(1rem, 2vw, 1.5rem) var(--space-xl) var(--space-4xl);
     overflow: hidden;
   }
 
@@ -120,9 +120,9 @@ const tagLabels: Record<string, string> = {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(1.2rem, 2.5vw, 2rem);
+    gap: clamp(1rem, 2vw, 1.5rem);
     text-align: center;
-    margin-top: clamp(0.5rem, 2vh, 1rem);
+    margin-top: clamp(4rem, 10vh, 6rem);
   }
 
   .hero-brand-mark {
@@ -534,11 +534,11 @@ const tagLabels: Record<string, string> = {
 
   @media (max-width: 768px) {
     .hero {
-      padding: 3.5rem var(--space-lg) var(--space-3xl);
+      padding: 2rem var(--space-lg) var(--space-3xl);
     }
 
     .hero-stage {
-      margin-top: 0.5rem;
+      margin-top: 3rem;
     }
 
     .hero-title {
