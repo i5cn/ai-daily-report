@@ -55,36 +55,74 @@ const tagLabels: Record<string, string> = {
           <h2 class="hero-marquee-title" id="top-signals-title">What People Scan</h2>
           <a href="#community" class="hero-marquee-link">View all →</a>
         </div>
-        <div class="signal-marquee">
-          <div class="signal-marquee-fade signal-marquee-fade-left" aria-hidden="true"></div>
-          <div class="signal-marquee-fade signal-marquee-fade-right" aria-hidden="true"></div>
-          <div class="signal-marquee-track" style={`--marquee-count: ${heroSignals.length};`}>
-            {[...heroSignals, ...heroSignals].map((item) => (
-              <a
-                href={item.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="signal-marquee-card"
-                aria-label={`打开资讯：${item.title}`}
-              >
-                <div class="signal-marquee-avatar" aria-hidden="true">
-                  {(item.source || 'AI').slice(0, 1).toUpperCase()}
-                </div>
-                <div class="signal-marquee-content">
-                  <div class="signal-marquee-meta">
-                    <span class="signal-marquee-source">{item.source}</span>
-                    <span class="signal-marquee-hot">{item.hotScore || 50}°</span>
+        <div class="signal-marquee-rows">
+          {/* 第一排 - 向左移动 */}
+          <div class="signal-marquee-row">
+            <div class="signal-marquee-fade signal-marquee-fade-left" aria-hidden="true"></div>
+            <div class="signal-marquee-fade signal-marquee-fade-right" aria-hidden="true"></div>
+            <div class="signal-marquee-track signal-marquee-track-left" style={`--marquee-count: ${Math.ceil(heroSignals.length / 2)};`}>
+              {[...heroSignals.slice(0, 4), ...heroSignals.slice(0, 4)].map((item, index) => (
+                <a
+                  key={`row1-${index}`}
+                  href={item.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="signal-marquee-card"
+                  aria-label={`打开资讯：${item.title}`}
+                >
+                  <div class="signal-marquee-avatar" aria-hidden="true">
+                    {(item.source || 'AI').slice(0, 1).toUpperCase()}
                   </div>
-                  <h3 class="signal-marquee-card-title">{item.title}</h3>
-                  <p class="signal-marquee-summary">
-                    {item.summary?.trim() || 'High-signal item from today\'s feed.'}
-                  </p>
-                  <div class="signal-marquee-tags">
-                    <span>{(item.tags || []).slice(0, 2).map((tag) => tagLabels[tag] || tag).join(' / ') || 'Signal'}</span>
+                  <div class="signal-marquee-content">
+                    <div class="signal-marquee-meta">
+                      <span class="signal-marquee-source">{item.source}</span>
+                      <span class="signal-marquee-hot">{item.hotScore || 50}°</span>
+                    </div>
+                    <h3 class="signal-marquee-card-title">{item.title}</h3>
+                    <p class="signal-marquee-summary">
+                      {item.summary?.trim() || 'High-signal item from today\'s feed.'}
+                    </p>
+                    <div class="signal-marquee-tags">
+                      <span>{(item.tags || []).slice(0, 2).map((tag) => tagLabels[tag] || tag).join(' / ') || 'Signal'}</span>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              ))}
+            </div>
+          </div>
+          {/* 第二排 - 向右移动 */}
+          <div class="signal-marquee-row">
+            <div class="signal-marquee-fade signal-marquee-fade-left" aria-hidden="true"></div>
+            <div class="signal-marquee-fade signal-marquee-fade-right" aria-hidden="true"></div>
+            <div class="signal-marquee-track signal-marquee-track-right" style={`--marquee-count: ${Math.ceil(heroSignals.length / 2)};`}>
+              {[...heroSignals.slice(4, 8), ...heroSignals.slice(4, 8)].map((item, index) => (
+                <a
+                  key={`row2-${index}`}
+                  href={item.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="signal-marquee-card"
+                  aria-label={`打开资讯：${item.title}`}
+                >
+                  <div class="signal-marquee-avatar" aria-hidden="true">
+                    {(item.source || 'AI').slice(0, 1).toUpperCase()}
+                  </div>
+                  <div class="signal-marquee-content">
+                    <div class="signal-marquee-meta">
+                      <span class="signal-marquee-source">{item.source}</span>
+                      <span class="signal-marquee-hot">{item.hotScore || 50}°</span>
+                    </div>
+                    <h3 class="signal-marquee-card-title">{item.title}</h3>
+                    <p class="signal-marquee-summary">
+                      {item.summary?.trim() || 'High-signal item from today\'s feed.'}
+                    </p>
+                    <div class="signal-marquee-tags">
+                      <span>{(item.tags || []).slice(0, 2).map((tag) => tagLabels[tag] || tag).join(' / ') || 'Signal'}</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -317,7 +355,13 @@ const tagLabels: Record<string, string> = {
     text-decoration: none;
   }
 
-  .signal-marquee {
+  .signal-marquee-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .signal-marquee-row {
     position: relative;
     overflow: hidden;
     padding: 0 0.25rem;
@@ -347,12 +391,37 @@ const tagLabels: Record<string, string> = {
     display: flex;
     gap: 1.25rem;
     width: max-content;
-    animation: marqueeOscillate 24s ease-in-out infinite alternate;
     will-change: transform;
   }
 
-  .signal-marquee:hover .signal-marquee-track {
+  .signal-marquee-track-left {
+    animation: marqueeLeft 30s linear infinite;
+  }
+
+  .signal-marquee-track-right {
+    animation: marqueeRight 30s linear infinite;
+  }
+
+  .signal-marquee-row:hover .signal-marquee-track {
     animation-play-state: paused;
+  }
+
+  @keyframes marqueeLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(var(--marquee-count) * var(--marquee-step) * -1));
+    }
+  }
+
+  @keyframes marqueeRight {
+    0% {
+      transform: translateX(calc(var(--marquee-count) * var(--marquee-step) * -1));
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
   .signal-marquee-card {
@@ -566,13 +635,17 @@ const tagLabels: Record<string, string> = {
       align-items: flex-start;
     }
 
-    .signal-marquee {
+    .signal-marquee-rows {
+      gap: 0.75rem;
+    }
+
+    .signal-marquee-row {
       overflow-x: auto;
       padding-bottom: 0.25rem;
       scrollbar-width: none;
     }
 
-    .signal-marquee::-webkit-scrollbar {
+    .signal-marquee-row::-webkit-scrollbar {
       display: none;
     }
 
