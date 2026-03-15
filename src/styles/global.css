@@ -31,10 +31,10 @@
   --depth-glow-3: rgba(107, 143, 255, 0.12);
   --depth-shadow: rgba(0, 0, 0, 0.6);
   
-  /* Stage Gradients - 舞台渐变 - 更克制的光晕 */
-  --gradient-stage: radial-gradient(ellipse 74% 52% at 32% 12%, rgba(255, 84, 84, 0.22) 0%, rgba(255, 84, 84, 0.08) 26%, transparent 62%);
-  --gradient-ambient: radial-gradient(ellipse 56% 44% at 80% 18%, rgba(0, 221, 255, 0.18) 0%, transparent 58%);
-  --gradient-depth: radial-gradient(ellipse 120% 50% at 50% 100%, rgba(2, 5, 16, 0.92) 0%, transparent 72%);
+  /* Stage Gradients - 舞台渐变 - 更明亮的光晕 */
+  --gradient-stage: radial-gradient(ellipse 80% 60% at 30% 15%, rgba(255, 84, 84, 0.35) 0%, rgba(255, 84, 84, 0.15) 30%, transparent 65%);
+  --gradient-ambient: radial-gradient(ellipse 60% 50% at 75% 20%, rgba(0, 221, 255, 0.28) 0%, rgba(0, 221, 255, 0.1) 35%, transparent 65%);
+  --gradient-depth: radial-gradient(ellipse 120% 50% at 50% 100%, rgba(2, 5, 16, 0.85) 0%, transparent 72%);
   
   /* Warm Accents - 暖调强调 - 更稳重 */
   --accent-warm: #ff5d5d;

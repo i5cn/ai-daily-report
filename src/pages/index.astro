@@ -30,8 +30,9 @@ const safeCommunityStats = communityStats || [];
 const sortedItems = sortByHotScore(items);
 
 // ========== 数据分组 ==========
-const heroSignals = sortByHotScore(safeCommunityPulse).slice(0, 6);
-const sortedCommunity = sortByHotScore(safeCommunityPulse).slice(0, 9);
+// 只显示有图片的条目
+const heroSignals = sortByHotScore(safeCommunityPulse).filter(item => item.imageUrl).slice(0, 6);
+const sortedCommunity = sortByHotScore(safeCommunityPulse).filter(item => item.imageUrl).slice(0, 9);
 
 // 统计数据
 const hasData = items.length > 0;
